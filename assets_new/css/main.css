@@ -2128,7 +2128,21 @@ footer .contact span:last-child {
 .card__group .card:nth-child(3n+1) {
   margin-left: 0;
 }
+.card__group .card .pr {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 25px;
+  color: #fff;
+  font-size: 0.75rem;
+  line-height: 25px;
+  text-align: center;
+  background: rgba(23, 23, 23, 0.5);
+  text-transform: uppercase;
+}
 .card__group .card a {
+  position: relative;
   display: block;
   color: #171717;
   text-decoration: none;
