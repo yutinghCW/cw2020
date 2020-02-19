@@ -1,0 +1,397 @@
+.article__page {
+    padding-top: 60px;
+}
+
+.main,
+.container {
+    width: $article;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main {
+    padding-top: 40px;
+    padding-bottom: 60px;
+    &::after {
+        @include clear();
+    }
+    h1 {
+        font-weight: 500;
+    }
+    h2 {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
+    a {
+        color: $surface;
+        &:hover {
+            color: $primary;
+        }
+    }
+    .article__detail {
+        &--primary {
+            color: $text;
+            font-size: 0;
+        }
+        &--secondary {
+            color: $secondary;
+        }
+        .article__author,
+        .article__assort {
+            display: inline-block;
+            @include listrest(0, 0, none);
+            font-size: 0;
+            li {
+                display: inline-block;
+                font-size: 0.875rem;
+            }
+        }
+        .article__author {
+            li {
+                >*+* {
+                    padding-left: 1rem;
+                }
+            }
+            &::after {
+                @include beforeafter('．', inline);
+                font-size: 0.875rem;
+            }
+        }
+    }
+    .source {
+        display: block;
+        padding: 5px 0;
+        color: $secondary;
+        font-size: 0.875rem;
+    }
+    .imgzoom {
+        position: relative;
+        display: block;
+        background-color: $gray-100;
+        cursor: pointer;
+        &::after {
+            @include beforeafter('\e94a', block);
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 36px;
+            color: #fff;
+            font-family: "icomoon";
+            font-size: 1.5em;
+            line-height: 36px;
+            text-align: center;
+            background-color: rgba($black, 0.5);
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .infogram-embed__group {
+        padding: 40px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+        border: 1px solid $gray-200;
+    }
+    .article__body {
+        position: relative;
+        width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.125em;
+        line-height: 1.7;
+    }
+    .article__function {
+        position: absolute;
+        top: 0;
+        left: -135px;
+        &.article__function--fixedtop {
+            position: fixed;
+            top: 80px;
+            left: calc( (100% - 970px) / 2);
+        }
+        &.article__function--fixedbottom {
+            position: absolute;
+            top: auto;
+            bottom: -10px;
+            left: -135px;
+        }
+        ul {
+            @include listrest(0, 0, none);
+            li {
+                margin-bottom: 10px;
+                &.title {
+                    margin-bottom: 5px;
+                    color: $secondary;
+                    font-size: 0.75em;
+                    text-align: center;
+                }
+                a {
+                    display: block;
+                    width: 36px;
+                    height: 36px;
+                    color: $text;
+                    text-decoration: none;
+                    text-align: center;
+                    @include border-radius(50%);
+                    i {
+                        display: block;
+                        line-height: 36px;
+                        &.icon-bookmark-outlined {
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+            &.share {
+                li {
+                    a {
+                        background-color: $gray-100;
+                        &:hover {
+                            color: $primary;
+                            // background-color: $primary;
+                        }
+                        i {
+                            font-size: 0.875em;
+                        }
+                    }
+                }
+            }
+            &.added {
+                margin-top: 20px;
+                li {
+                    a {
+                        border: 1px solid $gray-100;
+                        &:hover {
+                            color: $primary;
+                            border-color: $primary;
+                        }
+                        i {
+                            font-size: 0.75em;
+                            &.icon-download-pdf {
+                                font-size: 1.125em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .article__text {
+        p {
+            margin-top: 1.15em;
+            margin-bottom: 1.15em;
+            &.preface {
+                color: $surface;
+            }
+            .more {
+                position: relative;
+                display: inline-block;
+                padding-right: 1.15em;
+                color: $primary;
+                cursor: pointer;
+                &::before {
+                    @include beforeafter('\e94b', block);
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    font-family: "icomoon";
+                    line-height: 1;
+                    @include translateY(-50%);
+                }
+            }
+            .more__text {
+                display: none;
+                width: 100%;
+                margin: 10px 0;
+                padding: 20px 40px;
+                background-color: $gray-100;
+                &.active {
+                    display: block;
+                }
+            }
+            strong {
+                font-weight: 500;
+            }
+        }
+        blockquote {
+            position: relative;
+            width: 65%;
+            padding: 2px 0;
+            margin: 40px auto;
+            font-weight: 600;
+            &::before,
+            &::after {
+                position: absolute;
+                left: 50%;
+                width: 60px;
+                height: 2px;
+                margin-left: -30px;
+                @include beforeafter('', block);
+                background-color: $primary;
+            }
+            &::before {
+                top: 0;
+            }
+            &::after {
+                bottom: 0;
+            }
+        }
+    }
+    .article__keyword {
+        @include listrest(20px 0 40px, 0, none);
+        font-size: 0;
+        li {
+            display: inline-block;
+            margin-right: 10px;
+            font-size: 0.875rem;
+            a {
+                display: block;
+                padding: 6px 10px;
+                color: $text;
+                border: 1px solid $gray-200;
+                text-decoration: none;
+                &:hover {
+                    color: $primary;
+                    border-color: $primary;
+                }
+            }
+        }
+    }
+    .author__might {
+        margin-top: 40px;
+        margin-bottom: 40px;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        border: solid $gray-100;
+        border-width: 1px 0;
+        .card__group .card {
+            margin-bottom: 0;
+            .card__titlte {
+                font-size: 1.125rem;
+                line-height: 1.5;
+            }
+        }
+    }
+    .author__intro {
+        display: flex;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        border-top: 1px solid $gray-100;
+        .author__intro__img {
+            position: relative;
+            width: 85px;
+            height: 85px;
+            @include border-radius(50%);
+            overflow: hidden;
+            img {
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 100%;
+                height: auto;
+                @include translateY(-50%);
+            }
+        }
+        .author__intro__body {
+            padding-left: 20px;
+            width: calc(100% - 85px);
+        }
+        .author__intro__title {
+            display: flex;
+            align-items: center;
+            .btn {
+                margin-left: 15px;
+                font-size: 0.875rem;
+            }
+        }
+        .author__intro__essay {
+            margin-top: 0.75em;
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+    }
+    .author__next {
+        display: flex;
+        align-items: center;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        border-top: 1px solid $gray-100;
+        .author__item {
+            display: flex;
+            align-items: center;
+            width: calc((100% - 30px) / 2);
+            +.author__item {
+                margin-left: 30px;
+            }
+            .author__item__img {
+                width: 110px;
+                img {
+                    width: 100%;
+                }
+            }
+            .author__item__text {
+                width: calc(100% - 110px);
+                padding-left: 10px;
+                .author__item__subtitle {
+                    color: $primary;
+                    font-size: 0.875rem;
+                    font-weight: normal;
+                }
+                .author__item__title {
+                    @include lineclamp(2);
+                    color: $text;
+                    line-height: 1.5;
+                    text-decoration: none;
+                }
+            }
+            &:hover .author__item__title {
+                color: $primary;
+            }
+        }
+    }
+    .author__extended {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        border-top: 1px solid $gray-100;
+        ul {
+            @include listrest(0, 0, none);
+            a {
+                display: block;
+            }
+        }
+    }
+    .author__message {
+        padding-top: 40px;
+        border-top: 1px solid $gray-100;
+        button.btn--facebook {
+            color: $white;
+            width: 100%;
+            padding: 9px;
+            background-color: $facebook;
+            border-color: $facebook;
+            @include transition(all 0.3s);
+            &:hover {
+                background-color: darken($facebook, 5%);
+                border-color: darken($facebook, 5%);
+            }
+            i {
+                vertical-align: middle;
+            }
+        }
+        .author__message--hide {
+            display: none;
+        }
+    }
+    .article--700 {
+        float: left;
+        width: 700px;
+    }
+    aside {
+        float: right;
+        width: calc(100% - 740px);
+    }
+}

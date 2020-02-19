@@ -1,0 +1,29 @@
+.card__group {
+    font-size: 0;
+    .card {
+        display: inline-block;
+        width: calc((100% - 40px) / 3);
+        margin-left: 20px;
+        margin-bottom: 40px;
+        vertical-align: top;
+        &:nth-child(3n+1) {
+            margin-left: 0;
+        }
+        a {
+            display: block;
+            color: $text;
+            text-decoration: none;
+            img {
+                width: 100%;
+            }
+        }
+        .card__titlte {
+            margin-top: 10px;
+            font-size: 1rem;
+            @include lineclamp(2);
+        }
+        &:hover a {
+            color: $primary;
+        }
+    }
+}
