@@ -429,6 +429,9 @@
         }
         ul {
             @include listrest(0, 0, none);
+            li+li {
+                margin-top: 5px;
+            }
             a {
                 display: block;
             }
