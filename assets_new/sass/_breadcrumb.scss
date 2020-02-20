@@ -3,7 +3,10 @@
     font-size: 0;
     li {
         display: inline-block;
-        font-size: 1rem;
+        font-size: 0.875rem;
+        @include breakpoint(1024px) {
+            font-size: 1rem;
+        }
         +li {
             &::before {
                 @include beforeafter('>', inline);

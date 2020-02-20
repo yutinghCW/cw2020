@@ -26,6 +26,9 @@
         color: $text;
         @include lineclamp(2);
         text-decoration: none;
+        @include breakpoint(max-width 1023px) {
+            font-size: 1.125em;
+        }
         &:hover {
             color: $primary;
         }

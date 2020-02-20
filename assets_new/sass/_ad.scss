@@ -1,15 +1,20 @@
 .ad {
     background-color: $gray;
     &.ad--970by250 a {
-        width: 970px;
-        // height: 250px;
+        width: 300px;
+        @include breakpoint(1024px) {
+            width: 970px;
+        }
     }
     &.ad--300by250 {
         margin-top: 40px;
         margin-bottom: 40px;
+        @include breakpoint(max-width 1023px) {
+            margin-left: -20px;
+            margin-right: -20px;
+        }
         a {
             width: 300px;
-            // height: 250px;
         }
     }
     a {

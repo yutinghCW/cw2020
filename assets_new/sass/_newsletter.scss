@@ -1,24 +1,30 @@
 .newsletter {
     background-color: $gray;
     .main {
-        width: 700px;
         margin-left: auto;
         margin-right: auto;
+        @include breakpoint(1024px) {
+            width: 700px;
+        }
         form {
             font-size: 0;
+            @include breakpoint(max-width 1023px) {
+                text-align: center;
+            }
             >* {
                 display: inline-block;
-                // padding: 0 20px;
                 font-size: 1rem;
-                // line-height: 48px;
                 vertical-align: middle;
                 &:focus {
                     outline: none;
                 }
             }
             .form__group {
-                width: calc(100% - 164px);
+                width: 100%;
                 max-width: none;
+                @include breakpoint(1024px) {
+                    width: calc(100% - 164px);
+                }
                 .form__group__input {
                     border: 1px solid $gray-100;
                     background-color: $white;
@@ -33,11 +39,12 @@
                 }
             }
             button {
-                margin-left: 20px;
-                // width: 144px;
-                // color: $white;
-                // background-color: $surface;
-                // border: 1px solid $surface;
+                @include breakpoint(1024px) {
+                    margin-left: 20px;
+                }
+                @include breakpoint(max-width 1023px) {
+                    margin-top: 15px;
+                }
             }
         }
     }

@@ -12,8 +12,12 @@ header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-top: 12px;
-        padding-bottom: 13px;
+        padding-top: 17px;
+        padding-bottom: 18px;
+        @include breakpoint(1024px) {
+            padding-top: 12px;
+            padding-bottom: 13px;
+        }
     }
     .item>* {
         display: inline-block;
@@ -25,6 +29,9 @@ header {
     .text {
         margin-left: 10px;
         line-height: 1;
+        @include breakpoint(max-width 1023px) {
+            display: none !important;
+        }
     }
     .hamburger,
     .search,
@@ -53,17 +60,19 @@ header {
     .search,
     .member {
         position: relative;
-        padding-left: 20px;
-        margin-left: 20px;
-        &::before {
-            @include beforeafter('', block);
-            position: absolute;
-            top: 50%;
-            left: 0;
-            width: 1px;
-            height: 18px;
-            background-color: $gray-200;
-            @include translateY(-50%);
+        @include breakpoint(1024px) {
+            padding-left: 20px;
+            margin-left: 20px;
+            &::before {
+                @include beforeafter('', block);
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 1px;
+                height: 18px;
+                background-color: $gray-200;
+                @include translateY(-50%);
+            }
         }
     }
     a.btn.btn--small {
@@ -74,7 +83,10 @@ header {
     a.logo {
         display: inline-block;
         img {
-            height: 40px;
+            height: 35px;
+            @include breakpoint(1024px) {
+                height: 40px;
+            }
         }
     }
     .process {
@@ -107,11 +119,24 @@ header {
         }
     }
     &.scroll {
-        .container--default {
-            display: none;
+        a.logo {
+            @include breakpoint(max-width 1023px) {
+                display: none;
+            }
         }
-        .container--scroll {
-            display: flex;
+        @include breakpoint(1024px) {
+            .container--default {
+                display: none;
+            }
+            .container--scroll {
+                display: flex;
+            }
+        }
+    }
+    .search,
+    a.btn.btn--small {
+        @include breakpoint(max-width 1023px) {
+            display: none !important;
         }
     }
 }

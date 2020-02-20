@@ -1,13 +1,57 @@
 .card__group {
     font-size: 0;
+    &.card__group--grid {
+        .card {
+            display: inline-block;
+            width: calc((100% - 40px) / 3);
+            margin-left: 20px;
+            margin-bottom: 40px;
+            vertical-align: top;
+            &:nth-child(3n+1) {
+                margin-left: 0;
+            }
+            .card__titlte {
+                margin-top: 10px;
+            }
+        }
+    }
+    &.card__group--list {
+        .card {
+            @include breakpoint(1024px) {
+                display: inline-block;
+                width: calc((100% - 40px) / 3);
+                margin-left: 20px;
+                margin-bottom: 40px;
+                vertical-align: top;
+                &:nth-child(3n+1) {
+                    margin-left: 0;
+                }
+                .card__titlte {
+                    margin-top: 10px;
+                }
+            }
+            @include breakpoint(max-width 1023px) {
+                position: relative;
+                +.card {
+                    margin-top: 20px;
+                }
+                .card__img {
+                    width: 110px;
+                }
+                .card__titlte {
+                    position: absolute;
+                    top: 50%;
+                    right: 0;
+                    width: calc(100% - 110px);
+                    padding-left: 10px;
+                    @include translateY(-50%);
+                }
+            }
+        }
+    }
     .card {
-        display: inline-block;
-        width: calc((100% - 40px) / 3);
-        margin-left: 20px;
-        margin-bottom: 40px;
-        vertical-align: top;
-        &:nth-child(3n+1) {
-            margin-left: 0;
+        &:nth-last-child(-n+4) {
+            margin-bottom: 0;
         }
         .pr {
             position: absolute;
@@ -32,9 +76,11 @@
             }
         }
         .card__titlte {
-            margin-top: 10px;
-            font-size: 1rem;
+            font-size: 1.125rem;
             @include lineclamp(2);
+            @include breakpoint(1024px) {
+                font-size: 1rem;
+            }
         }
         &:hover a {
             color: $primary;
