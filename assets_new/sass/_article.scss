@@ -429,8 +429,13 @@
         }
         ul {
             @include listrest(0, 0, none);
+            @include breakpoint(max-width 1023px) {
+                line-height: 1.5;
+            }
             li+li {
-                margin-top: 5px;
+                @include breakpoint(max-width 1023px) {
+                    margin-top: 10px;
+                }
             }
             a {
                 display: block;

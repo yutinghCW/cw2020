@@ -2292,8 +2292,15 @@ footer .contact span:last-child {
   padding: 0;
   list-style: none;
 }
-.main .author__extended ul li + li {
-  margin-top: 5px;
+@media (max-width: 1023px) {
+  .main .author__extended ul {
+    line-height: 1.5;
+  }
+}
+@media (max-width: 1023px) {
+  .main .author__extended ul li + li {
+    margin-top: 10px;
+  }
 }
 .main .author__extended ul a {
   display: block;
