@@ -569,3 +569,64 @@ ul.article__function--clone {
         }
     }
 }
+
+.webaccessbar {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    padding: 0;
+    @include translateX(-50%);
+    @include breakpoint(1024px) {
+        display: none;
+    }
+    .bar__titile {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: normal;
+        background-color: $primary;
+        .text {
+            a {
+                display: block;
+                padding-left: 20px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                color: $white;
+                text-decoration: none;
+            }
+            u {
+                text-underline-position: under;
+            }
+        }
+        button {
+            position: relative;
+            padding: 22px 23px;
+            color: $white;
+            border: 0;
+            background: transparent;
+            i {
+                display: block;
+                @include transition(transform 0.3s);
+            }
+            &::before {
+                @include beforeafter('', block);
+                position: absolute;
+                top: 50%;
+                left: -1px;
+                width: 1px;
+                height: 20px;
+                background-color: $white;
+                @include opacity(0.5);
+                @include translateY(-50%);
+            }
+            &.active i {
+                @include rotate(180deg);
+            }
+        }
+    }
+    .bar__container {
+        display: none;
+        padding: 20px;
+        background-color: $white;
+    }
+}

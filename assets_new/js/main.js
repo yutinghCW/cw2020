@@ -18,6 +18,10 @@ $(function() {
                 $(this).siblings().show();
             })
         });
+        $('.webaccessbar .bar__titile button').click(function() {
+            $(this).toggleClass('active');
+            $(this).parent().siblings().slideToggle();
+        })
     }
     // 判斷有沒有值
     $("input").each(function() {
