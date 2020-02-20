@@ -139,7 +139,10 @@ footer {
             text-align: center;
         }
         span {
-            display: inline-block;
+            display: block;
+            @include breakpoint(1024px) {
+                display: inline-block;
+            }
             &:last-child {
                 display: block;
                 @include breakpoint(max-width 1023px) {

@@ -1764,7 +1764,12 @@ footer .contact {
   }
 }
 footer .contact span {
-  display: inline-block;
+  display: block;
+}
+@media (min-width: 1024px) {
+  footer .contact span {
+    display: inline-block;
+  }
 }
 footer .contact span:last-child {
   display: block;
@@ -2325,6 +2330,11 @@ footer .contact span:last-child {
   .main .article--700 {
     float: left;
     width: 700px;
+  }
+}
+@media (max-width: 1023px) {
+  .main aside {
+    margin-top: 30px;
   }
 }
 @media (min-width: 1024px) {
