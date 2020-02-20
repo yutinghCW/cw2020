@@ -2346,6 +2346,27 @@ footer .contact span:last-child {
 .main .author__message .author__message--hide {
   display: none;
 }
+.main .article__header .article__function--share {
+  font-size: 0;
+  text-align: center;
+}
+.main .article__header .article__function--share .title {
+  display: none;
+}
+.main .article__header .article__function--share li {
+  display: inline-block;
+  font-size: 1.125rem;
+}
+.main .article__header .article__function--share li + li {
+  margin-left: 10px;
+}
+.main .article__header .article__function--share li a {
+  width: 44px;
+  height: 44px;
+}
+.main .article__header .article__function--share li a i {
+  line-height: 44px;
+}
 @media (min-width: 1024px) {
   .main .article--700 {
     float: left;

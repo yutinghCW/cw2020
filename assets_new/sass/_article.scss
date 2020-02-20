@@ -473,6 +473,29 @@
             display: none;
         }
     }
+    .article__header {
+        .article__function--share {
+            font-size: 0;
+            text-align: center;
+            .title {
+                display: none;
+            }
+            li {
+                display: inline-block;
+                font-size: 1.125rem;
+                +li {
+                    margin-left: 10px;
+                }
+                a {
+                    width: 44px;
+                    height: 44px;
+                    i {
+                        line-height: 44px;
+                    }
+                }
+            }
+        }
+    }
     .article--700 {
         @include breakpoint(1024px) {
             float: left;

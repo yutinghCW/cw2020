@@ -5,7 +5,7 @@ $(function() {
     } else {
         $('.ad--970by250 img').attr('src', 'assets_new/images/ad-cartier-300-250.jpg')
     }
-    // $(".article__function--share").clone().prependTo(".article__header");
+    $(".article__function--share").clone().append(".article__detail--secondary");
     // 判斷有沒有值
     $("input").each(function() {
         if (this.value) {
