@@ -5,7 +5,20 @@ $(function() {
     } else {
         $('.ad--970by250 img').attr('src', 'assets_new/images/ad-cartier-300-250.jpg')
     }
-    $(".article__function--share").clone().append(".article__detail--secondary");
+    if (width < 1024) {
+        $('.article__function--share').clone().insertBefore('.article__img, .author__intro').addClass('article__function--clone');
+        $('.article__function--added').clone().prependTo('.container--default');
+        $('.list__group').each(function() {
+            $(this).append('<button class="btn btn--text">顯示更多</button>');
+            var liLength = $(this).children().length;
+            console.log(liLength);
+            $(this).children().slice((liLength / 2), (liLength - 1)).hide();
+            $(this).children('button').click(function() {
+                $(this).hide();
+                $(this).siblings().show();
+            })
+        });
+    }
     // 判斷有沒有值
     $("input").each(function() {
         if (this.value) {

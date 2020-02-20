@@ -25,6 +25,9 @@
 }
 
 .ad--video {
+    @include breakpoint(1024px) {
+        padding-top: 20px;
+    }
     .embed {
         position: relative;
         padding-bottom: 56.25%;
