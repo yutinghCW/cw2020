@@ -93,8 +93,15 @@ footer {
                     }
                 }
             }
-            .channel__group h4 {
-                margin-top: 30px;
+            .channel__group {
+                .channel {
+                    padding-left: 0 !important;
+                }
+            }
+            .channel__group + .channel__group {
+                h4 {
+                    margin-top: 30px;
+                }
             }
         }
     }

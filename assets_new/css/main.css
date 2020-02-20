@@ -1712,7 +1712,10 @@ footer .channel__group .channel a:hover {
   footer .channel__group:first-child ul:last-child {
     padding-left: 60px;
   }
-  footer .channel__group .channel__group h4 {
+  footer .channel__group .channel__group .channel {
+    padding-left: 0 !important;
+  }
+  footer .channel__group .channel__group + .channel__group h4 {
     margin-top: 30px;
   }
 }
