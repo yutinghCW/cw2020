@@ -1836,7 +1836,12 @@ footer .contact span:last-child {
 
 .main {
   padding-top: 40px;
-  padding-bottom: 60px;
+  padding-bottom: 40px;
+}
+@media (min-width: 1024px) {
+  .main {
+    padding-bottom: 60px;
+  }
 }
 .main::after {
   content: "";

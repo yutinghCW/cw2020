@@ -18,7 +18,10 @@
 
 .main {
     padding-top: 40px;
-    padding-bottom: 60px;
+    padding-bottom: 40px;
+    @include breakpoint(1024px) {
+        padding-bottom: 60px;
+    }
     &::after {
         @include clear();
     }
