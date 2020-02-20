@@ -391,7 +391,9 @@
                 width: calc((100% - 30px) / 2);
             }
             +.author__item {
-                margin-top: 20px;
+                @include breakpoint(max-width 1023px) {
+                    margin-top: 20px;
+                }
                 @include breakpoint(1024px) {
                     margin-left: 30px;
                 }

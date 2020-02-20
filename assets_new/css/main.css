@@ -2249,8 +2249,10 @@ footer .contact span:last-child {
     width: calc((100% - 30px) / 2);
   }
 }
-.main .author__next .author__item + .author__item {
-  margin-top: 20px;
+@media (max-width: 1023px) {
+  .main .author__next .author__item + .author__item {
+    margin-top: 20px;
+  }
 }
 @media (min-width: 1024px) {
   .main .author__next .author__item + .author__item {
