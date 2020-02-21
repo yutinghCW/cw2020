@@ -3,7 +3,7 @@ $(function() {
     if (width >= 1024) {
         $('.ad--970by250 img').attr('src', 'assets_new/images/ad-cartier-970-250.jpg')
     } else {
-        $('.ad--970by250 img').attr('src', 'assets_new/images/ad-cartier-300-250.jpg')
+        $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-04.jpg')
     }
     if (width < 1024) {
         $('.article__function--share').clone().insertBefore('.article__img, .author__intro').addClass('article__function--clone');
