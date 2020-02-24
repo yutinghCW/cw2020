@@ -1,0 +1,39 @@
+.card__group {
+    font-size: 0;
+    .card {
+        display: inline-block;
+        margin-left: 20px;
+        width: calc( (100% - 80px) / 5);
+        font-size: 1rem;
+        vertical-align: top;
+        &:first-child {
+            margin-left: 0;
+        }
+        a {
+            display: block;
+            &.card__img {
+                margin-bottom: 5px;
+                img {
+                    width: 100%;
+                }
+            }
+            &.card__subtitlte {
+                color: $primary;
+                font-size: 0.75rem;
+                text-decoration: none;
+                font-weight: normal;
+                &:hover {
+                    color: $primary-variant;
+                }
+            }
+            &.card__titlte {
+                @include lineclamp(2);
+                color: $text;
+                text-decoration: none;
+                &:hover {
+                    color: $primary;
+                }
+            }
+        }
+    }
+}
