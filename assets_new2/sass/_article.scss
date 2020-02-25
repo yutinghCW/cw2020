@@ -18,19 +18,54 @@
     }
 }
 
-main>.main {
-    padding-left: 0;
-    padding-right: 0;
+main {
+    @include breakpoint(max-width 1023px) {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    >.main {
+        padding-left: 0;
+        padding-right: 0;
+        aside {
+            top: 0;
+            right: 0;
+            height: 100%;
+            @include breakpoint(1024px) {
+                position: absolute;
+                width: 330px;
+            }
+            @include breakpoint(max-width 1023px) {
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+    }
 }
 
 article {
-    width: 900px;
-    padding: 30px 40px;
+    width: 100%;
+    padding: 20px 10px;
     border: 1px solid $gray-100;
     background-color: $white;
+    @include breakpoint(1024px) {
+        width: 900px;
+        padding: 30px 40px;
+    }
+}
+
+article {
+    h1 {
+        @include breakpoint(max-width 1023px) {
+            font-size: 22px;
+        }
+    }
+    h2 {
+        margin-top: 1.5em;
+    }
     p {
-        margin-top: 1.15em;
-        margin-bottom: 1.15em;
+        margin-top: 1.25em;
+        margin-bottom: 1.25em;
+        line-height: 1.75;
         &.preface {
             color: $surface;
         }
@@ -64,31 +99,66 @@ article {
             font-weight: 500;
         }
     }
-}
-
-aside {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 330px;
-    height: 100%;
-}
-
-.author__might,
-.author__morelink {
-    border: 1px solid $gray-100;
-    background-color: $white;
+    blockquote {
+        position: relative;
+        width: 75%;
+        padding: 1px 0;
+        margin: 40px auto;
+        font-weight: 500;
+        @include breakpoint(1024px) {
+            width: 60%;
+        }
+        &::before,
+        &::after {
+            position: absolute;
+            color: $primary;
+            font-family: "icomoon";
+        }
+        &::before {
+            @include beforeafter('\e92c', block);
+            top: 0;
+            right: calc(100% + 10px);
+        }
+        &::after {
+            @include beforeafter('\e92d', block);
+            bottom: 0;
+            left: calc(100% + 10px);
+        }
+    }
 }
 
 .author__might {
     padding: 40px !important;
+    border: 1px solid $gray-100;
+    background-color: $white;
 }
 
 .author__morelink {
-    padding: 40px 40px 30px !important;
     font-size: 0;
-    .text__list:first-child {
-        margin-right: 120px;
+    @include breakpoint(1024px) {
+        padding: 40px 40px 30px !important;
+        border: 1px solid $gray-100;
+        background-color: $white;
+    }
+    .text__list {
+        @include breakpoint(max-width 1023px) {
+            padding: 20px 10px;
+            border: 1px solid $gray-100;
+            background-color: $white;
+            a {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+        &:first-child {
+            @include breakpoint(1024px) {
+                margin-right: 120px;
+            }
+            @include breakpoint(max-width 1023px) {
+                margin-bottom: 15px;
+            }
+        }
     }
 }
 
@@ -105,8 +175,8 @@ aside {
     background-color: $gray-100;
     cursor: pointer;
     @include breakpoint(max-width 1023px) {
-        margin-left: -20px;
-        margin-right: -20px;
+        margin-left: -10px;
+        margin-right: -10px;
     }
     @include breakpoint(1024px) {
         &::after {
@@ -162,7 +232,9 @@ aside {
 
 .article__body {
     position: relative;
-    padding-left: 158px;
+    @include breakpoint(1024px) {
+        padding-left: 158px;
+    }
     a {
         color: $surface;
         &:hover {
@@ -172,20 +244,25 @@ aside {
 }
 
 .article__function {
-    position: absolute;
     top: 0;
     left: 0;
     width: 80px;
-    &.article__function--fixedtop {
-        position: fixed;
-        top: 90px;
-        left: calc( (100% - 1178px) / 2);
+    @include breakpoint(max-width 1023px) {
+        display: none;
     }
-    &.article__function--fixedbottom {
+    @include breakpoint(1024px) {
         position: absolute;
-        top: auto;
-        bottom: 0;
-        left: 0;
+        &.article__function--fixedtop {
+            position: fixed;
+            top: 90px;
+            left: calc( (100% - 1178px) / 2);
+        }
+        &.article__function--fixedbottom {
+            position: absolute;
+            top: auto;
+            bottom: 0;
+            left: 0;
+        }
     }
 }
 
@@ -258,15 +335,6 @@ ul.article__function--added {
     }
 }
 
-.article__text {
-    a {
-        color: $surface;
-        &:hover {
-            color: $primary;
-        }
-    }
-}
-
 .article__keyword {
     @include listrest(20px 0, 0, none);
     font-size: 0;
@@ -310,12 +378,29 @@ ul.article__function--added {
 }
 
 .author__next {
-    position: absolute;
-    top: 100%;
-    width: 330px;
     padding: 30px 20px;
     border: 1px solid $gray-100;
     background-color: $white;
+    @include breakpoint(max-width 1023px) {
+        margin-bottom: 15px;
+        order: 1;
+    }
+    @include breakpoint(1024px) {
+        position: absolute;
+        top: 100%;
+        width: 330px;
+        &.author__next--fixedtop {
+            position: fixed;
+            top: 90px !important;
+            right: calc( (100% - 1260px) / 2);
+        }
+        &.author__next--fixedbottom {
+            position: absolute;
+            top: auto !important;
+            bottom: 30px;
+            right: 0;
+        }
+    }
     .author__item {
         font-size: 0;
         +.author__item {
@@ -349,31 +434,25 @@ ul.article__function--added {
             color: $primary;
         }
     }
-    &.author__next--fixedtop {
-        position: fixed;
-        top: 90px !important;
-        right: calc( (100% - 1260px) / 2);
-    }
-    &.author__next--fixedbottom {
-        position: absolute;
-        top: auto !important;
-        bottom: 30px;
-        right: 0;
-    }
 }
 
 .author__lastest {
-    position: absolute;
-    width: 330px;
     padding: 30px 20px;
-    margin-bottom: 30px;
     border: 1px solid $gray-100;
     background-color: $white;
     // @include transition(top 0.3s);
-    &.author__lastest--fixedtop {
-        position: fixed;
-        top: 75px;
-        right: calc( (100% - 1260px) / 2);
+    @include breakpoint(max-width 1023px) {
+        order: 2;
+    }
+    @include breakpoint(1024px) {
+        position: absolute;
+        width: 330px;
+        margin-bottom: 30px;
+        &.author__lastest--fixedtop {
+            position: fixed;
+            top: 75px;
+            right: calc( (100% - 1260px) / 2);
+        }
     }
     .list__item {
         margin-top: 20px;

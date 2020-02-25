@@ -5,8 +5,8 @@ header {
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
-    border-bottom: 1px solid $gray-200;
     background-color: $white;
+    border-bottom: 1px solid $gray-100;
     z-index: 5;
     .container {
         &::before,
@@ -24,8 +24,11 @@ header {
     }
     .container--right {
         float: right;
-        padding: 3px 0;
+        padding: 1px 0;
         font-size: 0;
+        @include breakpoint(1024px) {
+            padding: 3px 0;
+        }
         >* {
             display: inline-block;
             vertical-align: middle;
@@ -46,11 +49,17 @@ header {
     a.logo {
         margin-right: 20px;
         img {
-            width: 110px;
+            width: 100px;
+            @include breakpoint(1024px) {
+                width: 110px;
+            }
         }
     }
     .search {
         width: 240px;
+        @include breakpoint(max-width 1023px) {
+            display: none;
+        }
     }
     .h4 {
         display: none;
@@ -58,17 +67,36 @@ header {
     }
     a.btn.btn--small {
         padding: 0.5em 0.75em;
-        color: $primary;
-        border-color: $primary;
+        // color: $primary;
+        // border-color: $primary;
     }
     ul.member {
-        @include listrest(0 -10px 0 20px, 0 0 0 10px, none);
-        border-left: 1px solid $black;
+        @include listrest(0 0 0 5px, 0 0 0 10px, none);
+        @include breakpoint(1024px) {
+            margin: 0 -10px 0 20px;
+            padding: 0 0 0 10px;
+            border-left: 1px solid $gray-200;
+        }
         li {
             display: inline-block;
             font-size: 1rem;
             +li {
                 margin-left: 10px;
+            }
+            @include breakpoint(max-width 1023px) {
+                display: none;
+                font-size: 1.25rem;
+                &:first-child {
+                    display: block;
+                }
+                i {
+                    display: block;
+                }
+            }
+            @include breakpoint(1024px) {
+                &:first-child {
+                    display: none;
+                }
             }
             a {
                 padding-left: 10px;
@@ -96,11 +124,13 @@ header {
         }
     }
     &.scroll {
-        .search {
-            display: none;
-        }
-        .h4 {
-            display: inline-block;
+        @include breakpoint(1024px) {
+            .search {
+                display: none;
+            }
+            .h4 {
+                display: inline-block;
+            }
         }
     }
 }

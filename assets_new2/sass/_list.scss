@@ -1,7 +1,9 @@
 .text__list {
-    display: inline-block;
-    width: calc((100% - 120px) / 2);
     @include listrest(0, 0, none);
+    @include breakpoint(1024px) {
+        display: inline-block;
+        width: calc((100% - 120px) / 2);
+    }
     li {
         border-bottom: 1px solid $gray-100;
         &:last-child {

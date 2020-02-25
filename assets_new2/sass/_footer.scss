@@ -43,13 +43,27 @@ footer {
             }
         }
         &.menu--main {
-            margin-top: 30px;
-            margin-bottom: 30px;
+            margin-top: 40px;
+            margin-bottom: 20px;
             font-size: 0;
+            @include breakpoint(1024px) {
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
             li {
-                width: 8.33333333%;
-                +li {
+                width: 33.33%;
+                @include breakpoint(1024px) {
+                    width: 8.33333333%;
+                    +li {
+                        border-left: 1px solid $gray-200;
+                    }
+                }
+                @include breakpoint(max-width 1023px) {
+                    margin-bottom: 20px;
                     border-left: 1px solid $gray-200;
+                    &:nth-child(3n+1) {
+                        border-left: 0;
+                    }
                 }
                 a {
                     font-size: 0.875rem;

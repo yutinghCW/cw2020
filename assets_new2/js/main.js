@@ -11,6 +11,28 @@ $(function() {
             $(this).addClass("tooltips-wrap");
         }
     });
+    // 判斷有沒有值
+    $("input").each(function() {
+        if (this.value) {
+            $(this).parent().addClass('hasValue');
+        }
+        $(this).on('change keyup copy paste cut', function() {
+            if (!this.value) {
+                $(this).parent().removeClass('hasValue');
+            } else {
+                $(this).parent().addClass('hasValue');
+            }
+        })
+    });
+
+    function input() {
+        $("input").parent().addClass('form__group--defalt');
+        $("input[disabled]").parent().removeClass('form__group--defalt').addClass('form__group--disabled');
+    };
+    input();
+    $("input").change(function() {
+        input();
+    });
     // 打開小辭典
     $(".more").each(function() {
         $(this).click(function() {
@@ -83,49 +105,59 @@ $(function() {
             articleFunctionHeight = $('.article__function').outerHeight(),
             articleNextHeight = $('.author__next').outerHeight(),
             articleFunctionBottom = $('.author__might').offset().top - articleFunctionHeight - 162,
-            articleNextBottom = $('.author__might').offset().top - articleNextHeight - 122;
+            articleNextBottom = $('.author__might').offset().top - articleNextHeight - 120;
         $('header .process span').css('width', (((scroll + widthHeigh) / documentHeigh) * 100) + '%');
         if (scroll >= articleImgTop) {
             $('header').addClass('scroll');
         } else {
             $('header').removeClass('scroll');
         }
-        if (scroll >= articleBodyTop) {
-            $('.article__function').addClass('article__function--fixedtop');
-        } else {
-            $('.article__function').removeClass('article__function--fixedtop');
+        if (width >= 1024) {
+            if (scroll >= articleBodyTop) {
+                $('.article__function').addClass('article__function--fixedtop');
+            } else {
+                $('.article__function').removeClass('article__function--fixedtop');
+            }
+            if (scroll >= articleFunctionBottom) {
+                $('.article__function').addClass('article__function--fixedbottom');
+            } else {
+                $('.article__function').removeClass('article__function--fixedbottom');
+            }
+            if (scroll >= (articleKeywordTop - 60 - 30)) {
+                $('.author__next').addClass('author__next--fixedtop');
+            } else {
+                $('.author__next').removeClass('author__next--fixedtop');
+            }
+            if (scroll >= articleNextBottom) {
+                $('.author__next').addClass('author__next--fixedbottom');
+            } else {
+                $('.author__next').removeClass('author__next--fixedbottom');
+            }
+            if ((scroll >= (articleTop - 80)) && (scroll <= (articleKeywordTop - articleLastestHeight - 30))) {
+                $('.author__lastest').css({
+                    'top': scroll - articleTop + 90,
+                    'bottom': 'auto'
+                });
+            } else if (scroll < (articleTop - 80)) {
+                $('.author__lastest').css({
+                    'top': 0,
+                    'bottom': 'auto'
+                });
+            } else {
+                $('.author__lastest').css({
+                    'top': 'auto',
+                    'bottom': articleNextBottom - articleKeywordTop + articleNextHeight + 122
+                });
+            }
+            $('.author__next').css('top', (articleKeywordTop - articleTop));
         }
-        if (scroll >= articleFunctionBottom) {
-            $('.article__function').addClass('article__function--fixedbottom');
-        } else {
-            $('.article__function').removeClass('article__function--fixedbottom');
-        }
-        if (scroll >= (articleKeywordTop - 60 - 30)) {
-            $('.author__next').addClass('author__next--fixedtop');
-        } else {
-            $('.author__next').removeClass('author__next--fixedtop');
-        }
-        if (scroll >= articleNextBottom) {
-            $('.author__next').addClass('author__next--fixedbottom');
-        } else {
-            $('.author__next').removeClass('author__next--fixedbottom');
-        }
-        if ((scroll >= (articleTop - 80)) && (scroll <= (articleKeywordTop - articleLastestHeight - 30))) {
-            $('.author__lastest').css({
-                'top': '50%',
-                'bottom': 'auto'
-            });
-        } else if (scroll < (articleTop - 80)) {
-            $('.author__lastest').css({
-                'top': 0,
-                'bottom': 'auto'
-            });
-        } else {
-            $('.author__lastest').css({
-                'top': 'auto',
-                'bottom': articleNextBottom - articleKeywordTop + articleNextHeight + 122
-            });
-        }
-        $('.author__next').css('top', (articleKeywordTop - articleTop));
+        // var iCurScrollPos = $(this).scrollTop(),
+        //     iScrollPos = 0;;
+        // if (iCurScrollPos < iScrollPos) {
+        //     $("nav, main").addClass("scroll");
+        // } else {
+        //     $("nav, main").removeClass("scroll");
+        // }
+        // iScrollPos = iCurScrollPos;
     });
 });

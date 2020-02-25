@@ -1,0 +1,124 @@
+nav {
+    background-color: $white;
+    border-bottom: 1px solid $gray-100;
+    @include breakpoint(max-width 1023px) {
+        display: none;
+    }
+    a {
+        display: block;
+    }
+    .menubar {
+        &--belt {
+            ul {
+                @include listrest(0, 0, none);
+                display: none;
+                li {
+                    position: relative;
+                    text-align: center;
+                    a {
+                        display: block;
+                        padding: 17px 10px;
+                        line-height: 1rem;
+                        text-decoration: none;
+                        @include transition(all 0.15s);
+                    }
+                }
+            }
+            >ul {
+                display: flex;
+                >li {
+                    width: calc(100% / 11);
+                    height: 50px;
+                    >a {
+                        color: $black;
+                    }
+                    &:hover,
+                    &.active {
+                        >a {
+                            color: $primary;
+                        }
+                        >ul {
+                            display: block;
+                        }
+                    }
+                    >ul {
+                        position: absolute;
+                        top: 100%;
+                        left: -25px;
+                        width: calc(100% + 50px);
+                        background-color: $white;
+                        z-index: 9;
+                        >li {
+                            a {
+                                color: $black;
+                                border: solid $gray-200;
+                                &:hover,
+                                &.active {
+                                    color: $white;
+                                    background-color: $primary;
+                                    border-color: $primary;
+                                }
+                            }
+                            >a {
+                                border-width: 0 1px;
+                            }
+                            &:first-child {
+                                >a {
+                                    border-width: 1px 1px 0;
+                                }
+                            }
+                            &:last-child {
+                                >a {
+                                    border-width: 0 1px 1px;
+                                }
+                            }
+                            >ul {
+                                position: absolute;
+                                top: 0;
+                                left: calc(100% - 1px);
+                                width: 100%;
+                                background-color: $white;
+                                >li {
+                                    >a {
+                                        border-width: 0 1px;
+                                    }
+                                    &:first-child {
+                                        >a {
+                                            border-width: 1px 1px 0;
+                                        }
+                                    }
+                                    &:last-child {
+                                        >a {
+                                            border-width: 0 1px 1px;
+                                        }
+                                    }
+                                }
+                            }
+                            &:hover,
+                            &.active {
+                                >ul {
+                                    display: block;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &--third {
+                ul {
+                    li {
+                        text-align: left;
+                        a {
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                    }
+                }
+                >ul>li>ul {
+                    left: 0;
+                }
+            }
+        }
+    }
+}
