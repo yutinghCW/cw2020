@@ -2521,6 +2521,12 @@ article blockquote::after {
   margin-bottom: 40px;
   border: 1px solid #EEEEEE;
 }
+@media (max-width: 1023px) {
+  .infogram-embed__group {
+    margin-left: -11px;
+    margin-right: -11px;
+  }
+}
 @media (min-width: 1024px) {
   .infogram-embed__group {
     padding: 40px;

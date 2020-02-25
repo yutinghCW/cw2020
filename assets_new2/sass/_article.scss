@@ -136,6 +136,10 @@ article {
     margin-top: 40px;
     margin-bottom: 40px;
     border: 1px solid $gray-100;
+    @include breakpoint(max-width 1023px) {
+        margin-left: -11px;
+        margin-right: -11px;
+    }
     @include breakpoint(1024px) {
         padding: 40px;
     }
