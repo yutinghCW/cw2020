@@ -1826,7 +1826,6 @@ h5,
 body {
   position: relative;
   font-family: 'Roboto', 'Noto Sans TC', Arial, "微軟正黑體", "繁黑體", 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', sans-serif, "新細明體", PMingLiU;
-  font-weight: 300;
   line-height: 1.5;
 }
 
@@ -2421,7 +2420,7 @@ article {
 
 @media (max-width: 1023px) {
   article h1 {
-    font-size: 22px;
+    font-size: 26px;
   }
 }
 article h2 {
