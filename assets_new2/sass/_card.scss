@@ -1,11 +1,25 @@
 .card__group {
     font-size: 0;
+    @include breakpoint(max-width 1023px) {
+        width: 1200px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+        &--scroll {
+            margin-left: -10px;
+            margin-right: -10px;
+            overflow: scroll;
+        }
+    }
     .card {
         display: inline-block;
         margin-left: 20px;
-        width: calc( (100% - 80px) / 5);
+        width: 220px;
         font-size: 1rem;
         vertical-align: top;
+        @include breakpoint(1024px) {
+            width: calc( (100% - 80px) / 5);
+        }
         &:first-child {
             margin-left: 0;
         }

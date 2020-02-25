@@ -128,9 +128,12 @@ article {
 }
 
 .author__might {
-    padding: 40px !important;
+    padding: 20px 10px 10px !important;
     border: 1px solid $gray-100;
     background-color: $white;
+    @include breakpoint(1024px) {
+        padding: 40px !important;
+    }
 }
 
 .author__morelink {
@@ -382,6 +385,7 @@ ul.article__function--added {
     border: 1px solid $gray-100;
     background-color: $white;
     @include breakpoint(max-width 1023px) {
+        margin-top: 15px;
         margin-bottom: 15px;
         order: 1;
     }

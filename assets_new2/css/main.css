@@ -2499,9 +2499,14 @@ article blockquote::after {
 }
 
 .author__might {
-  padding: 40px !important;
+  padding: 20px 10px 10px !important;
   border: 1px solid #EEEEEE;
   background-color: #fff;
+}
+@media (min-width: 1024px) {
+  .author__might {
+    padding: 40px !important;
+  }
 }
 
 .author__morelink {
@@ -2779,6 +2784,7 @@ ul.article__function--added span {
 }
 @media (max-width: 1023px) {
   .author__next {
+    margin-top: 15px;
     margin-bottom: 15px;
     order: 1;
   }
@@ -3004,12 +3010,30 @@ ul.article__function--added span {
 .card__group {
   font-size: 0;
 }
+@media (max-width: 1023px) {
+  .card__group {
+    width: 1200px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+  }
+  .card__group--scroll {
+    margin-left: -10px;
+    margin-right: -10px;
+    overflow: scroll;
+  }
+}
 .card__group .card {
   display: inline-block;
   margin-left: 20px;
-  width: calc( (100% - 80px) / 5);
+  width: 220px;
   font-size: 1rem;
   vertical-align: top;
+}
+@media (min-width: 1024px) {
+  .card__group .card {
+    width: calc( (100% - 80px) / 5);
+  }
 }
 .card__group .card:first-child {
   margin-left: 0;
