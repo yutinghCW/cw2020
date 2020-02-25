@@ -2546,6 +2546,7 @@ article blockquote::after {
   padding: 5px 0;
   color: #939EA7;
   font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .imgzoom {
