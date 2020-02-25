@@ -15,7 +15,6 @@
         display: inline-block;
         margin-left: 20px;
         width: 220px;
-        font-size: 1rem;
         vertical-align: top;
         @include breakpoint(1024px) {
             width: calc( (100% - 80px) / 5);
@@ -43,6 +42,7 @@
             &.card__titlte {
                 @include lineclamp(2);
                 color: $text;
+                font-size: 0.875rem;
                 text-decoration: none;
                 &:hover {
                     color: $primary;
