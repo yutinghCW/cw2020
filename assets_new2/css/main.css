@@ -1791,35 +1791,30 @@ th {
 h1,
 .h1 {
   font-size: 32px;
-  line-height: 1.5;
   font-weight: 500;
 }
 
 h2,
 .h2 {
   font-size: 20px;
-  line-height: 1.5;
   font-weight: 500;
 }
 
 h3,
 .h3 {
   font-size: 18px;
-  line-height: 2;
   font-weight: 500;
 }
 
 h4,
 .h4 {
   font-size: 1rem;
-  line-height: 1.2;
   font-weight: 500;
 }
 
 h5,
 .h5 {
   font-size: 14px;
-  line-height: 1;
   font-weight: 500;
 }
 
@@ -2814,7 +2809,7 @@ ul.article__function--added span {
 }
 
 .author__next {
-  padding: 30px 20px;
+  padding: 20px 10px;
   border: 1px solid #EEEEEE;
   background-color: #fff;
 }
@@ -2830,6 +2825,7 @@ ul.article__function--added span {
     position: absolute;
     top: 100%;
     width: 330px;
+    padding: 30px 20px;
   }
   .author__next.author__next--fixedtop {
     position: fixed;
@@ -2847,7 +2843,12 @@ ul.article__function--added span {
   font-size: 0;
 }
 .author__next .author__item + .author__item {
-  margin-top: 30px;
+  margin-top: 20px;
+}
+@media (min-width: 1024px) {
+  .author__next .author__item + .author__item {
+    margin-top: 30px;
+  }
 }
 .author__next .author__item > * {
   display: inline-block;
@@ -2881,7 +2882,7 @@ ul.article__function--added span {
 }
 
 .author__lastest {
-  padding: 30px 20px;
+  padding: 20px 10px;
   border: 1px solid #EEEEEE;
   background-color: #fff;
 }
@@ -2889,11 +2890,15 @@ ul.article__function--added span {
   .author__lastest {
     order: 2;
   }
+  .author__lastest .h3 {
+    text-align: center;
+  }
 }
 @media (min-width: 1024px) {
   .author__lastest {
     position: absolute;
     width: 330px;
+    padding: 30px 20px;
     margin-bottom: 30px;
   }
   .author__lastest.author__lastest--fixedtop {
