@@ -135,7 +135,7 @@ article {
     padding: 20px;
     margin-top: 40px;
     margin-bottom: 40px;
-    border: 1px solid $gray-200;
+    border: 1px solid $gray-100;
     @include breakpoint(1024px) {
         padding: 40px;
     }

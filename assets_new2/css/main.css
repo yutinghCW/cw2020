@@ -1951,6 +1951,12 @@ header .container::before, header .container::after {
   display: table;
   clear: both;
 }
+@media (min-width: 1024px) {
+  header .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
 header .container--left {
   float: left;
   font-size: 0;
@@ -2226,6 +2232,12 @@ footer .contact span:last-child {
 nav {
   background-color: #fff;
   border-bottom: 1px solid #EEEEEE;
+}
+@media (min-width: 1024px) {
+  nav > .main {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 @media (max-width: 1023px) {
   nav {
@@ -2507,7 +2519,7 @@ article blockquote::after {
   padding: 20px;
   margin-top: 40px;
   margin-bottom: 40px;
-  border: 1px solid #D3D5D7;
+  border: 1px solid #EEEEEE;
 }
 @media (min-width: 1024px) {
   .infogram-embed__group {

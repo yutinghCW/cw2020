@@ -13,6 +13,10 @@ header {
         &::after {
             @include clear();
         }
+        @include breakpoint(1024px) {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
     .container--left {
         float: left;
