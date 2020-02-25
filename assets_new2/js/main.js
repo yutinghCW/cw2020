@@ -1,9 +1,16 @@
 $(function() {
+    $('a').click(function(e) {
+        e.preventDefault();
+    })
     var width = $(window).width();
     if (width >= 1024) {
         $('.ad--970by250 img').attr('src', 'assets_new/images/ad-cartier-970-250.jpg')
     } else {
         $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-04.jpg')
+    }
+    if (width < 1024) {
+        $('.article__function').clone().insertBefore('.article__img, .author__message').addClass('article__function--clone');
+        // $('.article__function--added').clone().prependTo('.container--default');
     }
     // 當tooltips大於等於15字
     $(".tooltips").each(function() {
