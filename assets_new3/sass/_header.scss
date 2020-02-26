@@ -1,0 +1,64 @@
+header {
+    position: relative;
+    width: 100%;
+    background-color: $white;
+    border-bottom: 1px solid $gray-200;
+    .container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 12px;
+        padding-bottom: 13px;
+    }
+    .item {
+        font-size: 0;
+        &:last-child {
+            >* {
+                margin-left: 30px;
+            }
+        }
+        >* {
+            display: inline-block;
+            vertical-align: middle;
+            i {
+                display: block;
+                font-size: 1.25rem;
+            }
+        }
+        @include breakpoint(max-width 1023px) {
+            .search,
+            a.btn {
+                display: none;
+            }
+        }
+    }
+    .hamburger {
+        span {
+            display: block;
+            width: 20px;
+            height: 3px;
+            background-color: $black;
+            +span {
+                margin-top: 4px;
+            }
+        }
+    }
+    a.logo {
+        display: inline-block;
+        img {
+            height: 35px;
+            @include breakpoint(1024px) {
+                height: 40px;
+            }
+        }
+    }
+    a.btn {
+        color: $primary;
+        font-size: 1rem;
+        border-color: $primary;
+        &:hover {
+            color: $primary-variant;
+        }
+    }
+}

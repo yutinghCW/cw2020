@@ -1,0 +1,148 @@
+.card__group {
+    font-size: 0;
+    @include breakpoint(max-width 1023px) {
+        &--scroll {
+            margin-left: -20px;
+            margin-right: -20px;
+            overflow: scroll;
+            .card__group {
+                width: 1920px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    }
+    .card {
+        .pr {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: block;
+            width: 25px;
+            color: $white;
+            font-size: 0.75rem;
+            line-height: 25px;
+            text-align: center;
+            background: rgba($black, 0.5);
+            text-transform: uppercase;
+        }
+        a {
+            position: relative;
+            display: block;
+            text-decoration: none;
+            img {
+                width: 100%;
+            }
+        }
+        .card__subtitlte {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            color: $primary;
+            @include breakpoint(1024px) {
+                font-size: 0.875rem;
+            }
+        }
+        .card__titlte {
+            margin-top: 5px;
+            color: $text;
+            font-size: 1rem;
+            @include lineclamp(2);
+            @include breakpoint(1024px) {
+                font-size: 1.125rem;
+            }
+        }
+        &:hover .card__titlte {
+            color: $primary;
+        }
+        &:hover .card__subtitlte {
+            color: $primary-variant;
+        }
+    }
+    &.card__group--grid {
+        .card {
+            display: inline-block;
+            width: calc((100% - 60px) / 4);
+            margin-left: 20px;
+            margin-bottom: 40px;
+            vertical-align: top;
+            &:nth-child(4n+1) {
+                margin-left: 0;
+            }
+            @include breakpoint(max-width 1023px) {
+                width: 220px;
+            }
+        }
+    }
+    &.card__group--sp {
+        @include breakpoint(1024px) {
+            display: grid;
+            grid-template-columns: repeat(194, 1fr);
+            grid-template-rows: repeat(4, 1fr);
+        }
+        .card {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid transparent;
+            &:nth-child(1) {
+                grid-row: 1 / span 2;
+            }
+            &:nth-child(2) {
+                grid-row: 3 / span 2;
+                @include breakpoint(max-width 1023px) {
+                    padding-top: 20px;
+                    border-top: 1px solid $gray-200;
+                }
+            }
+            &:nth-child(3) {
+                grid-row: 1;
+                border-top: 1px solid $gray-200;
+                @include breakpoint(1024px) {
+                    border-top: 1px solid transparent;
+                }
+            }
+            &:nth-child(4) {
+                grid-row: 2;
+                border-top: 1px solid $gray-200;
+            }
+            &:nth-child(5) {
+                grid-row: 3;
+                border-top: 1px solid $gray-200;
+            }
+            &:nth-child(6) {
+                grid-row: 4;
+                border-top: 1px solid $gray-200;
+            }
+            &:nth-child(1),
+            &:nth-child(2) {
+                grid-column: 1 / span 83;
+                // padding-right: 60px;
+            }
+            &:nth-child(3),
+            &:nth-child(4),
+            &:nth-child(5),
+            &:nth-child(6) {
+                grid-column: 100 / span 95;
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                flex-direction: row-reverse;
+                .card__img {
+                    width: 110px;
+                    @include breakpoint(1024px) {
+                        width: 227px;
+                    }
+                }
+                .card__text {
+                    width: calc(100% - 110px);
+                    padding-right: 20px;
+                    @include breakpoint(1024px) {
+                        width: calc(100% - 227px);
+                    }
+                    .card__subtitlte {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+    }
+}

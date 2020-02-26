@@ -1,0 +1,60 @@
+.ad {
+    position: relative;
+    background-color: $ad;
+    &::before {
+        @include beforeafter('', block);
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 100vw;
+        height: 100%;
+        background-color: $ad;
+        @include translateX(-50%);
+        z-index: -1;
+    }
+    &.ad--970by250 a {
+        width: 300px;
+        @include breakpoint(1024px) {
+            width: 970px;
+        }
+    }
+    &.ad--300by250 {
+        a {
+            width: 300px;
+        }
+    }
+    a {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.ad--video {
+    @include breakpoint(1024px) {
+        // padding-top: 20px;
+    }
+    .embed {
+        position: relative;
+        padding-bottom: 56.25%;
+        overflow: hidden;
+    }
+    .embed iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.article__text {
+    .ad {
+        margin-top: 60px;
+        margin-bottom: 40px;
+        @include breakpoint(max-width 1023px) {
+            margin-left: -20px;
+            margin-right: -20px;
+        }
+    }
+}
