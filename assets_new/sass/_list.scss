@@ -6,7 +6,6 @@
     &.list__group--sort {
         li {
             position: relative;
-            padding-left: 35px;
         }
     }
     li {
@@ -27,6 +26,7 @@
         }
     }
     .number {
+        display: none;
         position: absolute;
         top: 50%;
         left: 0;

@@ -108,7 +108,7 @@ $(function() {
         if (width >= 1024) {
             $('.ad--970by250 img').attr('src', 'assets_new/images/ad-cartier-970-250.jpg')
         } else {
-            $('.ad--970by250 img').attr('src', 'assets_new/images/ad-cartier-300-250.jpg')
+            $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-04.jpg')
         }
     });
     $(window).scroll(function() {

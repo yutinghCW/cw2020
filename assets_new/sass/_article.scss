@@ -126,7 +126,7 @@ main {
         margin-bottom: 40px;
         border: 1px solid $gray-200;
         @include breakpoint(1024px) {
-            padding: 40px;
+            padding: 40px 40px 0;
         }
     }
     .article__body {
@@ -238,7 +238,7 @@ main {
         margin-top: 40px;
         margin-bottom: 40px;
         padding-top: 30px;
-        padding-bottom: 30px;
+        padding-bottom: 20px;
         border: solid $gray-100;
         border-width: 1px 0;
         @include breakpoint(1024px) {
@@ -249,6 +249,7 @@ main {
             @include breakpoint(max-width 1023px) {
                 margin-left: -20px;
                 margin-right: -20px;
+                padding-bottom: 10px;
                 overflow: scroll;
             }
         }
@@ -576,6 +577,7 @@ ul.article__function--clone {
     left: 50%;
     padding: 0;
     @include translateX(-50%);
+    z-index: 1;
     @include breakpoint(1024px) {
         display: none;
     }
