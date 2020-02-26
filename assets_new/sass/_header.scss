@@ -7,6 +7,9 @@ header {
     border-bottom: 1px solid $gray-200;
     background-color: $white;
     z-index: 5;
+    @include breakpoint(1024px) {
+        height: 65px;
+    }
     .container {
         position: relative;
         display: flex;
@@ -15,8 +18,9 @@ header {
         padding-top: 17px;
         padding-bottom: 18px;
         @include breakpoint(1024px) {
-            padding-top: 12px;
-            padding-bottom: 13px;
+            height: 65px;
+            padding-top: 11px;
+            padding-bottom: 12px;
         }
     }
     .item>* {

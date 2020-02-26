@@ -1,4 +1,7 @@
 $(function() {
+    $('a').click(function(e) {
+        e.preventDefault();
+    })
     var width = $(window).width();
     if (width >= 1024) {
         $('.ad--970by250 img').attr('src', 'assets_new/images/ad-cartier-970-250.jpg')
