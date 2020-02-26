@@ -33,6 +33,8 @@ main {
             @include breakpoint(1024px) {
                 position: absolute;
                 width: 330px;
+                // padding-top: 30px;
+                // padding-bottom: 30px;
             }
             @include breakpoint(max-width 1023px) {
                 display: flex;
@@ -460,7 +462,7 @@ ul.article__function--added {
         &.author__next--fixedbottom {
             position: absolute;
             top: auto !important;
-            bottom: 30px;
+            bottom: 0;
             right: 0;
         }
     }
@@ -503,10 +505,25 @@ ul.article__function--added {
 }
 
 .author__lastest {
-    padding: 20px 10px;
-    border: 1px solid $gray-100;
-    background-color: $white;
-    // @include transition(top 0.3s);
+    position: -webkit-sticky;
+    position: sticky;
+    top: 90px;
+    margin-bottom: 30px;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+    .list__group {
+        padding: 20px 10px;
+        border: 1px solid $gray-100;
+        background-color: $white;
+        @include breakpoint(1024px) {
+            width: 330px;
+            padding: 30px 20px;
+            margin-bottom: 30px;
+        }
+    }
     @include breakpoint(max-width 1023px) {
         order: 2;
         .h3 {
@@ -514,10 +531,6 @@ ul.article__function--added {
         }
     }
     @include breakpoint(1024px) {
-        position: absolute;
-        width: 330px;
-        padding: 30px 20px;
-        margin-bottom: 30px;
         &.author__lastest--fixedtop {
             position: fixed;
             top: 75px;

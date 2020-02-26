@@ -101,20 +101,23 @@ $(function() {
         }
     });
     $(window).scroll(function() {
-        var scroll = $(this).scrollTop(),
-            widthHeigh = $(window).outerHeight(),
+        var windowHeight = $(window).height(),
+            scroll = $(this).scrollTop(),
             documentHeigh = $(document).outerHeight(),
-            articleTop = $('article').offset().top,
+            articleTop = $('main > .main > article').offset().top,
+            articleHeight = $('main > .main > article').height(),
             articleKeywordTop = $('.article__keyword').offset().top,
             articleImgTop = $('.article__header h1').offset().top,
             articleBodyTop = $('.article__body').offset().top - 90,
-            articleLastestHeight = $('.author__lastest > .list__group').outerHeight(),
             articleFunctionHeight = $('.article__function').outerHeight(),
             articleNextHeight = $('.author__next').outerHeight(),
             articleFunctionBottom = $('.author__might').offset().top - articleFunctionHeight - 162,
             articleNextBottom = $('.author__might').offset().top - articleNextHeight - 120,
-            articleLastestOuterHeight = articleKeywordTop - articleTop;
-        $('header .process span').css('width', (((scroll + widthHeigh) / documentHeigh) * 100) + '%');
+            articleDiff = articleKeywordTop - articleTop,
+            articleDiffRatio = (1 / articleDiff) * $(document).scrollTop(),
+            articleLastestDiff = $('.author__lastest .list__group').height() - $('.author__lastest').height(),
+            articleLastestScrollTop = articleDiffRatio * articleLastestDiff * 1.25;
+        $('header .process span').css('width', (((scroll + windowHeight) / documentHeigh) * 100) + '%');
         if (scroll >= articleImgTop) {
             $('header').addClass('scroll');
         } else {
@@ -135,38 +138,25 @@ $(function() {
                 $('.author__next').addClass('author__next--fixedtop');
             } else {
                 $('.author__next').removeClass('author__next--fixedtop');
+                $('.author__next').css('top', (articleKeywordTop - articleTop));
             }
             if (scroll >= articleNextBottom) {
                 $('.author__next').addClass('author__next--fixedbottom');
             } else {
                 $('.author__next').removeClass('author__next--fixedbottom');
             }
-            if ((scroll >= (articleTop - 80)) && (scroll <= (articleKeywordTop - articleLastestHeight - 30))) {
-                $('.author__lastest').css({
-                    'top': scroll - articleTop + 90,
-                    'bottom': 'auto'
-                });
-            } else if (scroll < (articleTop - 80)) {
-                $('.author__lastest').css({
-                    'top': 0,
-                    'bottom': 'auto'
-                });
+            if (scroll >= (articleTop - 80)) {
+                $('.author__lastest').scrollTop(articleLastestScrollTop);
             } else {
-                $('.author__lastest').css({
-                    'top': 'auto',
-                    'bottom': articleNextBottom - articleKeywordTop + articleNextHeight + 122
-                });
+                $('.author__lastest').scrollTop(0);
             }
-            // $('.author__lastest').css('height', articleLastestOuterHeight);
+            $('.author__lastest').css({
+                'height': windowHeight - 90 - 30
+            });
+            $('main > .main > aside').css({
+                'padding-bottom': articleHeight - articleKeywordTop + articleTop + 30
+            });
             $('.author__next').css('top', (articleKeywordTop - articleTop));
         }
-        // var iCurScrollPos = $(this).scrollTop(),
-        //     iScrollPos = 0;;
-        // if (iCurScrollPos < iScrollPos) {
-        //     $("nav, main").addClass("scroll");
-        // } else {
-        //     $("nav, main").removeClass("scroll");
-        // }
-        // iScrollPos = iCurScrollPos;
     });
 });
