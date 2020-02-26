@@ -19,7 +19,7 @@
         @include breakpoint(1024px) {
             display: grid;
             grid-template-columns: repeat(35, 1fr);
-            grid-template-rows: repeat(6, 1fr);
+            grid-template-rows: repeat(142, 1fr);
         }
         .card {
             @include breakpoint(1024px) {
@@ -34,22 +34,20 @@
                 .card__titlte {
                     margin-top: 10px;
                 }
-                padding-top: 20px;
-                padding-bottom: 20px;
                 &:nth-child(1) {
-                    grid-row: 1 / span 3;
+                    grid-row: 1 / span 67;
                 }
                 &:nth-child(2) {
-                    grid-row: 4 / span 3;
+                    grid-row: 76 / span 67;
                 }
                 &:nth-child(3) {
-                    grid-row: 1 / span 2;
+                    grid-row: 1 / span 42;
                 }
                 &:nth-child(4) {
-                    grid-row: 3 / span 2;
+                    grid-row: 51 / span 42;
                 }
                 &:nth-child(5) {
-                    grid-row: 5 / span 2;
+                    grid-row: 101 / span 42;
                 }
                 &:nth-child(1),
                 &:nth-child(2) {

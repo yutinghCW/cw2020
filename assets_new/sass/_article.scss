@@ -121,7 +121,7 @@ main {
         }
     }
     .infogram-embed__group {
-        padding: 20px;
+        padding: 20px 20px 0;
         margin-top: 40px;
         margin-bottom: 40px;
         border: 1px solid $gray-200;
@@ -215,7 +215,7 @@ main {
         @include listrest(20px 0, 0, none);
         font-size: 0;
         @include breakpoint(1024px) {
-            padding: 20px 0 40px;
+            margin: 20px 0 0;
         }
         li {
             display: inline-block;
@@ -370,11 +370,11 @@ main {
         }
     }
     .author__extended {
-        padding-top: 30px;
+        padding-top: 20px;
         padding-bottom: 30px;
-        border-top: 1px solid $gray-100;
+        // border-top: 1px solid $gray-100;
         @include breakpoint(1024px) {
-            padding-top: 40px;
+            padding-top: 30px;
             padding-bottom: 40px;
         }
         ul {

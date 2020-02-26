@@ -1,5 +1,5 @@
 $(function() {
-    $('a').click(function(e) {
+    $('a, button').click(function(e) {
         e.preventDefault();
     })
     var width = $(window).width();
