@@ -1,5 +1,8 @@
 .article__page {
     padding-top: 60px;
+    @include breakpoint(1024px) {
+        padding-top: 65px;
+    }
 }
 
 .main,
