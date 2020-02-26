@@ -60,6 +60,15 @@
                 .card__img {
                     width: 120px;
                 }
+                .card__titlte {
+                    padding-left: 10px;
+                    width: calc(100% - 120px);
+                }
+                >a.card__img,
+                >a.card__titlte {
+                    display: inline-block !important;
+                    vertical-align: middle;
+                }
                 &:first-child {
                     .card__img {
                         width: 100%;
@@ -100,8 +109,6 @@
         }
         .card__titlte {
             margin-top: 10px;
-            padding-left: 10px;
-            width: calc(100% - 120px);
             font-size: 1.125rem;
             @include lineclamp(2);
             @include breakpoint(1024px) {
@@ -110,12 +117,6 @@
         }
         &:hover .card__titlte {
             color: $primary;
-        }
-        >a.card__img,
-        >a.card__titlte {
-            display: inline-block;
-            vertical-align: middle;
-            margin-top: 0;
         }
     }
 }

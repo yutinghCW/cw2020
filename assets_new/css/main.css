@@ -2677,6 +2677,15 @@ ul.article__function--clone li a i {
   .card__group.card__group--list .card .card__img {
     width: 120px;
   }
+  .card__group.card__group--list .card .card__titlte {
+    padding-left: 10px;
+    width: calc(100% - 120px);
+  }
+  .card__group.card__group--list .card > a.card__img,
+  .card__group.card__group--list .card > a.card__titlte {
+    display: inline-block !important;
+    vertical-align: middle;
+  }
   .card__group.card__group--list .card:first-child .card__img {
     width: 100%;
   }
@@ -2715,8 +2724,6 @@ ul.article__function--clone li a i {
 }
 .card__group .card .card__titlte {
   margin-top: 10px;
-  padding-left: 10px;
-  width: calc(100% - 120px);
   font-size: 1.125rem;
   display: -webkit-box;
   overflow: hidden;
@@ -2730,12 +2737,6 @@ ul.article__function--clone li a i {
 }
 .card__group .card:hover .card__titlte {
   color: #D60C18;
-}
-.card__group .card > a.card__img,
-.card__group .card > a.card__titlte {
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: 0;
 }
 
 .list__group {
