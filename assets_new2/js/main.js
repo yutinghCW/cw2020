@@ -1,5 +1,5 @@
 $(function() {
-    $('a').click(function(e) {
+    $('a, button').click(function(e) {
         e.preventDefault();
     })
     var width = $(window).width();
@@ -108,11 +108,12 @@ $(function() {
             articleKeywordTop = $('.article__keyword').offset().top,
             articleImgTop = $('.article__header h1').offset().top,
             articleBodyTop = $('.article__body').offset().top - 90,
-            articleLastestHeight = $('.author__lastest').outerHeight(),
+            articleLastestHeight = $('.author__lastest > .list__group').outerHeight(),
             articleFunctionHeight = $('.article__function').outerHeight(),
             articleNextHeight = $('.author__next').outerHeight(),
             articleFunctionBottom = $('.author__might').offset().top - articleFunctionHeight - 162,
-            articleNextBottom = $('.author__might').offset().top - articleNextHeight - 120;
+            articleNextBottom = $('.author__might').offset().top - articleNextHeight - 120,
+            articleLastestOuterHeight = articleKeywordTop - articleTop;
         $('header .process span').css('width', (((scroll + widthHeigh) / documentHeigh) * 100) + '%');
         if (scroll >= articleImgTop) {
             $('header').addClass('scroll');
@@ -156,6 +157,7 @@ $(function() {
                     'bottom': articleNextBottom - articleKeywordTop + articleNextHeight + 122
                 });
             }
+            // $('.author__lastest').css('height', articleLastestOuterHeight);
             $('.author__next').css('top', (articleKeywordTop - articleTop));
         }
         // var iCurScrollPos = $(this).scrollTop(),
