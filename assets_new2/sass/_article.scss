@@ -503,21 +503,25 @@ ul.article__function--added {
 }
 
 .author__lastest {
-    position: relative;
-    .list__group {
-        padding: 20px 10px;
-        border: 1px solid $gray-100;
-        background-color: $white;
-        @include breakpoint(1024px) {
-            position: absolute;
-            width: 330px;
-            padding: 30px 20px;
-        }
-    }
+    padding: 20px 10px;
+    border: 1px solid $gray-100;
+    background-color: $white;
+    // @include transition(top 0.3s);
     @include breakpoint(max-width 1023px) {
         order: 2;
         .h3 {
             text-align: center;
+        }
+    }
+    @include breakpoint(1024px) {
+        position: absolute;
+        width: 330px;
+        padding: 30px 20px;
+        margin-bottom: 30px;
+        &.author__lastest--fixedtop {
+            position: fixed;
+            top: 75px;
+            right: calc( (100% - 1260px) / 2);
         }
     }
     .list__item {
