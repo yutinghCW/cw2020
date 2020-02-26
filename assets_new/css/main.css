@@ -1617,6 +1617,11 @@ header .container--scroll .article_title {
 footer {
   background-color: #EEEEEE;
 }
+@media (max-width: 1023px) {
+  footer {
+    padding-bottom: 60px;
+  }
+}
 footer .container:last-child {
   padding-top: 30px;
   padding-bottom: 30px;
@@ -2629,9 +2634,6 @@ ul.article__function--clone li a i {
 .card__group.card__group--grid .card:nth-child(3n+1) {
   margin-left: 0;
 }
-.card__group.card__group--grid .card .card__titlte {
-  margin-top: 10px;
-}
 @media (min-width: 1024px) {
   .card__group.card__group--list {
     display: grid;
@@ -2640,9 +2642,6 @@ ul.article__function--clone li a i {
   }
 }
 @media (min-width: 1024px) {
-  .card__group.card__group--list .card .card__titlte {
-    margin-top: 10px;
-  }
   .card__group.card__group--list .card:nth-child(1) {
     grid-row: 1 / span 67;
   }
@@ -2673,33 +2672,19 @@ ul.article__function--clone li a i {
   .card__group.card__group--list .card .card__img {
     width: 120px;
   }
-  .card__group.card__group--list .card .card__text {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    width: calc(100% - 120px);
-    padding-left: 10px;
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
   .card__group.card__group--list .card:first-child .card__img {
     width: 100%;
   }
-  .card__group.card__group--list .card:first-child .card__text {
+  .card__group.card__group--list .card:first-child .card__titlte {
     position: static;
     width: 100%;
-    padding-top: 10px;
+    margin-top: 10px;
     padding-left: 0;
     -moz-transform: translateY(0);
     -ms-transform: translateY(0);
     -webkit-transform: translateY(0);
     transform: translateY(0);
   }
-}
-.card__group .card:nth-last-child(-n+4) {
-  margin-bottom: 0;
 }
 .card__group .card .pr {
   position: absolute;
@@ -2724,6 +2709,9 @@ ul.article__function--clone li a i {
   width: 100%;
 }
 .card__group .card .card__titlte {
+  margin-top: 10px;
+  padding-left: 10px;
+  width: calc(100% - 120px);
   font-size: 1.125rem;
   display: -webkit-box;
   overflow: hidden;
@@ -2737,6 +2725,12 @@ ul.article__function--clone li a i {
 }
 .card__group .card:hover .card__titlte {
   color: #D60C18;
+}
+.card__group .card > a.card__img,
+.card__group .card > a.card__titlte {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 0;
 }
 
 .list__group {

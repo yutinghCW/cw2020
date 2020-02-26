@@ -1,5 +1,8 @@
 footer {
     background-color: $gray-100;
+    @include breakpoint(max-width 1023px) {
+        padding-bottom: 60px;
+    }
     .container {
         &:last-child {
             padding-top: 30px;
@@ -98,7 +101,7 @@ footer {
                     padding-left: 0 !important;
                 }
             }
-            .channel__group + .channel__group {
+            .channel__group+.channel__group {
                 h4 {
                     margin-top: 30px;
                 }

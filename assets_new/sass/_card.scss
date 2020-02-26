@@ -10,9 +10,6 @@
             &:nth-child(3n+1) {
                 margin-left: 0;
             }
-            .card__titlte {
-                margin-top: 10px;
-            }
         }
     }
     &.card__group--list {
@@ -31,9 +28,6 @@
                 // &:nth-child(3n+1) {
                 //     margin-left: 0;
                 // }
-                .card__titlte {
-                    margin-top: 10px;
-                }
                 &:nth-child(1) {
                     grid-row: 1 / span 67;
                 }
@@ -66,22 +60,14 @@
                 .card__img {
                     width: 120px;
                 }
-                .card__text {
-                    position: absolute;
-                    top: 50%;
-                    right: 0;
-                    width: calc(100% - 120px);
-                    padding-left: 10px;
-                    @include translateY(-50%);
-                }
                 &:first-child {
                     .card__img {
                         width: 100%;
                     }
-                    .card__text {
+                    .card__titlte {
                         position: static;
                         width: 100%;
-                        padding-top: 10px;
+                        margin-top: 10px;
                         padding-left: 0;
                         @include translateY(0);
                     }
@@ -90,9 +76,6 @@
         }
     }
     .card {
-        &:nth-last-child(-n+4) {
-            margin-bottom: 0;
-        }
         .pr {
             position: absolute;
             bottom: 0;
@@ -116,6 +99,9 @@
             }
         }
         .card__titlte {
+            margin-top: 10px;
+            padding-left: 10px;
+            width: calc(100% - 120px);
             font-size: 1.125rem;
             @include lineclamp(2);
             @include breakpoint(1024px) {
@@ -124,6 +110,12 @@
         }
         &:hover .card__titlte {
             color: $primary;
+        }
+        >a.card__img,
+        >a.card__titlte {
+            display: inline-block;
+            vertical-align: middle;
+            margin-top: 0;
         }
     }
 }
