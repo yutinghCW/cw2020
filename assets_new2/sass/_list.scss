@@ -1,15 +1,19 @@
 .text__list {
     @include listrest(0, 0, none);
+
     @include breakpoint(1024px) {
         display: inline-block;
         width: calc((100% - 120px) / 2);
     }
+
     li {
         border-bottom: 1px solid $gray-100;
+
         &:last-child {
             border-bottom-width: 0;
         }
     }
+
     a {
         display: block;
         position: relative;
@@ -19,9 +23,11 @@
         color: $text;
         font-size: 1rem;
         text-decoration: none;
+
         &:hover {
             color: $primary;
         }
+
         span {
             position: absolute;
             top: 50%;

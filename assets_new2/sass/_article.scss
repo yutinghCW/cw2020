@@ -664,9 +664,6 @@ ul.article__function--added {
                 text-decoration: none;
                 font-weight: normal;
 
-                &:hover {
-                    color: $primary-variant;
-                }
             }
 
             .list__item__title {
@@ -675,9 +672,16 @@ ul.article__function--added {
                 text-decoration: none;
                 @include lineclamp(2);
 
-                &:hover {
-                    color: $primary;
-                }
+            }
+        }
+
+        &:hover {
+            .list__item__text .list__item__subtitle {
+                color: $primary-variant;
+            }
+
+            .list__item__text .list__item__title {
+                color: $primary;
             }
         }
 

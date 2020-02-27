@@ -3017,9 +3017,6 @@ ul.article__function--added span {
   text-decoration: none;
   font-weight: normal;
 }
-.author__lastest .list__item .list__item__text .list__item__subtitle:hover {
-  color: #9D0505;
-}
 .author__lastest .list__item .list__item__text .list__item__title {
   color: #171717;
   font-size: 0.875rem;
@@ -3029,7 +3026,10 @@ ul.article__function--added span {
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
-.author__lastest .list__item .list__item__text .list__item__title:hover {
+.author__lastest .list__item:hover .list__item__text .list__item__subtitle {
+  color: #9D0505;
+}
+.author__lastest .list__item:hover .list__item__text .list__item__title {
   color: #D60C18;
 }
 .author__lastest .list__item.list__item--ad .list__item__img::before {
@@ -3164,7 +3164,7 @@ ul.article__function--added span {
 }
 @media (min-width: 1024px) {
   .card__group .card {
-    width: calc( (100% - 80px) / 5);
+    width: calc((100% - 80px) / 5);
   }
 }
 .card__group .card:first-child {
@@ -3185,9 +3185,6 @@ ul.article__function--added span {
   text-decoration: none;
   font-weight: normal;
 }
-.card__group .card a.card__subtitlte:hover {
-  color: #9D0505;
-}
 .card__group .card a.card__titlte {
   display: -webkit-box;
   overflow: hidden;
@@ -3197,7 +3194,10 @@ ul.article__function--added span {
   font-size: 0.875rem;
   text-decoration: none;
 }
-.card__group .card a.card__titlte:hover {
+.card__group .card:hover a.card__subtitlte {
+  color: #9D0505;
+}
+.card__group .card:hover a.card__titlte {
   color: #D60C18;
 }
 
