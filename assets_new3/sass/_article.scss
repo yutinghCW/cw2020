@@ -76,6 +76,8 @@ p {
         display: inline-block;
         padding-right: 1.15em;
         color: $primary;
+        line-height: 1.5;
+        border-bottom: 1px dashed $primary;
         cursor: pointer;
         &::before {
             @include beforeafter('\e94b', block);
@@ -98,7 +100,10 @@ p {
         }
     }
     strong {
-        font-weight: 500;
+        font-weight: 600;
+        @include breakpoint(1024px) {
+            font-weight: 500;
+        }
     }
 }
 
@@ -107,7 +112,7 @@ blockquote {
     width: 75%;
     padding: 1px 0;
     margin: 40px auto;
-    font-weight: 500;
+    font-weight: 600;
     @include breakpoint(1024px) {
         width: 55%;
         font-weight: 500;
@@ -142,13 +147,46 @@ blockquote {
         font-size: 0;
         li {
             display: inline-block;
+        }
+    }
+    .article__assort {
+        li {
             font-size: 0.875rem;
         }
     }
     .article__author {
         li {
-            >*+* {
-                padding-left: 1rem;
+            font-size: 0;
+            >span {
+                position: relative;
+                padding-right: 2em;
+                font-size: 0.875rem;
+                &::after {
+                    @include beforeafter('', block);
+                    position: absolute;
+                    top: 50%;
+                    right: 0.25em;
+                    width: 1.5em;
+                    height: 1px;
+                    background-color: $text;
+                    @include translateY(-50%);
+                }
+            }
+            >.author--item {
+                display: inline-block;
+                a {
+                    font-size: 0.875rem;
+                }
+                +.author--item {
+                    &::before {
+                        @include beforeafter('、', inline);
+                        font-size: 0.875rem;
+                    }
+                }
+            }
+            +li::before {
+                @include beforeafter('．', inline);
+                font-size: 0.875rem;
             }
         }
         &::after {
@@ -398,19 +436,19 @@ ul.article__function--added {
 .webaccessbar {
     position: fixed;
     bottom: 0;
-    left: 50%;
+    left: 0%;
+    width: 100%;
     padding: 0;
-    @include translateX(-50%);
     z-index: 1;
-    @include breakpoint(1024px) {
-        display: none;
-    }
     .bar__titile {
         display: flex;
         align-items: center;
         justify-content: space-between;
         font-weight: normal;
         background-color: $secondary-variant;
+        @include breakpoint(1024px) {
+            justify-content: center;
+        }
         .text {
             a {
                 display: block;
@@ -419,6 +457,9 @@ ul.article__function--added {
                 padding-bottom: 15px;
                 color: $white;
                 text-decoration: none;
+                @include breakpoint(1024px) {
+                    padding-right: 20px;
+                }
             }
             u {
                 text-underline-position: under;

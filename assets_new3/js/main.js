@@ -1,18 +1,16 @@
 $(function() {
     var width = $(window).width();
+    $('a, button').click(function(e) {
+        e.preventDefault();
+    });
     if (width >= 1024) {
         $('.ad--970by250 img').attr('src', 'assets_new/images/ad-cartier-970-250.jpg')
     } else {
         $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-04.jpg')
     }
-    if (width < 1024) {
-        $('.webaccessbar .bar__titile button').click(function() {
+    $('.webaccessbar .bar__titile button').click(function() {
             $(this).toggleClass('active');
             $(this).parent().siblings().slideToggle();
-        })
-    }
-    $('a, button').click(function(e) {
-            e.preventDefault();
         })
         // 判斷有沒有值
     $("input").each(function() {

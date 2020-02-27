@@ -2446,6 +2446,8 @@ article p .more {
   display: inline-block;
   padding-right: 1.15em;
   color: #D60C18;
+  line-height: 1.5;
+  border-bottom: 1px dashed #D60C18;
   cursor: pointer;
 }
 article p .more::before {

@@ -2012,6 +2012,8 @@ footer .contact span:last-child {
   display: inline-block;
   padding-right: 1.15em;
   color: #D60C18;
+  line-height: 1.5;
+  border-bottom: 1px dashed #D60C18;
   cursor: pointer;
 }
 .main .article__text p .more::before {

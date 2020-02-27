@@ -28,6 +28,7 @@ header {
         }
         @include breakpoint(max-width 1023px) {
             .search,
+            a.channel,
             a.btn {
                 display: none;
             }
@@ -51,6 +52,15 @@ header {
             @include breakpoint(1024px) {
                 height: 40px;
             }
+        }
+    }
+    .channel {
+        margin-left: 30px;
+        color: $text;
+        font-size: 1.125rem;
+        text-decoration: none;
+        &:hover {
+            color: $primary;
         }
     }
     a.btn {

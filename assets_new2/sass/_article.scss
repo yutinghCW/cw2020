@@ -76,6 +76,8 @@ article {
             display: inline-block;
             padding-right: 1.15em;
             color: $primary;
+            line-height: 1.5;
+            border-bottom: 1px dashed $primary;
             cursor: pointer;
             &::before {
                 @include beforeafter('\e94b', block);
