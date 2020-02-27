@@ -2483,6 +2483,7 @@ article p .more::before {
 }
 article p .more:hover {
   color: #9D0505;
+  border-color: #9D0505;
 }
 article p .more__text {
   display: none;
@@ -2704,7 +2705,7 @@ article blockquote::after {
   .article__function.article__function--fixedtop {
     position: fixed;
     top: 90px;
-    left: calc( (100% - 1178px) / 2);
+    left: calc((100% - 1178px) / 2);
   }
   .article__function.article__function--fixedbottom {
     position: absolute;
@@ -2902,7 +2903,7 @@ ul.article__function--added span {
   .author__next.author__next--fixedtop {
     position: fixed;
     top: 90px !important;
-    right: calc( (100% - 1260px) / 2);
+    right: calc((100% - 1260px) / 2);
   }
   .author__next.author__next--fixedbottom {
     position: absolute;
@@ -2988,7 +2989,7 @@ ul.article__function--added span {
   .author__lastest.author__lastest--fixedtop {
     position: fixed;
     top: 75px;
-    right: calc( (100% - 1260px) / 2);
+    right: calc((100% - 1260px) / 2);
   }
 }
 .author__lastest .list__item {

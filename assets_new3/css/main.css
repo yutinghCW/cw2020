@@ -2401,6 +2401,7 @@ p .more::before {
 }
 p .more:hover {
   color: #9D0505;
+  border-color: #9D0505;
 }
 p .more__text {
   display: none;

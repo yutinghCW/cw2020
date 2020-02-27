@@ -2065,6 +2065,7 @@ footer .contact a:hover {
 }
 .main .article__text p .more:hover {
   color: #9D0505;
+  border-color: #9D0505;
 }
 .main .article__text p .more__text {
   display: none;
