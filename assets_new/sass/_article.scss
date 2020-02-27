@@ -1,5 +1,6 @@
 .article__page {
     padding-top: 60px;
+
     @include breakpoint(1024px) {
         padding-top: 65px;
     }
@@ -12,6 +13,7 @@
     padding-right: 20px;
     margin-left: auto;
     margin-right: auto;
+
     @include breakpoint(1024px) {
         width: $article;
         padding-left: 15px;
@@ -21,6 +23,7 @@
 
 main {
     @include breakpoint(max-width 1023px) {
+
         >*:last-child>*:last-child>*:last-child,
         >*:last-child>*:last-child>*:last-child>*:last-child {
             padding-bottom: 0;
@@ -32,78 +35,96 @@ main {
 .main {
     padding-top: 40px;
     padding-bottom: 40px;
+
     @include breakpoint(1024px) {
         padding-bottom: 60px;
     }
+
     &::after {
         @include clear();
     }
+
     h1 {
         font-size: 28px;
         font-weight: 500;
+
         @include breakpoint(1024px) {
             font-size: 32px;
         }
     }
+
     h2 {
         margin-top: 40px;
         margin-bottom: 20px;
         font-weight: 500;
     }
+
     a {
         color: $surface;
+
         &:hover {
             color: $primary;
         }
     }
+
     .article__detail {
         &--primary {
             color: $text;
             font-size: 0;
         }
+
         &--secondary {
             color: $secondary;
+
             @include breakpoint(1024px) {
                 margin-bottom: 30px;
             }
         }
+
         .article__author,
         .article__assort {
             display: inline-block;
             @include listrest(0, 0, none);
             font-size: 0;
+
             li {
                 display: inline-block;
                 font-size: 0.875rem;
             }
         }
+
         .article__author {
             li {
                 >*+* {
                     padding-left: 1rem;
                 }
             }
+
             &::after {
                 @include beforeafter('．', inline);
                 font-size: 0.875rem;
             }
         }
     }
+
     .source {
         display: block;
         padding: 5px 0;
         color: $secondary;
         font-size: 0.875rem;
     }
+
     .imgzoom {
         position: relative;
         display: block;
         background-color: $gray-100;
         cursor: pointer;
+
         @include breakpoint(max-width 1023px) {
             margin-left: -20px;
             margin-right: -20px;
         }
+
         @include breakpoint(1024px) {
             &::after {
                 @include beforeafter('\e94a', block);
@@ -119,44 +140,54 @@ main {
                 background-color: rgba($black, 0.5);
             }
         }
+
         img {
             width: 100%;
         }
     }
+
     .infogram-embed__group {
         padding: 20px 20px 0;
         margin-top: 40px;
         margin-bottom: 40px;
         border: 1px solid $gray-200;
+
         @include breakpoint(1024px) {
             padding: 40px 40px 0;
         }
     }
+
     .article__body {
         position: relative;
         margin-left: auto;
         margin-right: auto;
         font-size: 1.125em;
         line-height: 1.7;
+
         @include breakpoint(1024px) {
             width: 700px;
         }
     }
+
     .article__header ul.article__function--clone {
         margin-top: 15px;
         margin-bottom: 15px;
     }
+
     .article__body ul.article__function--clone {
         margin-top: 30px;
         margin-bottom: 30px;
     }
+
     .article__text {
         p {
             margin-top: 1.15em;
             margin-bottom: 1.15em;
+
             &.preface {
                 color: $surface;
             }
+
             .more {
                 position: relative;
                 display: inline-block;
@@ -165,6 +196,7 @@ main {
                 line-height: 1.5;
                 border-bottom: 1px dashed $primary;
                 cursor: pointer;
+
                 &::before {
                     @include beforeafter('\e94b', block);
                     position: absolute;
@@ -174,33 +206,40 @@ main {
                     line-height: 1;
                     @include translateY(-50%);
                 }
+
                 &:hover {
                     color: $primary-variant;
                 }
             }
+
             .more__text {
                 display: none;
                 width: 100%;
                 margin: 10px 0;
                 padding: 20px 40px;
                 background-color: $gray-100;
+
                 &.active {
                     display: block;
                 }
             }
+
             strong {
                 font-weight: 500;
             }
         }
+
         blockquote {
             position: relative;
             width: 85%;
             padding: 2px 0;
             margin: 40px auto;
             font-weight: 600;
+
             @include breakpoint(1024px) {
                 width: 65%;
             }
+
             &::before,
             &::after {
                 position: absolute;
@@ -211,30 +250,37 @@ main {
                 @include beforeafter('', block);
                 background-color: $primary;
             }
+
             &::before {
                 top: 0;
             }
+
             &::after {
                 bottom: 0;
             }
         }
     }
+
     .article__keyword {
         @include listrest(20px 0, 0, none);
         font-size: 0;
+
         @include breakpoint(1024px) {
             margin: 20px 0 0;
         }
+
         li {
             display: inline-block;
             margin-right: 10px;
             font-size: 0.875rem;
+
             a {
                 display: block;
                 padding: 6px 10px;
                 color: $text;
                 border: 1px solid $gray-200;
                 text-decoration: none;
+
                 &:hover {
                     color: $primary;
                     border-color: $primary;
@@ -242,6 +288,7 @@ main {
             }
         }
     }
+
     .author__might {
         margin-top: 40px;
         margin-bottom: 40px;
@@ -249,10 +296,12 @@ main {
         padding-bottom: 20px;
         border: solid $gray-100;
         border-width: 1px 0;
+
         @include breakpoint(1024px) {
             padding-top: 40px;
             padding-bottom: 40px;
         }
+
         .card__group--scroll {
             @include breakpoint(max-width 1023px) {
                 margin-left: -20px;
@@ -261,43 +310,52 @@ main {
                 overflow: scroll;
             }
         }
+
         .card__group {
             @include breakpoint(max-width 1023px) {
                 width: 725px;
                 padding-left: 20px;
                 padding-right: 20px;
             }
+
             .card {
                 margin-bottom: 0;
+
                 @include breakpoint(max-width 1023px) {
                     width: 215px;
                 }
             }
+
             .card__titlte {
                 font-size: 1.125rem;
                 line-height: 1.5;
             }
         }
     }
+
     .author__intro {
         padding-top: 30px;
         padding-bottom: 30px;
         border-top: 1px solid $gray-100;
+
         @include breakpoint(1024px) {
             display: flex;
             align-items: center;
             padding-top: 40px;
             padding-bottom: 40px;
         }
+
         .author__intro__img {
             position: relative;
             width: 85px;
             height: 85px;
             @include border-radius(50%);
             overflow: hidden;
+
             @include breakpoint(max-width 1023px) {
                 display: none;
             }
+
             img {
                 position: absolute;
                 top: 50%;
@@ -307,64 +365,79 @@ main {
                 @include translateY(-50%);
             }
         }
+
         .author__intro__body {
             @include breakpoint(1024px) {
                 padding-left: 20px;
                 width: calc(100% - 85px);
             }
         }
+
         .author__intro__title {
             display: flex;
             align-items: center;
+
             .btn {
                 margin-left: 15px;
                 font-size: 0.875rem;
             }
         }
+
         .author__intro__essay {
             margin-top: 0.75em;
             margin-bottom: 0;
             line-height: 1.7;
         }
     }
+
     .author__next {
         padding-top: 30px;
         padding-bottom: 30px;
         border-top: 1px solid $gray-100;
+
         @include breakpoint(1024px) {
             display: flex;
             align-items: center;
             padding-top: 40px;
             padding-bottom: 40px;
         }
+
         .author__item {
             display: flex;
             align-items: center;
+
             @include breakpoint(1024px) {
                 width: calc((100% - 30px) / 2);
             }
+
             +.author__item {
                 @include breakpoint(max-width 1023px) {
                     margin-top: 20px;
                 }
+
                 @include breakpoint(1024px) {
                     margin-left: 30px;
                 }
             }
+
             .author__item__img {
                 width: 110px;
+
                 img {
                     width: 100%;
                 }
             }
+
             .author__item__text {
                 width: calc(100% - 110px);
                 padding-left: 10px;
+
                 .author__item__subtitle {
                     color: $primary;
                     font-size: 0.875rem;
                     font-weight: normal;
                 }
+
                 .author__item__title {
                     @include lineclamp(2);
                     color: $text;
@@ -372,40 +445,50 @@ main {
                     text-decoration: none;
                 }
             }
+
             &:hover .author__item__title {
                 color: $primary;
             }
         }
     }
+
     .author__extended {
         padding-top: 20px;
         padding-bottom: 30px;
+
         // border-top: 1px solid $gray-100;
         @include breakpoint(1024px) {
             padding-top: 30px;
             padding-bottom: 40px;
         }
+
         ul {
             @include listrest(0, 0, none);
+
             @include breakpoint(max-width 1023px) {
                 line-height: 1.5;
             }
+
             li+li {
                 @include breakpoint(max-width 1023px) {
                     margin-top: 10px;
                 }
             }
+
             a {
                 display: block;
             }
         }
     }
+
     .author__message {
         padding-top: 30px;
         border-top: 1px solid $gray-100;
+
         @include breakpoint(1024px) {
             padding-top: 40px;
         }
+
         button.btn--facebook {
             color: $white;
             width: 100%;
@@ -414,28 +497,34 @@ main {
             border: 1px solid;
             border-color: $facebook;
             @include transition(all 0.3s);
+
             &:hover {
                 background-color: darken($facebook, 5%);
                 border-color: darken($facebook, 5%);
             }
+
             i {
                 vertical-align: middle;
             }
         }
+
         .author__message--hide {
             display: none;
         }
     }
+
     .article--700 {
         @include breakpoint(1024px) {
             float: left;
             width: 700px;
         }
     }
+
     aside {
         @include breakpoint(max-width 1023px) {
             margin-top: 40px;
         }
+
         @include breakpoint(1024px) {
             float: right;
             width: calc(100% - 740px);
@@ -447,17 +536,21 @@ main {
     position: absolute;
     top: 0;
     left: -135px;
+    z-index: 1;
+
     &.article__function--fixedtop {
         position: fixed;
         top: 80px;
-        left: calc( (100% - 970px) / 2);
+        left: calc((100% - 970px) / 2);
     }
+
     &.article__function--fixedbottom {
         position: absolute;
         top: auto;
         bottom: -10px;
         left: -135px;
     }
+
     @include breakpoint(max-width 1023px) {
         display: none;
     }
@@ -466,23 +559,28 @@ main {
 ul.article__function--share,
 ul.article__function--added {
     @include listrest(0, 0, none);
+
     li {
         @include breakpoint(1024px) {
             margin-bottom: 10px;
         }
+
         @include breakpoint(max-width 1023px) {
             display: inline-block;
             vertical-align: middle;
         }
+
         &.title {
             margin-bottom: 5px;
             color: $secondary;
             font-size: 0.75em;
             text-align: center;
+
             @include breakpoint(max-width 1023px) {
                 display: none;
             }
         }
+
         a {
             display: block;
             width: 36px;
@@ -491,9 +589,11 @@ ul.article__function--added {
             text-decoration: none;
             text-align: center;
             @include border-radius(50%);
+
             i {
                 display: block;
                 line-height: 36px;
+
                 &.icon-bookmark-outlined {
                     font-weight: 600;
                 }
@@ -508,11 +608,14 @@ ul.article__function--share {
             margin-left: 5px;
             margin-right: 5px;
         }
+
         a {
             background-color: $gray-100;
+
             &:hover {
                 color: $primary;
             }
+
             i {
                 font-size: 0.875em;
             }
@@ -524,6 +627,7 @@ ul.article__function--added {
     @include breakpoint(1024px) {
         margin-top: 20px;
     }
+
     @include breakpoint(max-width 1023px) {
         display: none;
         position: absolute;
@@ -534,23 +638,29 @@ ul.article__function--added {
         @include opacity(0);
         @include translate(-50%, -50%);
     }
+
     li {
         @include breakpoint(max-width 1023px) {
             margin-left: 20px;
             margin-right: 20px;
         }
+
         @include breakpoint(max-width 374px) {
             margin-left: 10px;
             margin-right: 10px;
         }
+
         a {
             border: 1px solid $gray-100;
+
             &:hover {
                 color: $primary;
                 border-color: $primary;
             }
+
             i {
                 font-size: 0.75em;
+
                 &.icon-download-pdf {
                     font-size: 1.125em;
                 }
@@ -570,6 +680,7 @@ header.scroll ul.article__function--added {
     0% {
         opacity: 0;
     }
+
     100% {
         opacity: 1;
     }
@@ -578,11 +689,14 @@ header.scroll ul.article__function--added {
 ul.article__function--clone {
     font-size: 0;
     text-align: center;
+
     li {
         font-size: 1.125rem;
+
         a {
             width: 44px;
             height: 44px;
+
             i {
                 line-height: 44px;
             }
@@ -597,15 +711,18 @@ ul.article__function--clone {
     padding: 0;
     @include translateX(-50%);
     z-index: 1;
+
     @include breakpoint(1024px) {
         display: none;
     }
+
     .bar__titile {
         display: flex;
         align-items: center;
         justify-content: space-between;
         font-weight: normal;
         background-color: $primary;
+
         .text {
             a {
                 display: block;
@@ -615,20 +732,24 @@ ul.article__function--clone {
                 color: $white;
                 text-decoration: none;
             }
+
             u {
                 text-underline-position: under;
             }
         }
+
         button {
             position: relative;
             padding: 22px 23px;
             color: $white;
             border: 0;
             background: transparent;
+
             i {
                 display: block;
                 @include transition(transform 0.3s);
             }
+
             &::before {
                 @include beforeafter('', block);
                 position: absolute;
@@ -640,11 +761,13 @@ ul.article__function--clone {
                 @include opacity(0.5);
                 @include translateY(-50%);
             }
+
             &.active i {
                 @include rotate(180deg);
             }
         }
     }
+
     .bar__container {
         display: none;
         padding: 20px;

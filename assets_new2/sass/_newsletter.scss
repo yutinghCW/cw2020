@@ -4,64 +4,77 @@
         margin-right: auto;
         padding-left: 0;
         padding-right: 0;
+
         @include breakpoint(1024px) {
             display: flex;
             align-items: stretch;
             justify-content: space-between;
         }
+
         article {
             display: flex;
             flex-wrap: wrap;
             align-content: center;
+
             >* {
                 width: 100%;
             }
         }
+
         aside {
             padding: 15px 0;
             border: 1px solid $gray-100;
             background-color: $white;
+
             @include breakpoint(1024px) {
                 width: 330px;
                 padding: 14px;
             }
         }
+
         form {
             font-size: 0;
+
             @include breakpoint(max-width 1023px) {
                 text-align: center;
             }
+
             >* {
                 display: inline-block;
                 font-size: 1rem;
                 vertical-align: middle;
+
                 &:focus {
                     outline: none;
                 }
             }
+
             .form__group {
                 width: 100%;
                 max-width: none;
+
                 @include breakpoint(1024px) {
                     width: calc(100% - 164px);
                 }
+
                 .form__group__input {
                     border: 1px solid $gray-100;
                     background-color: $white;
                 }
+
                 &:hover,
                 &.hasValue {
                     .form__group__placeholder {
-                        background-color: $gray;
-                        @include filter-gradient($gray, $white, vertical);
-                        @include background-image(linear-gradient(top, $gray 50%, $white 50%));
+                        background-color: $white;
                     }
                 }
             }
+
             button {
                 @include breakpoint(1024px) {
                     margin-left: 20px;
                 }
+
                 @include breakpoint(max-width 1023px) {
                     margin-top: 15px;
                 }
