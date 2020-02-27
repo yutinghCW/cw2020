@@ -1460,8 +1460,8 @@ header {
   left: 0;
   width: 100%;
   height: 60px;
-  border-bottom: 1px solid #D3D5D7;
   background-color: #fff;
+  overflow: hidden;
   z-index: 5;
 }
 @media (min-width: 1024px) {
@@ -1469,19 +1469,37 @@ header {
     height: 65px;
   }
 }
+header::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: #D3D5D7;
+}
+header .container__group {
+  position: relative;
+  top: 0;
+  -moz-transition: top 0.5s;
+  -o-transition: top 0.5s;
+  -webkit-transition: top 0.5s;
+  transition: top 0.5s;
+}
 header .container {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding-top: 17px;
-  padding-bottom: 18px;
+  padding-bottom: 17px;
 }
 @media (min-width: 1024px) {
   header .container {
     height: 65px;
     padding-top: 11px;
-    padding-bottom: 12px;
+    padding-bottom: 11px;
   }
 }
 header .item > * {
@@ -1566,9 +1584,10 @@ header a.logo img {
 }
 header .process {
   position: absolute;
-  bottom: -1px;
+  bottom: 0;
   left: 0;
   width: 100%;
+  z-index: 1;
 }
 header .process span {
   display: block;
@@ -1585,9 +1604,6 @@ header .container--default a.logo {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-header .container--scroll {
-  display: none;
-}
 header .container--scroll a.logo {
   margin-right: 10px;
 }
@@ -1600,11 +1616,8 @@ header .container--scroll .article_title {
   }
 }
 @media (min-width: 1024px) {
-  header.scroll .container--default {
-    display: none;
-  }
-  header.scroll .container--scroll {
-    display: flex;
+  header.scroll .container__group {
+    top: -65px;
   }
 }
 @media (max-width: 1023px) {
@@ -2029,6 +2042,9 @@ footer .contact span:last-child {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+.main .article__text p .more:hover {
+  color: #9D0505;
+}
 .main .article__text p .more__text {
   display: none;
   width: 100%;
@@ -2436,6 +2452,8 @@ ul.article__function--share li a i {
     left: 50%;
     width: 250px;
     text-align: center;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
     -moz-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     -webkit-transform: translate(-50%, -50%);
@@ -2471,9 +2489,36 @@ ul.article__function--added li a i.icon-download-pdf {
 @media (max-width: 1023px) {
   header.scroll ul.article__function--added {
     display: block;
+    -moz-animation: fadeIn 0.5s 0.1s forwards;
+    -webkit-animation: fadeIn 0.5s 0.1s forwards;
+    animation: fadeIn 0.5s 0.1s forwards;
   }
 }
 
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 ul.article__function--clone {
   font-size: 0;
   text-align: center;

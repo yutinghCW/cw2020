@@ -4,11 +4,25 @@ header {
     left: 0;
     width: 100%;
     height: 60px;
-    border-bottom: 1px solid $gray-200;
     background-color: $white;
+    overflow: hidden;
     z-index: 5;
     @include breakpoint(1024px) {
         height: 65px;
+    }
+    &::after {
+        @include beforeafter('', block);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $gray-200;
+    }
+    .container__group {
+        position: relative;
+        top: 0;
+        @include transition(top 0.5s);
     }
     .container {
         position: relative;
@@ -16,11 +30,11 @@ header {
         align-items: center;
         justify-content: space-between;
         padding-top: 17px;
-        padding-bottom: 18px;
+        padding-bottom: 17px;
         @include breakpoint(1024px) {
             height: 65px;
             padding-top: 11px;
-            padding-bottom: 12px;
+            padding-bottom: 11px;
         }
     }
     .item>* {
@@ -95,9 +109,10 @@ header {
     }
     .process {
         position: absolute;
-        bottom: -1px;
+        bottom: 0;
         left: 0;
         width: 100%;
+        z-index: 1;
         span {
             display: block;
             width: 0;
@@ -114,7 +129,6 @@ header {
         }
     }
     .container--scroll {
-        display: none;
         a.logo {
             margin-right: 10px;
         }
@@ -129,11 +143,8 @@ header {
             }
         }
         @include breakpoint(1024px) {
-            .container--default {
-                display: none;
-            }
-            .container--scroll {
-                display: flex;
+            .container__group {
+                top: -65px;
             }
         }
     }

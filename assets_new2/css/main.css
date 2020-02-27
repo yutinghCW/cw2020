@@ -2463,6 +2463,9 @@ article p .more::before {
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+article p .more:hover {
+  color: #9D0505;
+}
 article p .more__text {
   display: none;
   width: 100%;

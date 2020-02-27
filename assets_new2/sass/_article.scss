@@ -88,6 +88,9 @@ article {
                 line-height: 1;
                 @include translateY(-50%);
             }
+            &:hover {
+                color: $primary-variant;
+            }
         }
         .more__text {
             display: none;
