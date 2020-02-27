@@ -2855,7 +2855,7 @@ ul.article__function--added li a i.icon-download-pdf {
 }
 .webaccessbar .bar__container {
   display: none;
-  padding: 20px;
+  padding: 20px 0;
   background-color: #fff;
 }
 
