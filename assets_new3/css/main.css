@@ -2221,6 +2221,12 @@ footer .contact {
     text-align: center;
   }
 }
+footer .contact a {
+  color: #171717;
+}
+footer .contact a:hover {
+  color: #D60C18;
+}
 footer .contact span {
   display: block;
 }

@@ -2174,6 +2174,12 @@ footer .contact span:first-child {
 footer .contact span:last-child {
   display: block;
 }
+footer .contact a {
+  color: #171717;
+}
+footer .contact a:hover {
+  color: #D60C18;
+}
 
 .search .search__group {
   position: relative;

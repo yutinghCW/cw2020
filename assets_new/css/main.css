@@ -1813,6 +1813,12 @@ footer .contact span:last-child {
     margin-top: 30px;
   }
 }
+footer .contact a {
+  color: #171717;
+}
+footer .contact a:hover {
+  color: #D60C18;
+}
 
 .breadcrumbs {
   margin: 0;

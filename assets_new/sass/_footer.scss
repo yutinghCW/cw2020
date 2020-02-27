@@ -160,5 +160,11 @@ footer {
                 }
             }
         }
+        a {
+            color: $text;
+            &:hover {
+                color: $primary;
+            }
+        }
     }
 }

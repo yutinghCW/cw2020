@@ -82,5 +82,11 @@ footer {
                 display: block;
             }
         }
+        a {
+            color: $text;
+            &:hover {
+                color: $primary;
+            }
+        }
     }
 }

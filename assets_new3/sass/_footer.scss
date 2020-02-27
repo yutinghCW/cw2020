@@ -146,6 +146,12 @@ footer {
         @include breakpoint(max-width 1023px) {
             text-align: center;
         }
+        a {
+            color: $text;
+            &:hover {
+                color: $primary;
+            }
+        }
         span {
             display: block;
             @include breakpoint(1024px) {
