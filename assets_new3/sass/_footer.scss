@@ -1,8 +1,6 @@
 footer {
     background-color: $gray-100;
-    @include breakpoint(max-width 1023px) {
-        padding-bottom: 60px;
-    }
+    padding-bottom: 60px;
     .container {
         &:last-child {
             padding-top: 30px;

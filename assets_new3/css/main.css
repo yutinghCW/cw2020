@@ -2057,11 +2057,7 @@ header a.btn:hover {
 }
 footer {
   background-color: #EEEEEE;
-}
-@media (max-width: 1023px) {
-  footer {
-    padding-bottom: 60px;
-  }
+  padding-bottom: 60px;
 }
 footer .container:last-child {
   padding-top: 30px;
