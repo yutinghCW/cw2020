@@ -162,6 +162,7 @@ footer {
         }
         a {
             color: $text;
+            text-decoration: none;
             &:hover {
                 color: $primary;
             }

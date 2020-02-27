@@ -1815,6 +1815,7 @@ footer .contact span:last-child {
 }
 footer .contact a {
   color: #171717;
+  text-decoration: none;
 }
 footer .contact a:hover {
   color: #D60C18;
