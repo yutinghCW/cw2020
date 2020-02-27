@@ -1,5 +1,6 @@
 $(function() {
-    var width = $(window).width();
+    var width = $(window).width(),
+        iScrollPos = 0;
     $('a, button').click(function(e) {
         e.preventDefault();
     });
@@ -99,5 +100,15 @@ $(function() {
         } else {
             $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-04.jpg')
         }
+    });
+    $(window).scroll(function() {
+        var iCurScrollPos = $(this).scrollTop();
+        // 往上滾動出現<nav>
+        if (iCurScrollPos < iScrollPos) {
+            $("header").addClass("fixed");
+        } else {
+            $("header").removeClass("fixed");
+        }
+        iScrollPos = iCurScrollPos;
     });
 })

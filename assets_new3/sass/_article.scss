@@ -1,4 +1,5 @@
 .article__page {
+    padding-top: 60px;
     background-color: $gray;
 }
 
@@ -87,6 +88,9 @@ p {
             font-family: "icomoon";
             line-height: 1;
             @include translateY(-50%);
+        }
+        &:hover {
+            color: $primary-variant;
         }
     }
     .more__text {

@@ -1,8 +1,16 @@
 header {
-    position: relative;
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     background-color: $white;
     border-bottom: 1px solid $gray-200;
+    z-index: 1;
+    &.fixed {
+        position: fixed;
+        @include opacity(0);
+        @include animation(fadeIn 0.3s forwards);
+    }
     .container {
         position: relative;
         display: flex;
@@ -10,6 +18,10 @@ header {
         justify-content: space-between;
         padding-top: 12px;
         padding-bottom: 13px;
+        @include breakpoint(1024px) {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
     }
     .item {
         font-size: 0;
@@ -70,5 +82,14 @@ header {
         &:hover {
             color: $primary-variant;
         }
+    }
+}
+
+@include keyframes(fadeIn) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
