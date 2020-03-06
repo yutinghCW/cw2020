@@ -535,6 +535,8 @@ ul.article__function--clone {
             justify-content: center;
         }
         @include breakpoint(max-width 1023px) {
+            padding-top: 5px;
+            padding-bottom: 5px;
             justify-content: space-between;
         }
         .text {

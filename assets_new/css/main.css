@@ -2993,6 +2993,8 @@ ul.article__function--clone li a i {
 }
 @media (max-width: 1023px) {
   .webaccessbar .bar__titile {
+    padding-top: 5px;
+    padding-bottom: 5px;
     justify-content: space-between;
   }
 }
