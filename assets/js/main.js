@@ -5,22 +5,9 @@ $(function() {
         e.preventDefault();
     })
     if (width >= 1024) {
-        $('.ad--970by250 img').attr('src', 'assets_new/images/ad-970-250.jpg')
+        $('.ad--970by250 img').attr('src', 'assets_new/images/ad-970-250.jpg');
     } else {
-        $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-07.jpg')
-    }
-    if (width < 1024) {
-        $('.article__function--added').clone().insertBefore('.article__img, .author__intro').addClass('article__function--clone');
-        $('.article__function--share').clone().prependTo('.container--default');
-        $('.list__group').each(function() {
-            $(this).append('<button class="btn btn--text">顯示更多</button>');
-            var liLength = $(this).children().length;
-            $(this).children().slice((liLength / 2), (liLength - 1)).hide();
-            $(this).children('button').click(function() {
-                $(this).hide();
-                $(this).siblings().show();
-            })
-        });
+        $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-07.jpg');
     }
     $('.webaccessbar .bar__titile button').click(function() {
         $(this).toggleClass('active');
@@ -39,6 +26,13 @@ $(function() {
             }
         })
     });
+
+    if (width < 1024) {
+        $('article').each(function() {
+            $(this).children().children().children('.article__function').children('.article__function--share').clone().insertBefore($(this).children().children('.article__header').children('.article__img')).addClass('article__function--clone mb-m-20');
+            $(this).children().children().children('.article__function').children('.article__function--share').clone().insertBefore($(this).children().children('.article__body').children('.author__extended')).addClass('article__function--clone mb-m-20');
+        });
+    }
 
     function input() {
         $("input").parent().addClass('form__group--defalt');
@@ -101,61 +95,60 @@ $(function() {
         $('body').removeClass('message__open');
         $('.black').removeClass('opened black-fullscreen');
     })
-    $('.author__next').css('top', ($('.article__body').outerHeight() * 0.8) - $('.author__next').outerHeight());
     $(window).resize(function() {
         var width = $(window).width();
         if (width >= 1024) {
-            $('.ad--970by250 img').attr('src', 'assets_new/images/ad-970-250.jpg')
+            $('.ad--970by250 img').attr('src', 'assets_new/images/ad-970-250.jpg');
         } else {
-            $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-07.jpg')
+            $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-07.jpg');
         }
     });
-    $(window).on('scroll resize', function() {
-        var scroll = $(this).scrollTop(),
-            iCurScrollPos = $(this).scrollTop(),
-            articleImgTop = $('.article__img').offset().top,
-            articleBodyTop = $('.article__body').offset().top - 80,
-            articleFunctionHeight = $('.article__function').outerHeight(),
-            articleHeight = $('.article__body').outerHeight(),
-            articleNextHeight = $('.author__next').outerHeight(),
-            articleNextStart = (articleHeight * 0.8) - articleNextHeight,
-            articleNextBottom = $('.author__might').offset().top - articleNextHeight - 145,
-            articleBodyBottom = $('.author__might').offset().top - articleFunctionHeight - 115;
-        if (width >= 1024) {
-            if ((scroll >= articleBodyTop) && (scroll < articleBodyBottom)) {
-                $('.article__function').addClass('article__function--fixedtop');
-            } else {
-                $('.article__function').removeClass('article__function--fixedtop');
-            }
-            if (scroll >= articleBodyBottom) {
-                $('.article__function').addClass('article__function--fixedbottom');
-            } else {
-                $('.article__function').removeClass('article__function--fixedbottom');
-            }
-            if (scroll >= (articleBodyTop + articleNextStart - 10)) {
-                $('.author__next').addClass('author__next--fixedtop');
-            } else {
-                $('.author__next').removeClass('author__next--fixedtop');
-                $('.author__next').css('top', articleNextStart);
-            }
-            if (scroll >= articleNextBottom) {
-                $('.author__next').addClass('author__next--fixedbottom');
-            } else {
-                $('.author__next').removeClass('author__next--fixedbottom');
-            }
-        }
 
+    $(window).scroll(function() {
+        var windowHeight = $(window).height(),
+            scroll = $(this).scrollTop(),
+            documentHeigh = $(document).outerHeight(),
+            articleImgTop = $('.article__img').offset().top - 65;
+        $('header .process span').css('width', (((scroll + windowHeight) / documentHeigh) * 100) + '%');
+        $('.article__function').each(function() {
+            var articleImgTop = $(this).parent().siblings().children('.article__img').offset().top - 65,
+                articleKeywordBottom = $(this).parent().parent().siblings('.author__might').offset().top - (windowHeight / 2);
+            if (width >= 1024) {
+                if ((scroll >= articleImgTop) && (scroll < articleKeywordBottom)) {
+                    $(this).fadeIn(150)
+                } else {
+                    $(this).fadeOut(150)
+                }
+            }
+        });
         // 往上滾動出現<nav>
-        if (iCurScrollPos < iScrollPos) {
-            $("header").addClass("fixed");
-        } else {
-            $("header").removeClass("fixed");
-        }
-        iScrollPos = iCurScrollPos;
         if (scroll >= articleImgTop) {
             $('header').addClass('scroll');
         } else {
             $('header').removeClass('scroll');
+        }
+    });
+    $('main').infinitescroll('binding', 'unbind');
+    $('main').data('infinitescroll', null);
+    $(window).unbind('.infscr');
+    $('main').infinitescroll({
+        navSelector: 'a#next:last',
+        nextSelector: 'a#next:last',
+        itemSelector: 'article',
+        dataType: 'html',
+        maxPage: 2
+    }, function() {
+        if (width >= 1024) {
+            $('.ad--970by250 img').attr('src', 'assets_new/images/ad-970-250.jpg');
+        } else {
+            $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-07.jpg');
+            $('article').parent().children().eq(2).each(function() {
+                var originShare = $(this).children().children().children('.article__function').children('.article__function--share'),
+                    newSharePositionTop = $(this).children().children('.article__header').children('.article__img'),
+                    newSharePositionBottom = $(this).children().children('.article__body').children('.author__extended');
+                originShare.clone().insertBefore(newSharePositionTop).addClass('article__function--clone mb-m-20');
+                originShare.clone().insertBefore(newSharePositionBottom).addClass('article__function--clone mb-m-20');
+            });
         }
     });
 });

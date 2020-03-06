@@ -1,0 +1,101 @@
+.card__group {
+    font-size: 0;
+    @include breakpoint(max-width 1023px) {
+        &--scroll {
+            margin-left: -20px;
+            margin-right: -20px;
+            overflow: scroll;
+            .card__group {
+                width: 1920px;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        }
+    }
+    .card {
+        width: 100%;
+        margin-bottom: 30px;
+        font-size: 0;
+        @include breakpoint(1024px) {
+            display: inline-block;
+            width: calc((100% - 40px) / 3);
+            margin-left: 20px;
+            margin-bottom: 40px;
+            vertical-align: top;
+            &:nth-child(3n+1) {
+                margin-left: 0;
+            }
+        }
+        .pr {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: block;
+            width: 25px;
+            color: $white;
+            font-size: 0.75rem;
+            line-height: 25px;
+            text-align: center;
+            background: rgba($black, 0.5);
+            text-transform: uppercase;
+        }
+        a {
+            position: relative;
+            display: inline-block;
+            text-decoration: none;
+            vertical-align: middle;
+            img {
+                width: 100%;
+            }
+            @include breakpoint(1024px) {
+                display: block;
+            }
+        }
+        .card__img {
+            width: 100%;
+        }
+        .card__text {
+            width: 100%;
+        }
+        .card__subtitlte {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            color: $primary;
+            @include breakpoint(1024px) {
+                font-size: 0.875rem;
+            }
+        }
+        .card__titlte {
+            margin-top: 5px;
+            color: $text;
+            font-size: 1rem;
+            @include lineclamp(2);
+        }
+        &:hover .card__titlte {
+            color: $primary;
+        }
+        &:hover .card__subtitlte {
+            color: $primary-variant;
+        }
+    }
+}
+
+@media (max-width: 1023px) {
+    .card__group--scroll {
+        margin-left: -20px;
+        margin-right: -20px;
+        overflow: scroll;
+        .card__group {
+            width: 1460px;
+            padding-left: 20px;
+            padding-right: 20px;
+            .card {
+                display: inline-block;
+                width: 220px;
+                +.card {
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+}
