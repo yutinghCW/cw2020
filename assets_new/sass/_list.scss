@@ -23,20 +23,28 @@
         width: calc((100% - 20px) / 2);
         vertical-align: top;
     }
+    .h2 {
+        margin-left: -30px;
+    }
     li {
-        border-bottom: 1px solid $gray-100;
+        position: relative;
+        border-top: 1px solid transparent;
+        +li::before {
+            @include beforeafter('', block);
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: calc(100% + 30px);
+            height: 1px;
+            background-color: $gray-100;
+        }
         &:last-child {
             border-bottom-width: 0;
         }
-        &::after {
-            @include clear();
-        }
     }
     a {
-        float: right;
-        display: inline-block;
+        display: block;
         position: relative;
-        width: calc(100% - 35px);
         padding-left: 5px;
         color: $text;
         text-decoration: none;
@@ -44,12 +52,6 @@
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
-        @include breakpoint(1024px) {
-            width: calc(100% - 30px);
-        }
-        @include breakpoint(max-width 1023px) {
-            @include animation(floatRight 0s 0.3s forwards);
-        }
         &:hover {
             color: $primary;
         }
@@ -57,17 +59,9 @@
 }
 
 ol.text__list {
-    @include listrest(0, 0, decimal);
-    list-style-position: inside;
+    @include listrest(0, 0 0 0 30px, decimal);
 }
 
 ul.text__list {
-    @include listrest(0, 0, disc);
-    list-style-position: inside;
-}
-
-@include keyframes(floatRight) {
-    100% {
-        float: right;
-    }
+    @include listrest(0, 0 0 0 30px, disc);
 }
