@@ -1893,6 +1893,8 @@ textarea {
   }
 }
 .ad.ad--300by250 {
+  padding-top: 5px;
+  padding-bottom: 10px;
   margin-top: 40px;
   margin-bottom: 40px;
 }
@@ -1901,6 +1903,14 @@ textarea {
     margin-left: -20px;
     margin-right: -20px;
   }
+}
+.ad.ad--300by250 > span {
+  display: block;
+  margin-bottom: 5px;
+  color: #939EA7;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: center;
 }
 .ad.ad--300by250 a {
   width: 300px;
@@ -2385,6 +2395,30 @@ footer .contact a:hover {
   border-top: 1px solid #171717;
 }
 
+h1,
+.h1 {
+  font-size: 28px;
+  font-weight: 500;
+}
+@media (min-width: 1024px) {
+  h1,
+  .h1 {
+    font-size: 32px;
+  }
+}
+
+h2,
+.h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+@media (min-width: 1024px) {
+  h2,
+  .h2 {
+    font-size: 22px;
+  }
+}
+
 .main {
   padding-top: 40px;
   padding-bottom: 40px;
@@ -2399,19 +2433,9 @@ footer .contact a:hover {
   display: table;
   clear: both;
 }
-.main h1 {
-  font-size: 28px;
-  font-weight: 500;
-}
-@media (min-width: 1024px) {
-  .main h1 {
-    font-size: 32px;
-  }
-}
 .main h2 {
   margin-top: 40px;
   margin-bottom: 20px;
-  font-weight: 500;
 }
 .main a {
   color: #003a9f;
@@ -3205,10 +3229,10 @@ ul.article__function--clone li a i {
   color: #9D0505;
 }
 @media (max-width: 1023px) {
-  .card__group .card:nth-child(1) .card__img, .card__group .card:nth-child(5) .card__img {
+  .card__group .card:nth-child(1) .card__img, .card__group .card:nth-child(6) .card__img {
     width: 100%;
   }
-  .card__group .card:nth-child(1) .card__text, .card__group .card:nth-child(5) .card__text {
+  .card__group .card:nth-child(1) .card__text, .card__group .card:nth-child(6) .card__text {
     margin-top: 10px;
     padding-left: 0;
     width: 100%;
@@ -3260,7 +3284,7 @@ ul.article__function--clone li a i {
   float: right;
   display: inline-block;
   position: relative;
-  width: calc(100% - 30px);
+  width: calc(100% - 35px);
   padding-left: 5px;
   color: #171717;
   text-decoration: none;
@@ -3268,6 +3292,11 @@ ul.article__function--clone li a i {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+@media (min-width: 1024px) {
+  .text__list a {
+    width: calc(100% - 30px);
+  }
 }
 .text__list a:hover {
   color: #D60C18;

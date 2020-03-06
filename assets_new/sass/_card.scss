@@ -93,7 +93,7 @@
         }
         @include breakpoint(max-width 1023px) {
             &:nth-child(1),
-            &:nth-child(5) {
+            &:nth-child(6) {
                 .card__img {
                     width: 100%;
                 }

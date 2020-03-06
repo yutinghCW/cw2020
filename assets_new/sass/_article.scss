@@ -28,6 +28,24 @@
     border-top: 1px solid $black;
 }
 
+h1,
+.h1 {
+    font-size: 28px;
+    font-weight: 500;
+    @include breakpoint(1024px) {
+        font-size: 32px;
+    }
+}
+
+h2,
+.h2 {
+    font-size: 20px;
+    font-weight: 500;
+    @include breakpoint(1024px) {
+        font-size: 22px;
+    }
+}
+
 .main {
     padding-top: 40px;
     padding-bottom: 40px;
@@ -37,17 +55,9 @@
     &::after {
         @include clear();
     }
-    h1 {
-        font-size: 28px;
-        font-weight: 500;
-        @include breakpoint(1024px) {
-            font-size: 32px;
-        }
-    }
     h2 {
         margin-top: 40px;
         margin-bottom: 20px;
-        font-weight: 500;
     }
     a {
         color: $surface;

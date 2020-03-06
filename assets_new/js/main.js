@@ -7,7 +7,7 @@ $(function() {
     if (width >= 1024) {
         $('.ad--970by250 img').attr('src', 'assets_new/images/ad-cartier-970-250.jpg')
     } else {
-        $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-04.jpg')
+        $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-07.jpg')
     }
     if (width < 1024) {
         $('.article__function--added').clone().insertBefore('.article__img, .author__intro').addClass('article__function--clone');
@@ -111,7 +111,7 @@ $(function() {
         if (width >= 1024) {
             $('.ad--970by250 img').attr('src', 'assets_new/images/ad-cartier-970-250.jpg')
         } else {
-            $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-04.jpg')
+            $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-07.jpg')
         }
     });
     $(window).on('scroll resize', function() {
