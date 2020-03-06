@@ -16,37 +16,36 @@
 }
 
 .text__list {
-    font-size: 1rem;
+    @include listrest(0, 0, none);
     line-height: 44px;
     @include breakpoint(1024px) {
         display: inline-block;
         width: calc((100% - 20px) / 2);
         vertical-align: top;
     }
-    .h2 {
-        margin-left: -30px;
-    }
     li {
-        position: relative;
-        border-top: 1px solid transparent;
-        +li::before {
-            @include beforeafter('', block);
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: calc(100% + 30px);
-            height: 1px;
-            background-color: $gray-100;
-        }
+        font-size: 0;
+        border-bottom: 1px solid $gray-100;
         &:last-child {
             border-bottom-width: 0;
         }
+        &::after {
+            @include clear();
+        }
+        >span {
+            display: inline-block;
+            width: 30px;
+            font-size: 1.25rem;
+            vertical-align: middle;
+        }
     }
     a {
-        display: block;
+        display: inline-block;
         position: relative;
+        width: calc(100% - 30px);
         padding-left: 5px;
         color: $text;
+        font-size: 1rem;
         text-decoration: none;
         vertical-align: middle;
         white-space: nowrap;
@@ -58,10 +57,6 @@
     }
 }
 
-ol.text__list {
-    @include listrest(0, 0 0 0 30px, decimal);
-}
-
-ul.text__list {
-    @include listrest(0, 0 0 0 30px, disc);
+ul.text__list li>span {
+    text-align: center;
 }
