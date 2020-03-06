@@ -1,90 +1,31 @@
 .card__group {
     font-size: 0;
-    &.card__group--grid {
-        .card {
-            display: inline-block;
-            width: calc((100% - 40px) / 3);
-            margin-left: 20px;
-            margin-bottom: 40px;
-            vertical-align: top;
-            &:nth-child(3n+1) {
-                margin-left: 0;
-            }
-        }
-    }
-    &.card__group--list {
-        @include breakpoint(1024px) {
-            display: grid;
-            grid-template-columns: repeat(35, 1fr);
-            grid-template-rows: repeat(142, 1fr);
-        }
-        .card {
-            @include breakpoint(1024px) {
-                // display: inline-block;
-                // width: calc((100% - 40px) / 3);
-                // margin-left: 20px;
-                // margin-bottom: 40px;
-                // vertical-align: top;
-                // &:nth-child(3n+1) {
-                //     margin-left: 0;
-                // }
-                &:nth-child(1) {
-                    grid-row: 1 / span 67;
-                }
-                &:nth-child(2) {
-                    grid-row: 76 / span 67;
-                }
-                &:nth-child(3) {
-                    grid-row: 1 / span 42;
-                }
-                &:nth-child(4) {
-                    grid-row: 51 / span 42;
-                }
-                &:nth-child(5) {
-                    grid-row: 101 / span 42;
-                }
-                &:nth-child(1),
-                &:nth-child(2) {
-                    grid-column: 1 / span 21;
-                    // padding-right: 60px;
-                }
-                &:nth-child(3),
-                &:nth-child(4),
-                &:nth-child(5) {
-                    grid-column: 24 / span 11;
-                }
-            }
-            @include breakpoint(max-width 1023px) {
-                position: relative;
-                margin-top: 20px;
-                .card__img {
-                    width: 120px;
-                }
-                .card__titlte {
-                    padding-left: 10px;
-                    width: calc(100% - 120px);
-                }
-                >a.card__img,
-                >a.card__titlte {
-                    display: inline-block !important;
-                    vertical-align: middle;
-                }
-                &:first-child {
-                    .card__img {
-                        width: 100%;
-                    }
-                    .card__titlte {
-                        position: static;
-                        width: 100%;
-                        margin-top: 10px;
-                        padding-left: 0;
-                        @include translateY(0);
-                    }
-                }
+    @include breakpoint(max-width 1023px) {
+        &--scroll {
+            margin-left: -20px;
+            margin-right: -20px;
+            overflow: scroll;
+            .card__group {
+                width: 1920px;
+                padding-left: 20px;
+                padding-right: 20px;
             }
         }
     }
     .card {
+        width: 100%;
+        margin-bottom: 30px;
+        font-size: 0;
+        @include breakpoint(1024px) {
+            display: inline-block;
+            width: calc((100% - 80px) / 5);
+            margin-left: 20px;
+            margin-bottom: 60px;
+            vertical-align: top;
+            &:nth-child(5n+1) {
+                margin-left: 0;
+            }
+        }
         .pr {
             position: absolute;
             bottom: 0;
@@ -100,23 +41,68 @@
         }
         a {
             position: relative;
-            display: block;
-            color: $text;
+            display: inline-block;
             text-decoration: none;
+            vertical-align: middle;
             img {
                 width: 100%;
             }
+            @include breakpoint(1024px) {
+                display: block;
+            }
+        }
+        .card__img {
+            width: 105px;
+            @include breakpoint(1024px) {
+                width: 100%;
+            }
+        }
+        .card__text {
+            width: calc(100% - 105px);
+            @include breakpoint(max-width 1023px) {
+                display: inline-block;
+                vertical-align: middle;
+                padding-left: 15px;
+            }
+            @include breakpoint(1024px) {
+                width: 100%;
+            }
+        }
+        .card__subtitlte {
+            font-size: 0.75rem;
+            color: $primary;
+            @include breakpoint(1024px) {
+                margin-top: 10px;
+                font-size: 0.875rem;
+            }
         }
         .card__titlte {
-            margin-top: 10px;
-            font-size: 1.125rem;
+            margin-top: 5px;
+            color: $text;
+            font-size: 1rem;
             @include lineclamp(2);
             @include breakpoint(1024px) {
-                font-size: 1rem;
+                -webkit-line-clamp: 3;
             }
         }
         &:hover .card__titlte {
             color: $primary;
+        }
+        &:hover .card__subtitlte {
+            color: $primary-variant;
+        }
+        @include breakpoint(max-width 1023px) {
+            &:nth-child(1),
+            &:nth-child(5) {
+                .card__img {
+                    width: 100%;
+                }
+                .card__text {
+                    margin-top: 10px;
+                    padding-left: 0;
+                    width: 100%;
+                }
+            }
         }
     }
 }

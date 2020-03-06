@@ -1,0 +1,122 @@
+.card__group {
+    font-size: 0;
+    &.card__group--grid {
+        .card {
+            display: inline-block;
+            width: calc((100% - 40px) / 3);
+            margin-left: 20px;
+            margin-bottom: 40px;
+            vertical-align: top;
+            &:nth-child(3n+1) {
+                margin-left: 0;
+            }
+        }
+    }
+    &.card__group--list {
+        @include breakpoint(1024px) {
+            display: grid;
+            grid-template-columns: repeat(35, 1fr);
+            grid-template-rows: repeat(142, 1fr);
+        }
+        .card {
+            @include breakpoint(1024px) {
+                // display: inline-block;
+                // width: calc((100% - 40px) / 3);
+                // margin-left: 20px;
+                // margin-bottom: 40px;
+                // vertical-align: top;
+                // &:nth-child(3n+1) {
+                //     margin-left: 0;
+                // }
+                &:nth-child(1) {
+                    grid-row: 1 / span 67;
+                }
+                &:nth-child(2) {
+                    grid-row: 76 / span 67;
+                }
+                &:nth-child(3) {
+                    grid-row: 1 / span 42;
+                }
+                &:nth-child(4) {
+                    grid-row: 51 / span 42;
+                }
+                &:nth-child(5) {
+                    grid-row: 101 / span 42;
+                }
+                &:nth-child(1),
+                &:nth-child(2) {
+                    grid-column: 1 / span 21;
+                    // padding-right: 60px;
+                }
+                &:nth-child(3),
+                &:nth-child(4),
+                &:nth-child(5) {
+                    grid-column: 24 / span 11;
+                }
+            }
+            @include breakpoint(max-width 1023px) {
+                position: relative;
+                margin-top: 20px;
+                .card__img {
+                    width: 120px;
+                }
+                .card__titlte {
+                    padding-left: 10px;
+                    width: calc(100% - 120px);
+                }
+                >a.card__img,
+                >a.card__titlte {
+                    display: inline-block !important;
+                    vertical-align: middle;
+                }
+                &:first-child {
+                    .card__img {
+                        width: 100%;
+                    }
+                    .card__titlte {
+                        position: static;
+                        width: 100%;
+                        margin-top: 10px;
+                        padding-left: 0;
+                        @include translateY(0);
+                    }
+                }
+            }
+        }
+    }
+    .card {
+        .pr {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: block;
+            width: 25px;
+            color: $white;
+            font-size: 0.75rem;
+            line-height: 25px;
+            text-align: center;
+            background: rgba($black, 0.5);
+            text-transform: uppercase;
+        }
+        a {
+            position: relative;
+            display: block;
+            color: $text;
+            text-decoration: none;
+            img {
+                width: 100%;
+            }
+        }
+        .card__titlte {
+            margin-top: 10px;
+            font-size: 1.125rem;
+            @include lineclamp(2);
+            @include breakpoint(1024px) {
+                font-size: 1rem;
+            }
+        }
+        &:hover .card__titlte {
+            color: $primary;
+        }
+    }
+}

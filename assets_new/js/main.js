@@ -1,31 +1,31 @@
 $(function() {
+    var width = $(window).width(),
+        iScrollPos = 0;
     $('a, button').click(function(e) {
         e.preventDefault();
     })
-    var width = $(window).width();
     if (width >= 1024) {
         $('.ad--970by250 img').attr('src', 'assets_new/images/ad-cartier-970-250.jpg')
     } else {
         $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-04.jpg')
     }
     if (width < 1024) {
-        $('.article__function--share').clone().insertBefore('.article__img, .author__intro').addClass('article__function--clone');
-        $('.article__function--added').clone().prependTo('.container--default');
+        $('.article__function--added').clone().insertBefore('.article__img, .author__intro').addClass('article__function--clone');
+        $('.article__function--share').clone().prependTo('.container--default');
         $('.list__group').each(function() {
             $(this).append('<button class="btn btn--text">顯示更多</button>');
             var liLength = $(this).children().length;
-            console.log(liLength);
             $(this).children().slice((liLength / 2), (liLength - 1)).hide();
             $(this).children('button').click(function() {
                 $(this).hide();
                 $(this).siblings().show();
             })
         });
-        $('.webaccessbar .bar__titile button').click(function() {
-            $(this).toggleClass('active');
-            $(this).parent().siblings().slideToggle();
-        })
     }
+    $('.webaccessbar .bar__titile button').click(function() {
+        $(this).toggleClass('active');
+        $(this).parent().siblings().slideToggle();
+    });
     // 判斷有沒有值
     $("input").each(function() {
         if (this.value) {
@@ -114,25 +114,49 @@ $(function() {
             $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-04.jpg')
         }
     });
-    $(window).scroll(function() {
+    $(window).on('scroll resize', function() {
         var scroll = $(this).scrollTop(),
-            widthHeigh = $(window).outerHeight(),
-            documentHeigh = $(document).outerHeight(),
-            articleImgTop = $('.article__header h1').offset().top,
+            iCurScrollPos = $(this).scrollTop(),
+            articleImgTop = $('.article__img').offset().top,
             articleBodyTop = $('.article__body').offset().top - 80,
             articleFunctionHeight = $('.article__function').outerHeight(),
-            articleBodyBottom = $('.newsletter').offset().top - articleFunctionHeight - 135;
-        $('header .process span').css('width', (((scroll + widthHeigh) / documentHeigh) * 100) + '%');
-        if ((scroll >= articleBodyTop) && (scroll < articleBodyBottom)) {
-            $('.article__function').addClass('article__function--fixedtop');
-        } else {
-            $('.article__function').removeClass('article__function--fixedtop');
+            articleHeight = $('.article__body').outerHeight(),
+            articleNextHeight = $('.author__next').outerHeight(),
+            articleNextStart = (articleHeight * 0.8) - articleNextHeight,
+            articleNextBottom = $('.author__might').offset().top - articleNextHeight - 145,
+            articleBodyBottom = $('.author__might').offset().top - articleFunctionHeight - 115;
+        if (width >= 1024) {
+            if ((scroll >= articleBodyTop) && (scroll < articleBodyBottom)) {
+                $('.article__function').addClass('article__function--fixedtop');
+            } else {
+                $('.article__function').removeClass('article__function--fixedtop');
+            }
+            if (scroll >= articleBodyBottom) {
+                $('.article__function').addClass('article__function--fixedbottom');
+            } else {
+                $('.article__function').removeClass('article__function--fixedbottom');
+            }
+            if (scroll >= (articleBodyTop + articleNextStart - 10)) {
+                $('.author__next').addClass('author__next--fixedtop');
+            } else {
+                $('.author__next').removeClass('author__next--fixedtop');
+                $('.author__next').css('top', articleNextStart);
+            }
+            if (scroll >= articleNextBottom) {
+                $('.author__next').addClass('author__next--fixedbottom');
+            } else {
+                $('.author__next').removeClass('author__next--fixedbottom');
+            }
+            $('.author__next').css('top', articleNextStart);
         }
-        if (scroll >= articleBodyBottom) {
-            $('.article__function').addClass('article__function--fixedbottom');
+
+        // 往上滾動出現<nav>
+        if (iCurScrollPos < iScrollPos) {
+            $("header").addClass("fixed");
         } else {
-            $('.article__function').removeClass('article__function--fixedbottom');
+            $("header").removeClass("fixed");
         }
+        iScrollPos = iCurScrollPos;
         if (scroll >= articleImgTop) {
             $('header').addClass('scroll');
         } else {

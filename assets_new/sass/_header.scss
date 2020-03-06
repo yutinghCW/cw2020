@@ -8,7 +8,13 @@ header {
     overflow: hidden;
     z-index: 5;
     @include breakpoint(1024px) {
+        position: absolute;
         height: 65px;
+        &.fixed {
+            position: fixed;
+            @include opacity(0);
+            @include animation(fadeIn 0.3s forwards);
+        }
     }
     &::after {
         @include beforeafter('', block);
@@ -17,7 +23,7 @@ header {
         left: 0;
         width: 100%;
         height: 1px;
-        background-color: $gray-200;
+        background-color: $gray-100;
     }
     .container__group {
         position: relative;
@@ -128,30 +134,19 @@ header {
             @include translate(-50%, -50%);
         }
     }
-    .container--scroll {
-        a.logo {
-            margin-right: 10px;
-        }
-        .article_title {
-            font-weight: normal;
-        }
-    }
-    &.scroll {
-        a.logo {
-            @include breakpoint(max-width 1023px) {
-                display: none;
-            }
-        }
-        @include breakpoint(1024px) {
-            .container__group {
-                top: -65px;
-            }
-        }
-    }
     .search,
     a.btn.btn--small {
         @include breakpoint(max-width 1023px) {
             display: none !important;
         }
+    }
+}
+
+@include keyframes(fadeIn) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

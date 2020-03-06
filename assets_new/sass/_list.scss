@@ -1,52 +1,61 @@
-.list__group {
-    @include listrest(0 0 40px, 0, none);
-    @include breakpoint(1024px) {
-        padding: 0 0 25px;
-    }
-    &.list__group--sort {
-        li {
-            position: relative;
+.author__morelink {
+    font-size: 0;
+    .text__list:first-child {
+        @include breakpoint(1024px) {
+            margin-right: 20px;
         }
+        @include breakpoint(max-width 1023px) {
+            margin-bottom: 30px;
+        }
+    }
+    .main+.main {
+        @include breakpoint(1024px) {
+            margin-top: 20px;
+        }
+    }
+}
+
+.text__list {
+    font-size: 1rem;
+    line-height: 44px;
+    @include breakpoint(1024px) {
+        display: inline-block;
+        width: calc((100% - 20px) / 2);
+        vertical-align: top;
     }
     li {
-        position: relative;
-        margin-bottom: 10px;
-        +li {
-            padding-top: 10px;
-            padding-bottom: 10px;
-            margin-bottom: 0;
-            border-top: 1px solid $gray-100;
+        border-bottom: 1px solid $gray-100;
+        &:last-child {
+            border-bottom-width: 0;
         }
-        @include breakpoint(1024px) {
-            margin-bottom: 15px;
-            +li {
-                padding-top: 15px;
-                padding-bottom: 15px;
-            }
+        &::after {
+            @include clear();
         }
-    }
-    .number {
-        display: none;
-        position: absolute;
-        top: 50%;
-        left: 0;
-        @include translateY(-50%);
     }
     a {
+        float: right;
+        display: inline-block;
+        position: relative;
+        width: calc(100% - 30px);
+        padding-left: 5px;
         color: $text;
-        @include lineclamp(2);
         text-decoration: none;
-        @include breakpoint(max-width 1023px) {
-            font-size: 1.125em;
-        }
+        vertical-align: middle;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
         &:hover {
             color: $primary;
         }
     }
-    .btn--text {
-        display: table;
-        margin: 0 auto;
-        padding: 10px 0;
-        font-size: 0.875em;
-    }
+}
+
+ol.text__list {
+    @include listrest(0, 0, decimal);
+    list-style-position: inside;
+}
+
+ul.text__list {
+    @include listrest(0, 0, disc);
+    list-style-position: inside;
 }
