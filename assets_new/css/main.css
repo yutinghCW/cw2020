@@ -3298,6 +3298,13 @@ ul.article__function--clone li a i {
     width: calc(100% - 30px);
   }
 }
+@media (max-width: 1023px) {
+  .text__list a {
+    -moz-animation: floatRight 0s 0.3s forwards;
+    -webkit-animation: floatRight 0s 0.3s forwards;
+    animation: floatRight 0s 0.3s forwards;
+  }
+}
 .text__list a:hover {
   color: #D60C18;
 }
@@ -3316,6 +3323,21 @@ ul.text__list {
   list-style-position: inside;
 }
 
+@-moz-keyframes floatRight {
+  100% {
+    float: right;
+  }
+}
+@-webkit-keyframes floatRight {
+  100% {
+    float: right;
+  }
+}
+@keyframes floatRight {
+  100% {
+    float: right;
+  }
+}
 .img--fullscreen {
   position: fixed;
   display: flex;

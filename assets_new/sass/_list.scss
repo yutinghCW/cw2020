@@ -47,6 +47,9 @@
         @include breakpoint(1024px) {
             width: calc(100% - 30px);
         }
+        @include breakpoint(max-width 1023px) {
+            @include animation(floatRight 0s 0.3s forwards);
+        }
         &:hover {
             color: $primary;
         }
@@ -61,4 +64,10 @@ ol.text__list {
 ul.text__list {
     @include listrest(0, 0, disc);
     list-style-position: inside;
+}
+
+@include keyframes(floatRight) {
+    100% {
+        float: right;
+    }
 }
