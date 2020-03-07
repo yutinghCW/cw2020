@@ -3254,7 +3254,7 @@ ul.text__list li > span {
   transform: translateY(-50%) rotate(-90deg);
 }
 .breaking .breaking__news {
-  max-width: calc(100% - 120px);
+  max-width: calc(100% - 130px);
   overflow: scroll;
 }
 @media (max-width: 1023px) {
