@@ -1901,9 +1901,6 @@ textarea {
   }
 }
 @media (max-width: 1023px) {
-  .ad.ad--970by250 a {
-    width: 970px;
-  }
   .ad.ad--970by250 a img.desktop {
     display: none;
   }
