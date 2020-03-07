@@ -1825,9 +1825,14 @@ h5,
 
 body {
   position: relative;
-  font-family: 'Roboto', 'Noto Sans TC', Arial, "微軟正黑體", "繁黑體", 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', sans-serif, "新細明體", PMingLiU;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: 300;
   line-height: 1.5;
+}
+@media (min-width: 1024px) {
+  body {
+    font-family: 'Roboto', 'Noto Sans TC', Arial, "微軟正黑體", "繁黑體", 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', sans-serif, "新細明體", PMingLiU;
+  }
 }
 
 .serif {
@@ -2431,14 +2436,11 @@ h2,
 }
 .main .article__detail .article__author li > .author--item {
   display: inline-block;
-}
-.main .article__detail .article__author li > .author--item a {
   font-size: 0.875rem;
 }
 .main .article__detail .article__author li > .author--item + .author--item::before {
   content: "、";
   display: inline;
-  font-size: 0.875rem;
 }
 .main .article__detail .article__author li + li::before {
   content: "．";
@@ -2738,26 +2740,26 @@ h2,
 }
 
 ul.article__function--share,
-ul.article__function--added {
+ul.article__function--other {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 @media (min-width: 1024px) {
   ul.article__function--share li,
-  ul.article__function--added li {
+  ul.article__function--other li {
     margin-bottom: 10px;
   }
 }
 @media (max-width: 1023px) {
   ul.article__function--share li,
-  ul.article__function--added li {
+  ul.article__function--other li {
     display: inline-block;
     vertical-align: middle;
   }
 }
 ul.article__function--share li.title,
-ul.article__function--added li.title {
+ul.article__function--other li.title {
   margin-bottom: 5px;
   color: #939EA7;
   font-size: 0.75em;
@@ -2765,12 +2767,12 @@ ul.article__function--added li.title {
 }
 @media (max-width: 1023px) {
   ul.article__function--share li.title,
-  ul.article__function--added li.title {
+  ul.article__function--other li.title {
     display: none;
   }
 }
 ul.article__function--share li a,
-ul.article__function--added li a {
+ul.article__function--other li a {
   display: block;
   width: 36px;
   height: 36px;
@@ -2782,42 +2784,42 @@ ul.article__function--added li a {
   border-radius: 50%;
 }
 ul.article__function--share li a i,
-ul.article__function--added li a i {
+ul.article__function--other li a i {
   display: block;
   line-height: 36px;
 }
 ul.article__function--share li a i.icon-bookmark-outlined,
-ul.article__function--added li a i.icon-bookmark-outlined {
+ul.article__function--other li a i.icon-bookmark-outlined {
   font-weight: 600;
 }
 @media (min-width: 1024px) {
   ul.article__function--share,
-  ul.article__function--added {
+  ul.article__function--other {
     margin-bottom: 30px;
   }
 }
 @media (max-width: 374px) {
   ul.article__function--share li,
-  ul.article__function--added li {
+  ul.article__function--other li {
     margin-left: 10px;
     margin-right: 10px;
   }
 }
 ul.article__function--share li a,
-ul.article__function--added li a {
+ul.article__function--other li a {
   border: 1px solid #EEEEEE;
 }
 ul.article__function--share li a:hover,
-ul.article__function--added li a:hover {
+ul.article__function--other li a:hover {
   color: #D60C18;
   border-color: #D60C18;
 }
 ul.article__function--share li a i,
-ul.article__function--added li a i {
+ul.article__function--other li a i {
   font-size: 0.75em;
 }
 ul.article__function--share li a i.icon-download-pdf,
-ul.article__function--added li a i.icon-download-pdf {
+ul.article__function--other li a i.icon-download-pdf {
   font-size: 1.125em;
 }
 
@@ -2997,6 +2999,7 @@ ul.article__function--share.article__function--clone {
   width: 100%;
   margin-bottom: 30px;
   font-size: 0;
+  vertical-align: top;
 }
 @media (min-width: 1024px) {
   .card__group .card {
@@ -3004,7 +3007,6 @@ ul.article__function--share.article__function--clone {
     width: calc((100% - 40px) / 3);
     margin-left: 20px;
     margin-bottom: 40px;
-    vertical-align: top;
   }
   .card__group .card:nth-child(3n+1) {
     margin-left: 0;
@@ -3015,10 +3017,10 @@ ul.article__function--share.article__function--clone {
   bottom: 0;
   left: 0;
   display: block;
-  width: 25px;
+  padding: 0 5px;
   color: #fff;
   font-size: 0.75rem;
-  line-height: 25px;
+  line-height: 30px;
   text-align: center;
   background: rgba(23, 23, 23, 0.5);
   text-transform: uppercase;

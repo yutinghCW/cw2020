@@ -10,7 +10,7 @@ $(function() {
         $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-07.jpg')
     }
     if (width < 1024) {
-        $('.article__function--added').clone().insertBefore('.article__img, .author__intro').addClass('article__function--clone');
+        $('.article__function--other').clone().insertBefore('.article__img, .author__intro').addClass('article__function--clone');
         $('.article__function--share').clone().prependTo('.container--default');
         $('.list__group').each(function() {
             $(this).append('<button class="btn btn--text">顯示更多</button>');

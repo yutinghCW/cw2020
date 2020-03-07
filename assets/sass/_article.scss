@@ -108,13 +108,10 @@ h2,
                 }
                 >.author--item {
                     display: inline-block;
-                    a {
-                        font-size: 0.875rem;
-                    }
+                    font-size: 0.875rem;
                     +.author--item {
                         &::before {
                             @include beforeafter('、', inline);
-                            font-size: 0.875rem;
                         }
                     }
                 }
@@ -393,7 +390,7 @@ h2,
 }
 
 ul.article__function--share,
-ul.article__function--added {
+ul.article__function--other {
     @include listrest(0, 0, none);
     li {
         @include breakpoint(1024px) {

@@ -2814,26 +2814,26 @@ h2,
 }
 
 ul.article__function--share,
-ul.article__function--added {
+ul.article__function--other {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 @media (min-width: 1024px) {
   ul.article__function--share li,
-  ul.article__function--added li {
+  ul.article__function--other li {
     margin-bottom: 10px;
   }
 }
 @media (max-width: 1023px) {
   ul.article__function--share li,
-  ul.article__function--added li {
+  ul.article__function--other li {
     display: inline-block;
     vertical-align: middle;
   }
 }
 ul.article__function--share li.title,
-ul.article__function--added li.title {
+ul.article__function--other li.title {
   margin-bottom: 5px;
   color: #939EA7;
   font-size: 0.75em;
@@ -2841,12 +2841,12 @@ ul.article__function--added li.title {
 }
 @media (max-width: 1023px) {
   ul.article__function--share li.title,
-  ul.article__function--added li.title {
+  ul.article__function--other li.title {
     display: none;
   }
 }
 ul.article__function--share li a,
-ul.article__function--added li a {
+ul.article__function--other li a {
   display: block;
   width: 36px;
   height: 36px;
@@ -2858,47 +2858,47 @@ ul.article__function--added li a {
   border-radius: 50%;
 }
 ul.article__function--share li a i,
-ul.article__function--added li a i {
+ul.article__function--other li a i {
   display: block;
   line-height: 36px;
 }
 ul.article__function--share li a i.icon-bookmark-outlined,
-ul.article__function--added li a i.icon-bookmark-outlined {
+ul.article__function--other li a i.icon-bookmark-outlined {
   font-weight: 600;
 }
 @media (min-width: 1024px) {
   ul.article__function--share,
-  ul.article__function--added {
+  ul.article__function--other {
     margin-bottom: 30px;
   }
 }
 @media (max-width: 374px) {
   ul.article__function--share li,
-  ul.article__function--added li {
+  ul.article__function--other li {
     margin-left: 10px;
     margin-right: 10px;
   }
 }
 ul.article__function--share li a,
-ul.article__function--added li a {
+ul.article__function--other li a {
   border: 1px solid #EEEEEE;
 }
 ul.article__function--share li a:hover,
-ul.article__function--added li a:hover {
+ul.article__function--other li a:hover {
   color: #D60C18;
   border-color: #D60C18;
 }
 ul.article__function--share li a i,
-ul.article__function--added li a i {
+ul.article__function--other li a i {
   font-size: 0.75em;
 }
 ul.article__function--share li a i.icon-download-pdf,
-ul.article__function--added li a i.icon-download-pdf {
+ul.article__function--other li a i.icon-download-pdf {
   font-size: 1.125em;
 }
 
 @media (max-width: 1023px) {
-  ul.article__function--added li {
+  ul.article__function--other li {
     margin-right: 15px;
   }
 }
@@ -3377,6 +3377,11 @@ ul.text__list li > span {
   padding: 5px 0;
   vertical-align: middle;
 }
+@media (max-width: 1023px) {
+  .breaking .container {
+    padding-right: 0;
+  }
+}
 .breaking .breaking__title {
   position: relative;
   padding-right: 15px;
@@ -3402,6 +3407,11 @@ ul.text__list li > span {
 .breaking .breaking__news {
   max-width: calc(100% - 120px);
   overflow: scroll;
+}
+@media (max-width: 1023px) {
+  .breaking .breaking__news {
+    padding-right: 20px;
+  }
 }
 .breaking .breaking__news a {
   color: #171717;
