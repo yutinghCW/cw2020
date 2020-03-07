@@ -3228,6 +3228,7 @@ ul.text__list li > span {
 }
 @media (max-width: 1023px) {
   .breaking .container {
+    display: flex;
     padding-right: 0;
   }
 }
@@ -3253,9 +3254,18 @@ ul.text__list li > span {
   -webkit-transform: translateY(-50%) rotate(-90deg);
   transform: translateY(-50%) rotate(-90deg);
 }
+@media (max-width: 1023px) {
+  .breaking .breaking__title {
+    white-space: nowrap;
+  }
+}
 .breaking .breaking__news {
-  max-width: calc(100% - 130px);
   overflow: scroll;
+}
+@media (min-width: 1024px) {
+  .breaking .breaking__news {
+    max-width: calc(100% - 120px);
+  }
 }
 @media (max-width: 1023px) {
   .breaking .breaking__news {

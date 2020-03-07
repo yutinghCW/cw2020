@@ -1825,9 +1825,14 @@ h5,
 
 body {
   position: relative;
-  font-family: 'Roboto', 'Noto Sans TC', Arial, "微軟正黑體", "繁黑體", 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', sans-serif, "新細明體", PMingLiU;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-weight: 300;
   line-height: 1.5;
+}
+@media (min-width: 1024px) {
+  body {
+    font-family: 'Roboto', 'Noto Sans TC', Arial, "微軟正黑體", "繁黑體", 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', sans-serif, "新細明體", PMingLiU;
+  }
 }
 
 .serif {
@@ -3379,6 +3384,7 @@ ul.text__list li > span {
 }
 @media (max-width: 1023px) {
   .breaking .container {
+    display: flex;
     padding-right: 0;
   }
 }
@@ -3404,9 +3410,18 @@ ul.text__list li > span {
   -webkit-transform: translateY(-50%) rotate(-90deg);
   transform: translateY(-50%) rotate(-90deg);
 }
+@media (max-width: 1023px) {
+  .breaking .breaking__title {
+    white-space: nowrap;
+  }
+}
 .breaking .breaking__news {
-  max-width: calc(100% - 130px);
   overflow: scroll;
+}
+@media (min-width: 1024px) {
+  .breaking .breaking__news {
+    max-width: calc(100% - 120px);
+  }
 }
 @media (max-width: 1023px) {
   .breaking .breaking__news {
