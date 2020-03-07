@@ -1896,6 +1896,17 @@ textarea {
   .ad.ad--970by250 a {
     width: 970px;
   }
+  .ad.ad--970by250 a img.mobile {
+    display: none;
+  }
+}
+@media (max-width: 1023px) {
+  .ad.ad--970by250 a {
+    width: 970px;
+  }
+  .ad.ad--970by250 a img.desktop {
+    display: none;
+  }
 }
 .ad.ad--300by250 {
   padding-top: 5px;
