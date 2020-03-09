@@ -1,51 +1,41 @@
 .card__group {
     font-size: 0;
-
     @include breakpoint(max-width 1023px) {
         width: 1200px;
         padding-left: 10px;
         padding-right: 10px;
         padding-bottom: 10px;
-
         &--scroll {
             margin-left: -10px;
             margin-right: -10px;
             overflow: scroll;
         }
     }
-
     .card {
         display: inline-block;
         margin-left: 20px;
         width: 220px;
         vertical-align: top;
-
         @include breakpoint(1024px) {
             width: calc((100% - 80px) / 5);
         }
-
         &:first-child {
             margin-left: 0;
         }
-
         a {
             display: block;
-
             &.card__img {
                 margin-bottom: 5px;
-
                 img {
                     width: 100%;
                 }
             }
-
             &.card__subtitlte {
                 color: $primary;
                 font-size: 0.75rem;
                 text-decoration: none;
                 font-weight: normal;
             }
-
             &.card__titlte {
                 @include lineclamp(2);
                 color: $text;
@@ -53,16 +43,13 @@
                 text-decoration: none;
             }
         }
-
         &:hover {
             a.card__subtitlte {
                 color: $primary-variant;
             }
-
             a.card__titlte {
                 color: $primary;
             }
-
         }
     }
 }

@@ -1826,7 +1826,6 @@ h5,
 body {
   position: relative;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-weight: 300;
   line-height: 1.5;
 }
 @media (min-width: 1024px) {

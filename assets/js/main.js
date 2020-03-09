@@ -1,5 +1,8 @@
 $(function() {
-    var width = $(window).width();
+    var width = $(window).width(),
+        footerTop = $('footer').offset().top,
+        authorMightTop = $('.author__might').offset().top,
+        documentHeigh = $(document).outerHeight();
     $('.webaccessbar .bar__titile button').click(function() {
         $(this).toggleClass('active');
         $(this).parent().siblings().slideToggle();
@@ -110,9 +113,26 @@ $(function() {
     $(window).scroll(function() {
         var windowHeight = $(window).height(),
             scroll = $(this).scrollTop(),
-            documentHeigh = $(document).outerHeight(),
+            // documentHeigh = $(document).outerHeight(),
+            headerHeigh = $('header').outerHeight(),
+            breakingHeight = $('.breaking').outerHeight(),
+            article1Height = $('article').outerHeight(),
+            article2Height = $('article--load').outerHeight(),
+            authorMightHeight = $('.author__might').outerHeight(),
+            newsletterHeight = $('.newsletter').outerHeight(),
+            footerHeight = $('footer').outerHeight(),
             articleImgTop = $('.article__img').offset().top - 65;
-        $('header .process span').css('width', (((scroll + windowHeight) / documentHeigh) * 100) + '%');
+        console.log((scroll - headerHeigh - breakingHeight - article1Height), (article2Height + authorMightHeight + newsletterHeight + footerHeight));
+
+        if (scroll < (authorMightTop + authorMightHeight)) {
+            $('header .process span').css('width', (((scroll + windowHeight) / (headerHeigh + breakingHeight + article1Height + authorMightHeight)) * 100) + '%');
+            var originH1 = $('article').parent().children().eq(0).children('.main--article').children('.article__header').children('h1').text();
+            $('header .title').text(originH1);
+        } else if (scroll > (authorMightTop - windowHeight)) {
+            $('header .process span').css('width', (((scroll - headerHeigh - breakingHeight - article1Height) / (article2Height + authorMightHeight + newsletterHeight + footerHeight)) * 100) / 3.9 + '%');
+            var newH1 = $('article').parent().children().eq(2).children('.main--article').children('.article__header').children('h1').text();
+            $('header .title').text(newH1);
+        }
         $('.article__function').each(function() {
             var articleImgTop = $(this).parent().siblings().children('.article__img').offset().top - 65,
                 articleKeywordBottom = $(this).parent().parent().siblings('.author__might').offset().top - (windowHeight / 2);
@@ -142,7 +162,7 @@ $(function() {
         maxPage: 2
     }, function() {
         if (width < 1024) {
-            $('article').parent().children().eq(2).each(function() {
+            $('article').parent().children().eq(2).addClass('article--load').each(function() {
                 var originShare = $(this).children().children().children('.article__function').children('.article__function--share'),
                     newSharePositionTop = $(this).children().children('.article__header').children('.article__img'),
                     newSharePositionBottom = $(this).children().children('.article__body').children('.author__extended');
@@ -154,6 +174,5 @@ $(function() {
         }
         disabled();
         adBlock();
-        openDictionary();
-    });
+    })
 });

@@ -11,7 +11,6 @@
     padding-right: 20px;
     margin-left: auto;
     margin-right: auto;
-
     @include breakpoint(1024px) {
         width: $article;
         padding-left: 15px;
@@ -24,23 +23,19 @@ main {
         padding-left: 10px;
         padding-right: 10px;
     }
-
     >.main {
         padding-left: 0;
         padding-right: 0;
-
         aside {
             top: 0;
             right: 0;
             height: 100%;
-
             @include breakpoint(1024px) {
                 position: absolute;
                 width: 330px;
                 // padding-top: 30px;
                 // padding-bottom: 30px;
             }
-
             @include breakpoint(max-width 1023px) {
                 display: flex;
                 flex-wrap: wrap;
@@ -54,7 +49,6 @@ article {
     padding: 20px 10px;
     border: 1px solid $gray-100;
     background-color: $white;
-
     @include breakpoint(1024px) {
         width: 900px;
         padding: 30px 40px;
@@ -67,20 +61,16 @@ article {
             font-size: 26px;
         }
     }
-
     h2 {
         margin-top: 1.5em;
     }
-
     p {
         margin-top: 1.25em;
         margin-bottom: 1.25em;
         line-height: 1.75;
-
         &.preface {
             color: $surface;
         }
-
         .more {
             position: relative;
             display: inline-block;
@@ -89,7 +79,6 @@ article {
             line-height: 1.5;
             border-bottom: 1px dashed $primary;
             cursor: pointer;
-
             &::before {
                 @include beforeafter('\e94b', block);
                 position: absolute;
@@ -99,59 +88,49 @@ article {
                 line-height: 1;
                 @include translateY(-50%);
             }
-
             &:hover {
                 color: $primary-variant;
                 border-color: $primary-variant;
             }
         }
-
         .more__text {
             display: none;
             width: 100%;
             margin: 10px 0;
             padding: 20px 40px;
             background-color: $gray-100;
-
             &.active {
                 display: block;
             }
         }
-
         strong {
             font-weight: 600;
-
             @include breakpoint(1024px) {
                 font-weight: 500;
             }
         }
     }
-
     blockquote {
         position: relative;
         width: 75%;
         padding: 1px 0;
         margin: 40px auto;
         font-weight: 600;
-
         @include breakpoint(1024px) {
             width: 60%;
             font-weight: 500;
         }
-
         &::before,
         &::after {
             position: absolute;
             color: $primary;
             font-family: "icomoon";
         }
-
         &::before {
             @include beforeafter('\e92c', block);
             top: 0;
             right: calc(100% + 10px);
         }
-
         &::after {
             @include beforeafter('\e92d', block);
             bottom: 0;
@@ -165,12 +144,10 @@ article {
     margin-top: 40px;
     margin-bottom: 40px;
     border: 1px solid $gray-100;
-
     @include breakpoint(max-width 1023px) {
         margin-left: -11px;
         margin-right: -11px;
     }
-
     @include breakpoint(1024px) {
         padding: 40px 40px 0;
     }
@@ -180,7 +157,6 @@ article {
     padding: 20px 10px 10px !important;
     border: 1px solid $gray-100;
     background-color: $white;
-
     @include breakpoint(1024px) {
         padding: 40px !important;
     }
@@ -188,31 +164,26 @@ article {
 
 .author__morelink {
     font-size: 0;
-
     @include breakpoint(1024px) {
         padding: 40px 40px 30px !important;
         border: 1px solid $gray-100;
         background-color: $white;
     }
-
     .text__list {
         @include breakpoint(max-width 1023px) {
             padding: 20px 10px;
             border: 1px solid $gray-100;
             background-color: $white;
-
             a {
                 text-overflow: ellipsis;
                 white-space: nowrap;
                 overflow: hidden;
             }
         }
-
         &:first-child {
             @include breakpoint(1024px) {
                 margin-right: 120px;
             }
-
             @include breakpoint(max-width 1023px) {
                 margin-bottom: 15px;
             }
@@ -233,12 +204,10 @@ article {
     display: block;
     background-color: $gray-100;
     cursor: pointer;
-
     @include breakpoint(max-width 1023px) {
         margin-left: -10px;
         margin-right: -10px;
     }
-
     @include breakpoint(1024px) {
         &::after {
             @include beforeafter('\e94a', block);
@@ -254,7 +223,6 @@ article {
             background-color: rgba($black, 0.5);
         }
     }
-
     img {
         width: 100%;
     }
@@ -265,31 +233,26 @@ article {
         color: $text;
         font-size: 0;
     }
-
     &--secondary {
         color: $secondary;
         font-size: 0.75em;
     }
-
     .article__author,
     .article__assort {
         display: inline-block;
         @include listrest(0, 0, none);
         font-size: 0;
-
         li {
             display: inline-block;
             font-size: 0.75rem;
         }
     }
-
     .article__author {
         li {
             >*+* {
                 padding-left: 1rem;
             }
         }
-
         &::after {
             @include beforeafter('．', inline);
             font-size: 0.75rem;
@@ -299,14 +262,11 @@ article {
 
 .article__body {
     position: relative;
-
     @include breakpoint(1024px) {
         padding-left: 158px;
     }
-
     a {
         color: $surface;
-
         &:hover {
             color: $primary;
         }
@@ -316,12 +276,10 @@ article {
 .article__function {
     top: 0;
     left: 0;
-
     @include breakpoint(max-width 1023px) {
         display: none;
         margin-bottom: 20px;
         margin-left: -10px;
-
         // margin-right: -10px;
         &.article__function--clone {
             display: flex;
@@ -329,17 +287,14 @@ article {
             justify-content: space-between;
         }
     }
-
     @include breakpoint(1024px) {
         position: absolute;
         width: 80px;
-
         &.article__function--fixedtop {
             position: fixed;
             top: 90px;
             left: calc((100% - 1178px) / 2);
         }
-
         &.article__function--fixedbottom {
             position: absolute;
             top: auto;
@@ -353,21 +308,17 @@ ul.article__function--share,
 ul.article__function--added {
     @include listrest(0, 0, none);
     font-size: 0;
-
     li {
         font-size: 1rem;
-
         &.title {
             width: 100%;
             margin-bottom: 5px;
             color: $secondary;
             font-size: 0.75rem;
-
             @include breakpoint(max-width 1023px) {
                 display: none;
             }
         }
-
         a {
             display: block;
             padding: 5px 0;
@@ -382,38 +333,30 @@ ul.article__function--share {
     @include breakpoint(1024px) {
         margin-bottom: 40px;
     }
-
     li {
         display: inline-block;
-
         @include breakpoint(max-width 1023px) {
             width: 34px;
             margin-right: 5px;
         }
-
         @include breakpoint(1024px) {
             width: 50%;
         }
-
         +li {
             @include breakpoint(1024px) {
                 margin-bottom: 5px;
             }
         }
-
         i {
             display: block;
             vertical-align: middle;
-
             @include breakpoint(max-width 1023px) {
                 font-size: 1.5rem;
             }
-
             @include breakpoint(1024px) {
                 font-size: 1.125rem;
             }
         }
-
         a {
             text-align: center;
         }
@@ -426,43 +369,35 @@ ul.article__function--added {
             display: inline-block;
             width: 34px;
             margin-left: 5px;
-
             &:last-child {
                 display: none;
             }
-
             a {
                 font-size: 1.5rem;
                 line-height: 1;
             }
         }
     }
-
     i {
         display: block;
         text-align: center;
         vertical-align: middle;
-
         @include breakpoint(1024px) {
             display: inline-block;
             width: 20px;
             margin-right: 5px;
             line-height: 20px;
-
             &.icon-download-pdf {
                 font-size: 1.15rem;
             }
         }
-
         &.icon-bookmark-outlined {
             font-weight: 600;
         }
     }
-
     span {
         display: none;
         vertical-align: middle;
-
         @include breakpoint(1024px) {
             display: inline-block;
         }
@@ -472,12 +407,10 @@ ul.article__function--added {
 .article__keyword {
     @include listrest(20px 0 0, 0, none);
     font-size: 0;
-
     li {
         display: inline-block;
         margin-right: 10px;
         font-size: 0.875rem;
-
         a {
             display: block;
             padding: 6px 10px;
@@ -485,7 +418,6 @@ ul.article__function--added {
             background-color: $gray;
             border: 1px solid $gray;
             text-decoration: none;
-
             &:hover {
                 color: $white;
                 background-color: $primary;
@@ -498,20 +430,16 @@ ul.article__function--added {
 .author__extended {
     padding-top: 30px;
     padding-bottom: 30px;
-
     ul {
         @include listrest(0, 0, none);
-
         @include breakpoint(max-width 1023px) {
             line-height: 1.5;
         }
-
         li+li {
             @include breakpoint(max-width 1023px) {
                 margin-top: 10px;
             }
         }
-
         a {
             display: block;
         }
@@ -522,25 +450,21 @@ ul.article__function--added {
     padding: 20px 10px;
     border: 1px solid $gray-100;
     background-color: $white;
-
     @include breakpoint(max-width 1023px) {
         margin-top: 15px;
         margin-bottom: 15px;
         order: 1;
     }
-
     @include breakpoint(1024px) {
         position: absolute;
         top: 100%;
         width: 330px;
         padding: 30px 20px;
-
         &.author__next--fixedtop {
             position: fixed;
             top: 90px !important;
             right: calc((100% - 1260px) / 2);
         }
-
         &.author__next--fixedbottom {
             position: absolute;
             top: auto !important;
@@ -548,40 +472,31 @@ ul.article__function--added {
             right: 0;
         }
     }
-
     .author__item {
         font-size: 0;
-
         +.author__item {
             margin-top: 20px;
-
             @include breakpoint(1024px) {
                 margin-top: 30px;
             }
         }
-
         >* {
             display: inline-block;
             vertical-align: middle;
         }
-
         .author__item__img {
             width: 105px;
-
             img {
                 width: 100%;
             }
         }
-
         .author__item__text {
             width: calc(100% - 105px);
             padding-left: 20px;
-
             .author__item__subtitle {
                 color: $primary;
                 font-size: 0.75rem;
             }
-
             .author__item__title {
                 color: $text;
                 font-size: 0.875rem;
@@ -589,7 +504,6 @@ ul.article__function--added {
                 @include lineclamp(2);
             }
         }
-
         &:hover .author__item__title {
             color: $primary;
         }
@@ -603,31 +517,25 @@ ul.article__function--added {
     margin-bottom: 30px;
     overflow: scroll;
     -ms-overflow-style: none;
-
     &::-webkit-scrollbar {
         display: none;
     }
-
     .list__group {
         padding: 20px 10px;
         border: 1px solid $gray-100;
         background-color: $white;
-
         @include breakpoint(1024px) {
             width: 330px;
             padding: 30px 20px;
             margin-bottom: 30px;
         }
     }
-
     @include breakpoint(max-width 1023px) {
         order: 2;
-
         .h3 {
             text-align: center;
         }
     }
-
     @include breakpoint(1024px) {
         &.author__lastest--fixedtop {
             position: fixed;
@@ -635,56 +543,44 @@ ul.article__function--added {
             right: calc((100% - 1260px) / 2);
         }
     }
-
     .list__item {
         margin-top: 20px;
         font-size: 0;
-
         >* {
             display: inline-block;
             vertical-align: middle;
         }
-
         .list__item__img {
             position: relative;
             width: 105px;
-
             img {
                 width: 100%;
             }
         }
-
         .list__item__text {
             width: calc(100% - 105px);
             padding-left: 20px;
-
             .list__item__subtitle {
                 color: $primary;
                 font-size: 0.75rem;
                 text-decoration: none;
                 font-weight: normal;
-
             }
-
             .list__item__title {
                 color: $text;
                 font-size: 0.875rem;
                 text-decoration: none;
                 @include lineclamp(2);
-
             }
         }
-
         &:hover {
             .list__item__text .list__item__subtitle {
                 color: $primary-variant;
             }
-
             .list__item__text .list__item__title {
                 color: $primary;
             }
         }
-
         &.list__item--ad {
             .list__item__img::before {
                 @include beforeafter('PR', block);
@@ -707,15 +603,12 @@ ul.article__function--added {
     li {
         @include breakpoint(max-width 1023px) {
             display: none;
-
             &:last-child {
                 display: inline-block;
                 width: auto;
-
                 i {
                     display: inline-block;
                 }
-
                 span {
                     display: inline-block;
                     padding-left: 3px;

@@ -291,13 +291,21 @@ h2,
         }
     }
     .author__next {
-        position: absolute;
         font-size: 0;
         border: 1px solid $gray-200;
         background-color: $white;
         @include breakpoint(1024px) {
+            position: absolute;
             right: calc( (100% - 1100px) / 2);
             width: 204px;
+        }
+        @include breakpoint(max-width 1023px) {
+            display: none;
+            position: fixed;
+            top: auto !important;
+            bottom: 60px;
+            width: calc(100% - 40px);
+            z-index: 10;
         }
         &.author__next--fixedtop {
             position: fixed;

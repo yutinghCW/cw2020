@@ -17,9 +17,6 @@ $(function() {
                 $(this).siblings().show();
             })
         });
-        $('.article__body').css({
-            'padding-bottom': articleNextHeight
-        })
     }
     $('.webaccessbar .bar__titile button').click(function() {
         $(this).toggleClass('active');
@@ -100,15 +97,18 @@ $(function() {
         $('body').removeClass('message__open');
         $('.black').removeClass('opened black-fullscreen');
     });
+
+    function adBlock() {
+        $('[class*="ad "]').each(function() {
+            if ($(this).height() < 200) {
+                $(this).hide();
+            }
+        })
+    }
+    $(window).load(function() {
+        adBlock();
+    })
     $('.author__next').css('top', ($('.article__body').outerHeight() * 0.8) - $('.author__next').outerHeight());
-    $(window).resize(function() {
-        var width = $(window).width();
-        if (width >= 1024) {
-            $('.ad--970by250 img').attr('src', 'assets_new/images/ad-970-250.jpg')
-        } else {
-            $('.ad--970by250 img').attr('src', 'assets_new/images/ad-300-250-07.jpg')
-        }
-    });
     $(window).on('scroll resize', function() {
         var height = $(window).height(),
             scroll = $(this).scrollTop(),
@@ -119,7 +119,6 @@ $(function() {
             articleHeight = $('.article__body').outerHeight(),
             articleNextStart = (articleHeight * 0.8) - articleNextHeight,
             articleNextBottom = $('.author__might').offset().top - articleNextHeight - 145,
-            articleMight = $('.author__might').offset().top,
             articleBodyBottom = $('.author__might').offset().top - articleFunctionHeight - 115;
         if (width >= 1024) {
             if ((scroll >= articleBodyTop) && (scroll < articleBodyBottom)) {
@@ -144,17 +143,10 @@ $(function() {
                 $('.author__next').removeClass('author__next--fixedbottom');
             }
         } else {
-            console.log(scroll, (articleBodyTop + (articleHeight * 0.8) - height - articleNextHeight));
-            if (scroll >= (articleBodyTop + (articleHeight * 0.8) - height + articleNextHeight + 40)) {
-                $('.author__next').addClass('author__next--fixedtop');
+            if ((scroll >= (articleBodyTop + (articleHeight * 0.8) - height)) && (scroll < ($('.author__morelink > .main').eq(0).offset().top + $('.author__morelink > .main').eq(0).outerHeight() - height))) {
+                $('.author__next').fadeIn()
             } else {
-                $('.author__next').removeClass('author__next--fixedtop');
-                $('.author__next').css('top', articleNextStart);
-            }
-            if (scroll >= (articleMight - height + 20)) {
-                $('.author__next').addClass('author__next--fixedbottom');
-            } else {
-                $('.author__next').removeClass('author__next--fixedbottom');
+                $('.author__next').fadeOut()
             }
         }
         // 往上滾動出現<nav>
