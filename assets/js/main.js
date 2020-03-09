@@ -130,7 +130,7 @@ $(function() {
             $('header .title').text(originH1);
         } else if (scroll > (authorMightTop - windowHeight)) {
             $('header .process span').css('width', (((scroll - headerHeigh - breakingHeight - article1Height) / (article2Height + authorMightHeight + newsletterHeight + footerHeight)) * 100) / 3.9 + '%');
-            var newH1 = $('article').parent().children().eq(2).children('.main--article').children('.article__header').children('h1').text();
+            var newH1 = $('article').parent().children().eq(1).children('.main--article').children('.article__header').children('h1').text();
             $('header .title').text(newH1);
         }
         $('.article__function').each(function() {
@@ -174,5 +174,6 @@ $(function() {
         }
         disabled();
         adBlock();
+        $('#infscr-loading').remove();
     })
 });
