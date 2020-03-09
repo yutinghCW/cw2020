@@ -38,14 +38,14 @@
                     }
                 }
             }
-            button {
-                @include breakpoint(1024px) {
-                    margin-left: 20px;
-                }
-                @include breakpoint(max-width 1023px) {
-                    margin-top: 15px;
-                }
-            }
+            // button {
+            //     @include breakpoint(1024px) {
+            //         margin-left: 20px;
+            //     }
+            //     @include breakpoint(max-width 1023px) {
+            //         margin-top: 15px;
+            //     }
+            // }
         }
     }
 }

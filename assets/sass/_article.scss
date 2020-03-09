@@ -404,7 +404,7 @@ ul.article__function--other {
         &.title {
             margin-bottom: 5px;
             color: $secondary;
-            font-size: 0.75em;
+            font-size: 0.875rem;
             text-align: center;
             @include breakpoint(max-width 1023px) {
                 display: none;
@@ -412,15 +412,15 @@ ul.article__function--other {
         }
         a {
             display: block;
-            width: 36px;
-            height: 36px;
+            width: 40px;
+            height: 40px;
             color: $text;
             text-decoration: none;
             text-align: center;
             @include border-radius(50%);
             i {
                 display: block;
-                line-height: 36px;
+                line-height: 40px;
                 &.icon-bookmark-outlined {
                     font-weight: 600;
                 }
@@ -442,9 +442,9 @@ ul.article__function--other {
                 border-color: $primary;
             }
             i {
-                font-size: 0.75em;
+                font-size: 0.875em;
                 &.icon-download-pdf {
-                    font-size: 1.125em;
+                    font-size: 1.25em;
                 }
             }
         }

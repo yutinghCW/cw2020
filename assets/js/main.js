@@ -155,6 +155,9 @@ $(function() {
     $('main').data('infinitescroll', null);
     $(window).unbind('.infscr');
     $('main').infinitescroll({
+        loading: {
+            speed: '500'
+        },
         navSelector: 'a#next:last',
         nextSelector: 'a#next:last',
         itemSelector: 'article',
