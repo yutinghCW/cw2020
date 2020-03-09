@@ -4,6 +4,14 @@
         width: 300px;
         @include breakpoint(1024px) {
             width: 970px;
+            img.mobile {
+                display: none;
+            }
+        }
+        @include breakpoint(max-width 1023px) {
+            img.desktop {
+                display: none;
+            }
         }
     }
     &.ad--300by250 {
