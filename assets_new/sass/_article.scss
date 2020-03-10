@@ -444,16 +444,23 @@ ul.article__function--other {
         }
         a {
             display: block;
-            width: 48px;
-            height: 48px;
+            width: 36px;
+            height: 36px;
             color: $text;
             text-decoration: none;
             text-align: center;
             @include border-radius(50%);
+            @include breakpoint(1024px) {
+                width: 48px;
+                height: 48px;
+            }
             i {
                 display: block;
-                font-size: 1.125rem;
-                line-height: 48px;
+                line-height: 36px;
+                @include breakpoint(1024px) {
+                    font-size: 1.125rem;
+                    line-height: 48px;
+                }
                 &.icon-bookmark-outlined {
                     font-weight: 600;
                 }
@@ -475,9 +482,15 @@ ul.article__function--other {
                 border-color: $primary;
             }
             i {
-                font-size: 1rem;
+                font-size: 0.75em;
+                @include breakpoint(1024px) {
+                    font-size: 1rem;
+                }
                 &.icon-download-pdf {
-                    font-size: 1.5em;
+                    font-size: 1.125em;
+                    @include breakpoint(1024px) {
+                        font-size: 1.5em;
+                    }
                 }
             }
         }

@@ -2894,8 +2894,8 @@ ul.article__function--other li.title {
 ul.article__function--share li a,
 ul.article__function--other li a {
   display: block;
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   color: #171717;
   text-decoration: none;
   text-align: center;
@@ -2903,11 +2903,24 @@ ul.article__function--other li a {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+@media (min-width: 1024px) {
+  ul.article__function--share li a,
+  ul.article__function--other li a {
+    width: 48px;
+    height: 48px;
+  }
+}
 ul.article__function--share li a i,
 ul.article__function--other li a i {
   display: block;
-  font-size: 1.125rem;
-  line-height: 48px;
+  line-height: 36px;
+}
+@media (min-width: 1024px) {
+  ul.article__function--share li a i,
+  ul.article__function--other li a i {
+    font-size: 1.125rem;
+    line-height: 48px;
+  }
 }
 ul.article__function--share li a i.icon-bookmark-outlined,
 ul.article__function--other li a i.icon-bookmark-outlined {
@@ -2937,11 +2950,23 @@ ul.article__function--other li a:hover {
 }
 ul.article__function--share li a i,
 ul.article__function--other li a i {
-  font-size: 1rem;
+  font-size: 0.75em;
+}
+@media (min-width: 1024px) {
+  ul.article__function--share li a i,
+  ul.article__function--other li a i {
+    font-size: 1rem;
+  }
 }
 ul.article__function--share li a i.icon-download-pdf,
 ul.article__function--other li a i.icon-download-pdf {
-  font-size: 1.5em;
+  font-size: 1.125em;
+}
+@media (min-width: 1024px) {
+  ul.article__function--share li a i.icon-download-pdf,
+  ul.article__function--other li a i.icon-download-pdf {
+    font-size: 1.5em;
+  }
 }
 
 @media (max-width: 1023px) {
