@@ -38,9 +38,8 @@ h1,
 
 h2,
 .h2 {
-    font-family: 'Roboto', 'Noto Sans TC', Arial, "微軟正黑體", "繁黑體", 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', sans-serif, "新細明體", PMingLiU;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     @include breakpoint(1024px) {
         font-size: 22px;
     }
@@ -477,10 +476,10 @@ ul.article__function--other {
             margin-right: 10px;
         }
         a {
-            border: 1px solid $gray-100;
+            background-color: $gray-100;
+            // border: 1px solid $gray-100;
             &:hover {
                 color: $primary;
-                border-color: $primary;
             }
             i {
                 font-size: 0.75em;

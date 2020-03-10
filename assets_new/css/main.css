@@ -2421,9 +2421,8 @@ h1,
 
 h2,
 .h2 {
-  font-family: 'Roboto', 'Noto Sans TC', Arial, "微軟正黑體", "繁黑體", 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', sans-serif, "新細明體", PMingLiU;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 600;
 }
 @media (min-width: 1024px) {
   h2,
@@ -2939,12 +2938,11 @@ ul.article__function--other li a i.icon-download {
 }
 ul.article__function--share li a,
 ul.article__function--other li a {
-  border: 1px solid #EEEEEE;
+  background-color: #EEEEEE;
 }
 ul.article__function--share li a:hover,
 ul.article__function--other li a:hover {
   color: #D60C18;
-  border-color: #D60C18;
 }
 ul.article__function--share li a i,
 ul.article__function--other li a i {
