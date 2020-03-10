@@ -3474,6 +3474,10 @@ ul.text__list li > span {
 }
 .breaking .breaking__news {
   overflow: scroll;
+  -ms-overflow-style: none;
+}
+.breaking .breaking__news::-webkit-scrollbar {
+  display: none;
 }
 @media (min-width: 1024px) {
   .breaking .breaking__news {

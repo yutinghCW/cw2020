@@ -37,6 +37,10 @@
     }
     .breaking__news {
         overflow: scroll;
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
         @include breakpoint(1024px) {
             max-width: calc(100% - 120px);
         }
