@@ -168,9 +168,9 @@ $(function() {
             $('article').parent().children().eq(2).addClass('article--load').each(function() {
                 var originShare = $(this).children().children().children('.article__function').children('.article__function--share'),
                     newSharePositionTop = $(this).children().children('.article__header').children('.article__img'),
-                    newSharePositionBottom = $(this).children().children('.article__body').children('.author__extended');
+                    newSharePositionBottom = $(this).children().children('.article__body').children('.article__keyword');
                 originShare.clone().insertBefore(newSharePositionTop).addClass('article__function--clone mb-m-20');
-                originShare.clone().insertBefore(newSharePositionBottom).addClass('article__function--clone mb-m-20');
+                originShare.clone().insertAfter(newSharePositionBottom).addClass('article__function--clone mb-m-20');
             });
         } else {
             imgZoom();
