@@ -63,6 +63,7 @@ footer {
             }
         }
         h4 {
+            font-weight: 600;
             @include breakpoint(max-width 1023px) {
                 position: relative;
                 padding-top: 10px;

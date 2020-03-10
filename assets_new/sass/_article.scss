@@ -31,7 +31,6 @@
 h1,
 .h1 {
     font-size: 28px;
-    font-weight: 500;
     @include breakpoint(1024px) {
         font-size: 32px;
     }
@@ -39,8 +38,9 @@ h1,
 
 h2,
 .h2 {
+    font-family: 'Roboto', 'Noto Sans TC', Arial, "微軟正黑體", "繁黑體", 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', sans-serif, "新細明體", PMingLiU;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
     @include breakpoint(1024px) {
         font-size: 22px;
     }
@@ -190,7 +190,8 @@ h2,
     }
     .article__header {
         p.preface {
-            margin-top: 0;
+            // color: $gray-500;
+            margin-bottom: 1.125em;
             margin-bottom: 1.125em;
             font-size: 1.125em;
         }
@@ -199,9 +200,6 @@ h2,
         p {
             margin-top: 1.15em;
             margin-bottom: 1.15em;
-            &.preface {
-                color: $surface;
-            }
             .more {
                 position: relative;
                 display: inline-block;
@@ -248,7 +246,9 @@ h2,
             width: 300px;
             padding: 2px 0;
             margin: 40px auto;
-            font-weight: 600;
+            p {
+                font-weight: 400;
+            }
             &::before,
             &::after {
                 position: absolute;
@@ -281,7 +281,7 @@ h2,
                 display: block;
                 padding: 6px 10px;
                 color: $text;
-                border: 1px solid $gray-200;
+                border: 1px solid $gray-100;
                 text-decoration: none;
                 &:hover {
                     color: $primary;
@@ -292,7 +292,7 @@ h2,
     }
     .author__next {
         font-size: 0;
-        border: 1px solid $gray-200;
+        border: 1px solid $gray-100;
         background-color: $white;
         @include breakpoint(1024px) {
             position: absolute;
@@ -435,7 +435,7 @@ ul.article__function--other {
         }
         &.title {
             margin-bottom: 5px;
-            color: $secondary;
+            // color: $secondary;
             font-size: 0.875rem;
             text-align: center;
             @include breakpoint(max-width 1023px) {
@@ -506,6 +506,13 @@ ul.article__function--other {
 }
 
 ul.article__function--share {
+    li {
+        a i {
+            @include breakpoint(1024px) {
+                font-size: 1.125rem;
+            }
+        }
+    }
     @include breakpoint(max-width 1023px) {
         display: none;
         position: absolute;

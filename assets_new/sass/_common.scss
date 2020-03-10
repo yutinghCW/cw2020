@@ -1,16 +1,19 @@
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,400,500|Noto+Serif+TC:400,500,600|Roboto:300,400,500&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,400,500|Noto+Serif+TC:200,300,400,500,600|Roboto:300,400,500&display=swap');
 body {
     position: relative;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-weight: 300;
+    font-family: 'Noto Serif TC', serif;
+    // font-weight: 300;
     line-height: 1.5;
-    @include breakpoint(1024px) {
-        font-family: 'Roboto', 'Noto Sans TC', Arial, "微軟正黑體", "繁黑體", 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', sans-serif, "新細明體", PMingLiU;
-    }
+    -webkit-tap-highlight-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
 }
 
 .serif {
-    font-family: 'Noto Serif TC', serif;
+    @include breakpoint(1024px) {
+        font-family: 'Roboto', 'Noto Sans TC', Arial, "微軟正黑體", "繁黑體", 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', sans-serif, "新細明體", PMingLiU;
+    }
 }
 
 * {

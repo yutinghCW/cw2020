@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,400,500|Noto+Serif+TC:400,500,600|Roboto:300,400,500&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,400,500|Noto+Serif+TC:200,300,400,500,600|Roboto:300,400,500&display=swap");
 button,
 a {
   background-color: transparent;
@@ -1792,51 +1792,51 @@ h1,
 .h1 {
   font-size: 32px;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 h2,
 .h2 {
   font-size: 22px;
   line-height: 1.5;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 h3,
 .h3 {
   font-size: 18px;
   line-height: 2;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 h4,
 .h4 {
   font-size: 1rem;
   line-height: 1.2;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 h5,
 .h5 {
   font-size: 14px;
   line-height: 1;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 body {
   position: relative;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-weight: 300;
+  font-family: 'Noto Serif TC', serif;
   line-height: 1.5;
-}
-@media (min-width: 1024px) {
-  body {
-    font-family: 'Roboto', 'Noto Sans TC', Arial, "微軟正黑體", "繁黑體", 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', sans-serif, "新細明體", PMingLiU;
-  }
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
 }
 
-.serif {
-  font-family: 'Noto Serif TC', serif;
+@media (min-width: 1024px) {
+  .serif {
+    font-family: 'Roboto', 'Noto Sans TC', Arial, "微軟正黑體", "繁黑體", 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', sans-serif, "新細明體", PMingLiU;
+  }
 }
 
 * {
@@ -1908,8 +1908,6 @@ textarea {
 .ad.ad--300by250 {
   padding-top: 5px;
   padding-bottom: 10px;
-  margin-top: 40px;
-  margin-bottom: 40px;
 }
 @media (max-width: 1023px) {
   .ad.ad--300by250 {
@@ -2217,6 +2215,9 @@ footer .channel__group .channel a:hover {
     margin-top: -10px;
   }
 }
+footer .channel__group h4 {
+  font-weight: 600;
+}
 @media (max-width: 1023px) {
   footer .channel__group h4 {
     position: relative;
@@ -2412,7 +2413,6 @@ footer .contact a:hover {
 h1,
 .h1 {
   font-size: 28px;
-  font-weight: 500;
 }
 @media (min-width: 1024px) {
   h1,
@@ -2423,8 +2423,9 @@ h1,
 
 h2,
 .h2 {
+  font-family: 'Roboto', 'Noto Sans TC', Arial, "微軟正黑體", "繁黑體", 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', sans-serif, "新細明體", PMingLiU;
   font-size: 20px;
-  font-weight: 500;
+  font-weight: 400;
 }
 @media (min-width: 1024px) {
   h2,
@@ -2596,16 +2597,13 @@ h2,
   margin-bottom: 30px;
 }
 .main .article__header p.preface {
-  margin-top: 0;
+  margin-bottom: 1.125em;
   margin-bottom: 1.125em;
   font-size: 1.125em;
 }
 .main .article__text p {
   margin-top: 1.15em;
   margin-bottom: 1.15em;
-}
-.main .article__text p.preface {
-  color: #003a9f;
 }
 .main .article__text p .more {
   position: relative;
@@ -2656,7 +2654,9 @@ h2,
   width: 300px;
   padding: 2px 0;
   margin: 40px auto;
-  font-weight: 600;
+}
+.main .article__text blockquote p {
+  font-weight: 400;
 }
 .main .article__text blockquote::before, .main .article__text blockquote::after {
   position: absolute;
@@ -2694,7 +2694,7 @@ h2,
   display: block;
   padding: 6px 10px;
   color: #171717;
-  border: 1px solid #D3D5D7;
+  border: 1px solid #EEEEEE;
   text-decoration: none;
 }
 .main .article__keyword li a:hover {
@@ -2703,7 +2703,7 @@ h2,
 }
 .main .author__next {
   font-size: 0;
-  border: 1px solid #D3D5D7;
+  border: 1px solid #EEEEEE;
   background-color: #fff;
 }
 @media (min-width: 1024px) {
@@ -2881,7 +2881,6 @@ ul.article__function--other {
 ul.article__function--share li.title,
 ul.article__function--other li.title {
   margin-bottom: 5px;
-  color: #939EA7;
   font-size: 0.875rem;
   text-align: center;
 }
@@ -2975,6 +2974,11 @@ ul.article__function--other li a i.icon-download-pdf {
   }
 }
 
+@media (min-width: 1024px) {
+  ul.article__function--share li a i {
+    font-size: 1.125rem;
+  }
+}
 @media (max-width: 1023px) {
   ul.article__function--share {
     display: none;
