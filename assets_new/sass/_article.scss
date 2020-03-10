@@ -475,20 +475,16 @@ ul.article__function--other {
             margin-left: 10px;
             margin-right: 10px;
         }
-        a {
-            background-color: $gray-100;
-            // border: 1px solid $gray-100;
-            &:hover {
-                color: $primary;
-            }
-            i {
-                font-size: 0.75em;
-                @include breakpoint(1024px) {
-                    font-size: 1rem;
+        @include breakpoint(1024px) {
+            a {
+                background-color: $gray-100;
+                // border: 1px solid $gray-100;
+                &:hover {
+                    color: $primary;
                 }
-                &.icon-download-pdf {
-                    font-size: 1.125em;
-                    @include breakpoint(1024px) {
+                i {
+                    font-size: 1rem;
+                    &.icon-download-pdf {
                         font-size: 1.5em;
                     }
                 }
@@ -501,6 +497,18 @@ ul.article__function--other {
     li {
         @include breakpoint(max-width 1023px) {
             margin-right: 15px;
+            a {
+                background-color: $gray-100;
+                &:hover {
+                    color: $primary;
+                }
+                i {
+                    font-size: 1rem;
+                    &.icon-download-pdf {
+                        font-size: 1.5em;
+                    }
+                }
+            }
         }
     }
 }
