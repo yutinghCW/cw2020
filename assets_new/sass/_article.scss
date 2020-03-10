@@ -461,7 +461,8 @@ ul.article__function--other {
                     font-size: 1.125rem;
                     line-height: 48px;
                 }
-                &.icon-bookmark-outlined {
+                &.icon-bookmark-outlined,
+                &.icon-download {
                     font-weight: 600;
                 }
             }

@@ -2921,8 +2921,9 @@ ul.article__function--other li a i {
     line-height: 48px;
   }
 }
-ul.article__function--share li a i.icon-bookmark-outlined,
-ul.article__function--other li a i.icon-bookmark-outlined {
+ul.article__function--share li a i.icon-bookmark-outlined, ul.article__function--share li a i.icon-download,
+ul.article__function--other li a i.icon-bookmark-outlined,
+ul.article__function--other li a i.icon-download {
   font-weight: 600;
 }
 @media (min-width: 1024px) {
