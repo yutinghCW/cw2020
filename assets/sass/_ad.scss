@@ -49,12 +49,21 @@
     }
 }
 
-.ad--video {
+.ad--video,
+.ad--text {
     @include breakpoint(1024px) {
-        width: 650px;
+        width: $article;
         margin-left: auto;
         margin-right: auto;
     }
+    @include breakpoint(max-width 1023px) {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+}
+
+.ad--video {
     .embed {
         position: relative;
         padding-bottom: 56.25%;

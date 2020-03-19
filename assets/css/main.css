@@ -1979,12 +1979,21 @@ textarea {
 }
 
 @media (min-width: 1024px) {
-  .ad--video {
-    width: 650px;
+  .ad--video,
+  .ad--text {
+    width: 700px;
     margin-left: auto;
     margin-right: auto;
   }
 }
+@media (max-width: 1023px) {
+  .ad--video,
+  .ad--text {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
 .ad--video .embed {
   position: relative;
   padding-bottom: 56.25%;
