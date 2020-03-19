@@ -1,0 +1,26 @@
+.breadcrumbs {
+    @include listrest(0, 0, none);
+    font-size: 0;
+    li {
+        display: inline-block;
+        font-size: 0.875rem;
+        @include breakpoint(1024px) {
+            font-size: 1rem;
+        }
+        +li {
+            &::before {
+                @include beforeafter('>', inline);
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        }
+        a {
+            display: inline-block;
+            color: $text;
+            text-decoration: none;
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}

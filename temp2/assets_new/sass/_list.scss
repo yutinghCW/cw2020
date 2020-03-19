@@ -1,0 +1,62 @@
+.author__morelink {
+    font-size: 0;
+    .text__list:first-child {
+        @include breakpoint(1024px) {
+            margin-right: 20px;
+        }
+        @include breakpoint(max-width 1023px) {
+            margin-bottom: 30px;
+        }
+    }
+    .main+.main {
+        @include breakpoint(1024px) {
+            margin-top: 20px;
+        }
+    }
+}
+
+.text__list {
+    @include listrest(0, 0, none);
+    line-height: 44px;
+    @include breakpoint(1024px) {
+        display: inline-block;
+        width: calc((100% - 20px) / 2);
+        vertical-align: top;
+    }
+    li {
+        font-size: 0;
+        border-bottom: 1px solid $gray-100;
+        &:last-child {
+            border-bottom-width: 0;
+        }
+        &::after {
+            @include clear();
+        }
+        >span {
+            display: inline-block;
+            width: 30px;
+            font-size: 1.25rem;
+            vertical-align: middle;
+        }
+    }
+    a {
+        display: inline-block;
+        position: relative;
+        width: calc(100% - 30px);
+        padding-left: 5px;
+        color: $text;
+        font-size: 1rem;
+        text-decoration: none;
+        vertical-align: middle;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        &:hover {
+            color: $primary;
+        }
+    }
+}
+
+ul.text__list li>span {
+    text-align: center;
+}

@@ -1,8 +1,7 @@
 $(function() {
     var width = $(window).width(),
-        footerTop = $('footer').offset().top,
-        authorMightTop = $('.author__might').offset().top,
-        documentHeigh = $(document).outerHeight();
+        height = $(window).height(),
+        articleNextHeight = Math.round($('.author__next').outerHeight());
     $('.webaccessbar .bar__titile button').click(function() {
         $(this).toggleClass('active');
         $(this).parent().siblings().slideToggle();
@@ -10,20 +9,11 @@ $(function() {
     if (width < 1024) {
         var footerLength = $('footer > .container > .channel__group').length;
         $('footer > .container > .channel__group > h4').click(function() {
+            console.log('a');
             $(this).toggleClass('active');
             $(this).siblings('.channel').slideToggle();
             $(this).parent().siblings().children('.channel').slideUp();
             $(this).parent().siblings().children('h4').removeClass('active');
-            $(this).parent().parent().children().last().children('.channel__group').children('.channel').slideUp();
-            $(this).parent().parent().children().last().children('.channel__group').children('h4').removeClass('active');
-        })
-        $('footer > .container > .channel__group > .channel__group > h4').click(function() {
-            $(this).toggleClass('active');
-            $(this).siblings('.channel').slideToggle();
-            $(this).parent().siblings().children('.channel').slideUp();
-            $(this).parent().siblings().children('h4').removeClass('active');
-            $(this).parent().parent().siblings().children('.channel').slideUp();
-            $(this).parent().parent().siblings().children('h4').removeClass('active');
         })
     }
     // 讓所有連結失效
@@ -54,7 +44,7 @@ $(function() {
         });
     }
     if (width < 1024) {
-        mobileArticle()
+        // mobileArticle()
     }
 
     function input() {
@@ -109,35 +99,22 @@ $(function() {
     }
     $(window).load(function() {
         adBlock();
+        $('.author__next').css('top', ($('.article__body').outerHeight() * 0.8) - $('.author__next').outerHeight());
     })
+
     $(window).scroll(function() {
         var windowHeight = $(window).height(),
             scroll = $(this).scrollTop(),
-            // documentHeigh = $(document).outerHeight(),
-            headerHeigh = $('header').outerHeight(),
-            breakingHeight = $('.breaking').outerHeight(),
-            article1Height = $('article').outerHeight(),
-            article2Height = $('article--load').outerHeight(),
-            authorMightHeight = $('.author__might').outerHeight(),
-            newsletterHeight = $('.newsletter').outerHeight(),
-            footerHeight = $('footer').outerHeight(),
-            articleImgTop = $('.article__img').offset().top - 65;
-        console.log((scroll - headerHeigh - breakingHeight - article1Height), (article2Height + authorMightHeight + newsletterHeight + footerHeight));
-
-        if (scroll < (authorMightTop + authorMightHeight)) {
-            $('header .process span').css('width', (((scroll + windowHeight) / (headerHeigh + breakingHeight + article1Height + authorMightHeight)) * 100) + '%');
-            var originH1 = $('article').parent().children().eq(0).children('.main--article').children('.article__header').children('h1').text();
-            $('header .title').text(originH1);
-        } else if (scroll > (authorMightTop - windowHeight)) {
-            $('header .process span').css('width', (((scroll - headerHeigh - breakingHeight - article1Height) / (article2Height + authorMightHeight + newsletterHeight + footerHeight)) * 100) / 3.9 + '%');
-            var newH1 = $('article').parent().children().eq(1).children('.main--article').children('.article__header').children('h1').text();
-            $('header .title').text(newH1);
-        }
+            articleBodyTop = $('.article__body').offset().top - 80,
+            articleHeight = $('.article__body').outerHeight(),
+            articleNextStart = (articleHeight * 0.8) - articleNextHeight,
+            articleNextBottom = $('.author__might').offset().top - articleNextHeight - 120,
+            articleHeaderBottom = $('.article__header').offset().top + $('.article__header').outerHeight() - 105;
         $('.article__function').each(function() {
-            var articleImgTop = $(this).parent().siblings().children('.article__img').offset().top - 65,
-                articleKeywordBottom = $(this).parent().parent().siblings('.author__might').offset().top - (windowHeight / 2);
+            var articleTop = $(this).parent('article').offset().top - 105,
+                authorMightTop = $(this).siblings('.author__might').offset().top;
             if (width >= 1024) {
-                if ((scroll >= articleImgTop) && (scroll < articleKeywordBottom)) {
+                if ((scroll >= articleTop) && (scroll <= (authorMightTop - (windowHeight / 2) - ($(this).outerHeight() / 2) - 40))) {
                     $(this).fadeIn(150)
                 } else {
                     $(this).fadeOut(150)
@@ -145,10 +122,44 @@ $(function() {
             }
         });
         // 往上滾動出現<nav>
-        if (scroll >= articleImgTop) {
+        if (scroll >= articleHeaderBottom) {
             $('header').addClass('scroll');
         } else {
             $('header').removeClass('scroll');
+        }
+        // $('.author__next').each(function() {
+        //     var articleBodyTop = $('.article__body').offset().top - 80,
+        //         articleHeight = $('.article__body').outerHeight(),
+        //         articleNextStart = (articleHeight * 0.8) - articleNextHeight,
+        //         articleNextBottom = $('.author__might').offset().top - articleNextHeight - 120;
+        //     if (width >= 1024) {
+        //         if (scroll >= (articleBodyTop + articleNextStart - 10)) {
+        //             $('.author__next').addClass('author__next--fixedtop');
+        //         } else {
+        //             $('.author__next').removeClass('author__next--fixedtop');
+        //             $('.author__next').css('top', articleNextStart);
+        //         }
+        //         if (scroll >= articleNextBottom) {
+        //             $('.author__next').addClass('author__next--fixedbottom');
+        //         } else {
+        //             $('.author__next').removeClass('author__next--fixedbottom');
+        //         }
+        //     } else {
+        //         if ((scroll >= (articleBodyTop + (articleHeight * 0.8) - height)) && (scroll < ($('.author__might').offset().top + $('.author__next').outerHeight() + 60 - height))) {
+        //             $('.author__next').fadeIn()
+        //         } else {
+        //             $('.author__next').fadeOut()
+        //         }
+        //     }
+        // })
+        if ($('.ad--970by250').outerHeight() > 10) {
+            if (scroll >= $('.ad--970by250').outerHeight()) {
+                $('header, .ad--970by250').addClass('fixed');
+            } else {
+                $('header, .ad--970by250').removeClass('fixed');
+            }
+        } else {
+            $('header, body').addClass('fixed');
         }
     });
     $('main').infinitescroll('binding', 'unbind');
@@ -160,19 +171,11 @@ $(function() {
         },
         navSelector: 'a#next:last',
         nextSelector: 'a#next:last',
-        itemSelector: 'article',
+        itemSelector: 'main',
         dataType: 'html',
         maxPage: 2
     }, function() {
-        if (width < 1024) {
-            $('article').parent().children().eq(2).addClass('article--load').each(function() {
-                var originShare = $(this).children().children().children('.article__function').children('.article__function--share'),
-                    newSharePositionTop = $(this).children().children('.article__header').children('.article__img'),
-                    newSharePositionBottom = $(this).children().children('.article__body').children('.article__keyword');
-                originShare.clone().insertBefore(newSharePositionTop).addClass('article__function--clone mb-m-20');
-                originShare.clone().insertAfter(newSharePositionBottom).addClass('article__function--clone mb-m-20');
-            });
-        } else {
+        if (width >= 1024) {
             imgZoom();
         }
         disabled();

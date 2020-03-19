@@ -23,6 +23,18 @@ i.icon {
     -webkit-font-smoothing: antialiased;
 }
 
+.icon-play-solid:before {
+    content: "\e94d";
+}
+
+.icon-volume:before {
+    content: "\e94c";
+}
+
+.icon-volume:before {
+    content: "\e94c";
+}
+
 .icon-link:before {
     content: "\e948";
 }
@@ -187,7 +199,7 @@ i.icon {
     content: "\e919";
 }
 
-.icon-facebook1:before {
+.icon-facebook:before {
     content: "\e91a";
 }
 

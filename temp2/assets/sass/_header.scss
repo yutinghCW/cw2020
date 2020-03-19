@@ -1,0 +1,106 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: $white;
+    border-bottom: 1px solid $gray-200;
+    z-index: 5;
+    .container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 12px;
+        padding-bottom: 13px;
+        @include breakpoint(1024px) {
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+    .item {
+        font-size: 0;
+        &:last-child {
+            >* {
+                margin-left: 30px;
+            }
+        }
+        >* {
+            display: inline-block;
+            vertical-align: middle;
+            i {
+                display: block;
+                font-size: 1.25rem;
+            }
+        }
+        @include breakpoint(max-width 1023px) {
+            .search,
+            a.channel,
+            a.btn {
+                display: none;
+            }
+        }
+    }
+    .hamburger {
+        span {
+            display: block;
+            width: 20px;
+            height: 3px;
+            background-color: $black;
+            +span {
+                margin-top: 4px;
+            }
+        }
+    }
+    a.logo {
+        display: inline-block;
+        img {
+            height: 35px;
+            @include breakpoint(1024px) {
+                height: 40px;
+            }
+        }
+    }
+    .title {
+        margin-left: 10px;
+        font-size: 1rem;
+        @include opacity(0);
+        @include breakpoint(max-width 1023px) {
+            display: none;
+        }
+    }
+    &.scroll .title {
+        @include animation(fadeIn 0.3s alternate forwards);
+    }
+    a.btn {
+        color: $primary;
+        font-size: 1rem;
+        border-color: $primary;
+        &:hover {
+            color: $primary-variant;
+        }
+    }
+    .process {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        span {
+            display: block;
+            width: 0;
+            height: 100%;
+            background-color: $gray-100;
+        }
+    }
+}
+
+@include keyframes(fadeIn) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

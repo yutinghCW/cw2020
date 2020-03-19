@@ -1,59 +1,106 @@
 header {
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
     width: 100%;
+    height: 60px;
+    line-height: 1;
     background-color: $white;
-    border-bottom: 1px solid $gray-200;
+    overflow: hidden;
     z-index: 5;
+    @include breakpoint(1024px) {
+        height: 65px;
+    }
+    &.fixed {
+        position: fixed;
+        top: 0;
+    }
+    &::after {
+        @include beforeafter('', block);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $gray-100;
+    }
     .container {
         position: relative;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-top: 12px;
-        padding-bottom: 13px;
+        padding-top: 17px;
+        padding-bottom: 17px;
         @include breakpoint(1024px) {
-            padding-top: 10px;
-            padding-bottom: 10px;
+            height: 65px;
+            padding-top: 11px;
+            padding-bottom: 11px;
         }
     }
-    .item {
-        font-size: 0;
-        &:last-child {
-            >* {
-                margin-left: 30px;
-            }
+    .item>* {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    i {
+        font-size: 1.3125em;
+    }
+    .hamburger,
+    .search,
+    .member {
+        display: block;
+        word-break: keep-all;
+        vertical-align: middle;
+        @include breakpoint(1024px) {
+            display: inline-block;
         }
         >* {
-            display: inline-block;
+            display: block;
             vertical-align: middle;
-            i {
-                display: block;
-                font-size: 1.25rem;
-            }
-        }
-        @include breakpoint(max-width 1023px) {
-            .search,
-            a.channel,
-            a.btn {
-                display: none;
+            @include breakpoint(1024px) {
+                display: inline-block;
             }
         }
     }
     .hamburger {
-        span {
-            display: block;
-            width: 20px;
-            height: 3px;
-            background-color: $black;
-            +span {
-                margin-top: 4px;
+        .ham {
+            span {
+                display: block;
+                width: 20px;
+                height: 3px;
+                background-color: $black;
+                +span {
+                    margin-top: 4px;
+                }
             }
         }
     }
-    a.logo {
-        display: inline-block;
+    .search,
+    .member {
+        position: relative;
+        @include breakpoint(1024px) {
+            // padding-left: 20px;
+            margin-left: 20px;
+            &::before {
+                // @include beforeafter('', block);
+                position: absolute;
+                top: 50%;
+                left: 0;
+                width: 1px;
+                height: 18px;
+                background-color: $gray-200;
+                @include translateY(-50%);
+            }
+        }
+    }
+    a.btn.btn--small {
+        padding: 0.5em 0.75em;
+        color: $primary;
+        border-color: $primary;
+    }
+    a.logo,
+    .title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include translate(-50%, -50%);
         img {
             height: 35px;
             @include breakpoint(1024px) {
@@ -62,45 +109,41 @@ header {
         }
     }
     .title {
-        margin-left: 10px;
-        font-size: 1rem;
-        @include opacity(0);
-        @include breakpoint(max-width 1023px) {
-            display: none;
-        }
-    }
-    &.scroll .title {
-        @include animation(fadeIn 0.3s alternate forwards);
-    }
-    a.btn {
-        color: $primary;
-        font-size: 1rem;
-        border-color: $primary;
-        &:hover {
-            color: $primary-variant;
-        }
+        display: none;
     }
     .process {
+        display: none;
         position: absolute;
-        top: 0;
+        bottom: 0;
         left: 0;
         width: 100%;
-        height: 100%;
-        z-index: -1;
+        z-index: 1;
         span {
             display: block;
             width: 0;
-            height: 100%;
-            background-color: $gray-100;
+            height: 2px;
+            background-color: $primary;
         }
     }
-}
-
-@include keyframes(fadeIn) {
-    0% {
-        opacity: 0;
+    .search,
+    a.btn.btn--small {
+        @include breakpoint(max-width 1023px) {
+            display: none !important;
+        }
     }
-    100% {
-        opacity: 1;
+    &.scroll {
+        a.logo {
+            display: none;
+        }
+        .title {
+            @include breakpoint(1024px) {
+                display: block;
+            }
+        }
+        .article__function--share {
+            @include breakpoint(max-width 1023px) {
+                display: block;
+            }
+        }
     }
 }

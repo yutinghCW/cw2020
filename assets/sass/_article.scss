@@ -1,7 +1,13 @@
 .article__page {
-    padding-top: 60px;
-    @include breakpoint(1024px) {
-        padding-top: 65px;
+    // padding-top: 60px;
+    // @include breakpoint(1024px) {
+    //     padding-top: 65px;
+    // }
+    &.fixed {
+        padding-top: 60px;
+        @include breakpoint(1024px) {
+            padding-top: 65px;
+        }
     }
 }
 
@@ -17,11 +23,6 @@
         padding-left: 0;
         padding-right: 0;
     }
-    &--article {
-        @include breakpoint(1024px) {
-            width: $article;
-        }
-    }
 }
 
 .bt1 {
@@ -31,7 +32,7 @@
 h1,
 .h1 {
     font-size: 28px;
-    font-weight: 400;
+    font-weight: 600;
     @include breakpoint(1024px) {
         font-size: 32px;
     }
@@ -40,7 +41,7 @@ h1,
 h2,
 .h2 {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
     @include breakpoint(1024px) {
         font-size: 22px;
     }
@@ -52,8 +53,8 @@ h2,
 }
 
 .main {
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     &::after {
         @include clear();
     }
@@ -67,13 +68,22 @@ h2,
             color: $primary;
         }
     }
+    article {
+        position: relative;
+        max-width: $article;
+        margin-left: auto;
+        margin-right: auto;
+    }
     .article__detail {
+        position: relative;
         color: $text;
         &--primary {
             font-size: 0;
         }
         &--secondary {
-            font-size: 0.875rem;
+            position: absolute;
+            top: 0;
+            right: 0;
             @include breakpoint(1024px) {
                 margin-bottom: 40px;
             }
@@ -108,10 +118,13 @@ h2,
                 }
                 >.author--item {
                     display: inline-block;
-                    font-size: 0.875rem;
+                    >* {
+                        font-size: 0.875rem;
+                    }
                     +.author--item {
                         &::before {
                             @include beforeafter('、', inline);
+                            font-size: 0.875rem;
                         }
                     }
                 }
@@ -125,13 +138,19 @@ h2,
                 font-size: 0.875rem;
             }
         }
+        time {
+            display: block;
+            font-size: 0.875rem;
+        }
     }
     .article__views {
-        position: absolute;
-        top: 0;
-        right: 0;
         font-size: 0.875em;
         text-align: center;
+        @include breakpoint(1024px) {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
         span {
             display: block;
             font-size: 22px;
@@ -240,7 +259,7 @@ h2,
                 }
             }
             strong {
-                font-weight: 500;
+                font-weight: 600;
             }
             .imgzoom {
                 margin-top: 40px;
@@ -251,25 +270,33 @@ h2,
         }
         blockquote {
             position: relative;
-            width: 100%;
-            padding: 40px 0;
+            width: 300px;
+            padding: 2px 0;
             margin: 40px auto;
-            font-weight: 500;
-            text-align: center;
-            border: solid $gray-200;
-            border-width: 1px 0;
             p {
-                margin-top: 0;
-                margin-bottom: 0;
+                font-weight: 400;
+            }
+            &::before,
+            &::after {
+                position: absolute;
+                left: 50%;
+                width: 60px;
+                height: 2px;
+                margin-left: -30px;
+                @include beforeafter('', block);
+                background-color: $primary;
+            }
+            &::before {
+                top: 0;
+            }
+            &::after {
+                bottom: 0;
             }
         }
     }
     .article__keyword {
-        @include listrest(20px 0, 0, none);
+        @include listrest(-10px 0 0, 0, none);
         font-size: 0;
-        @include breakpoint(1024px) {
-            margin: 30px 0 0;
-        }
         li {
             display: inline-block;
             margin-right: 10px;
@@ -278,12 +305,10 @@ h2,
                 display: block;
                 padding: 6px 10px;
                 color: $text;
-                background-color: $gray-100;
-                border: 1px solid $gray-100;
+                border: 1px solid $gray-200;
                 text-decoration: none;
                 &:hover {
-                    color: $white;
-                    background-color: $primary;
+                    color: $primary;
                     border-color: $primary;
                 }
             }
@@ -291,22 +316,44 @@ h2,
     }
     .author__next {
         font-size: 0;
-        border: 1px solid $gray-200;
+        border: 1px solid $gray-100;
+        background-color: $white;
         @include breakpoint(1024px) {
             position: absolute;
-            right: calc( (100% - 1100px) / 2);
-            width: 204px;
+            right: calc((100% - 1100px) / 2);
+            width: 180px;
+        }
+        @include breakpoint(max-width 1023px) {
+            display: none;
+            position: fixed;
+            top: auto !important;
+            bottom: 60px;
+            width: calc(100% - 40px);
+            z-index: 10;
         }
         &.author__next--fixedtop {
             position: fixed;
-            top: 90px !important;
-            right: calc((100% - 1100px) / 2);
+            top: auto !important;
+            bottom: 60px;
+            @include breakpoint(max-width 1023px) {
+                width: calc(100% - 40px);
+            }
+            @include breakpoint(1024px) {
+                top: 90px !important;
+                bottom: auto;
+                right: calc((100% - 1100px) / 2);
+            }
         }
         &.author__next--fixedbottom {
             position: absolute;
             top: auto !important;
             bottom: 0;
-            right: calc( (100% - 1100px) / 2);
+            @include breakpoint(max-width 1023px) {
+                width: 100%;
+            }
+            @include breakpoint(1024px) {
+                right: calc( (100% - 1100px) / 2);
+            }
         }
         .author__item__img {
             display: block;
@@ -327,7 +374,7 @@ h2,
                 vertical-align: middle;
             }
             @include breakpoint(1024px) {
-                padding: 15px 20px;
+                padding: 20px 15px;
             }
             .author__item__subtitle {
                 color: $primary;
@@ -335,7 +382,6 @@ h2,
                 font-weight: normal;
             }
             .author__item__title {
-                @include lineclamp(2);
                 color: $text;
                 font-size: 1rem;
                 line-height: 1.5;
@@ -362,21 +408,12 @@ h2,
             }
         }
     }
-    .article--700 {
-        @include breakpoint(1024px) {
-            float: left;
-            width: 700px;
-        }
-    }
-    aside {
-        @include breakpoint(max-width 1023px) {
-            margin-top: 40px;
-        }
-        @include breakpoint(1024px) {
-            float: right;
-            width: calc(100% - 740px);
-        }
-    }
+}
+
+.function__group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .article__function {
@@ -393,6 +430,7 @@ h2,
 ul.article__function--share,
 ul.article__function--other {
     @include listrest(0, 0, none);
+    font-size: 0;
     li {
         @include breakpoint(1024px) {
             margin-bottom: 10px;
@@ -412,37 +450,44 @@ ul.article__function--other {
         }
         a {
             display: block;
-            width: 48px;
-            height: 48px;
-            color: $text;
+            width: 40px;
+            height: 40px;
+            color: $gray-400;
             text-decoration: none;
             text-align: center;
+            border: 1px solid $gray-100;
             @include border-radius(50%);
+            @include breakpoint(1024px) {
+                width: 48px;
+                height: 48px;
+            }
             i {
                 display: block;
-                line-height: 48px;
+                line-height: 40px;
                 &.icon-bookmark-outlined,
                 &.icon-download {
                     font-weight: 600;
                 }
+                @include breakpoint(1024px) {
+                    line-height: 48px;
+                }
             }
-        }
-    }
-    @include breakpoint(1024px) {
-        margin-bottom: 30px;
-    }
-    li {
-        @include breakpoint(max-width 374px) {
-            margin-left: 10px;
-            margin-right: 10px;
-        }
-        a {
-            border: 1px solid $gray-100;
             &:hover {
                 color: $primary;
                 border-color: $primary;
             }
-            i {
+        }
+    }
+}
+
+ul.article__function--other {
+    li {
+        @include breakpoint(max-width 1023px) {
+            margin-right: 10px;
+        }
+        a i {
+            font-size: 0.875rem;
+            @include breakpoint(1024px) {
                 font-size: 1rem;
             }
         }
@@ -452,12 +497,45 @@ ul.article__function--other {
 ul.article__function--share {
     @include breakpoint(max-width 1023px) {
         display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
-    li a i {
-        font-size: 1.125em;
+    @include breakpoint(1024px) {
+        margin-bottom: 30px;
     }
-    &.article__function--clone {
-        display: block;
+    li.tooltips {
+        a {
+            @include breakpoint(max-width 1023px) {
+                border: 0;
+            }
+            i {
+                font-size: 22px;
+                @include breakpoint(1024px) {
+                    font-size: 1.125rem;
+                }
+            }
+        }
+        &.tooltips--facebook a {
+            color: $secondary;
+            &:hover {
+                color: $facebook;
+                border-color: $facebook;
+            }
+        }
+        &.tooltips--line a {
+            color: $secondary;
+            &:hover {
+                color: $line;
+                border-color: $line;
+            }
+        }
+        +li.tooltips {
+            @include breakpoint(max-width 1023px) {
+                margin-left: 20px;
+            }
+        }
     }
 }
 
@@ -466,7 +544,7 @@ ul.article__function--share {
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
     .bar__titile {
         display: flex;
         align-items: center;
