@@ -95,12 +95,14 @@ header {
         color: $primary;
         border-color: $primary;
     }
-    a.logo,
-    .title {
+    .logo__title {
         position: absolute;
         top: 50%;
         left: 50%;
         @include translate(-50%, -50%);
+    }
+    a.logo {
+        display: block;
         img {
             height: 35px;
             @include breakpoint(1024px) {

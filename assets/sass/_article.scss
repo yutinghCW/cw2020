@@ -68,12 +68,6 @@ h2,
             color: $primary;
         }
     }
-    article {
-        position: relative;
-        max-width: $article;
-        margin-left: auto;
-        margin-right: auto;
-    }
     .article__detail {
         position: relative;
         color: $text;
@@ -200,13 +194,6 @@ h2,
             padding: 40px 40px 0;
         }
     }
-    .article__body {
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        font-size: 1.125em;
-        line-height: 1.7;
-    }
     .article__header {
         .preface {
             >* {
@@ -219,6 +206,19 @@ h2,
                 padding-left: 1.65em;
             }
         }
+    }
+    .article__body {
+        position: relative;
+        max-width: $article;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .article__content {
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 1.125em;
+        line-height: 1.7;
     }
     .article__text {
         p {

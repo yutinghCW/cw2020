@@ -2112,8 +2112,7 @@ header a.btn.btn--small {
   color: #D60C18;
   border-color: #D60C18;
 }
-header a.logo,
-header .title {
+header .logo__title {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2122,13 +2121,14 @@ header .title {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-header a.logo img,
-header .title img {
+header a.logo {
+  display: block;
+}
+header a.logo img {
   height: 35px;
 }
 @media (min-width: 1024px) {
-  header a.logo img,
-  header .title img {
+  header a.logo img {
     height: 40px;
   }
 }
@@ -2460,12 +2460,6 @@ h2,
 .main a:hover {
   color: #D60C18;
 }
-.main article {
-  position: relative;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
 .main .article__detail {
   position: relative;
   color: #171717;
@@ -2607,13 +2601,6 @@ h2,
     padding: 40px 40px 0;
   }
 }
-.main .article__body {
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  font-size: 1.125em;
-  line-height: 1.7;
-}
 .main .article__header .preface > * {
   margin-top: 0;
   margin-bottom: 1.125em;
@@ -2622,6 +2609,19 @@ h2,
 .main .article__header .preface > ul,
 .main .article__header .preface > ol {
   padding-left: 1.65em;
+}
+.main .article__body {
+  position: relative;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.main .article__content {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.125em;
+  line-height: 1.7;
 }
 .main .article__text p {
   margin-top: 1.15em;
