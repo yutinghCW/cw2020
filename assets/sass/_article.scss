@@ -315,45 +315,21 @@ h2,
         }
     }
     .author__next {
+        position: fixed;
+        display: none;
         font-size: 0;
         border: 1px solid $gray-100;
         background-color: $white;
+        z-index: 10;
         @include breakpoint(1024px) {
-            position: absolute;
+            top: 50%;
             right: calc((100% - 1100px) / 2);
             width: 180px;
+            @include translateY(-50%);
         }
         @include breakpoint(max-width 1023px) {
-            display: none;
-            position: fixed;
-            top: auto !important;
             bottom: 60px;
             width: calc(100% - 40px);
-            z-index: 10;
-        }
-        &.author__next--fixedtop {
-            position: fixed;
-            top: auto !important;
-            bottom: 60px;
-            @include breakpoint(max-width 1023px) {
-                width: calc(100% - 40px);
-            }
-            @include breakpoint(1024px) {
-                top: 90px !important;
-                bottom: auto;
-                right: calc((100% - 1100px) / 2);
-            }
-        }
-        &.author__next--fixedbottom {
-            position: absolute;
-            top: auto !important;
-            bottom: 0;
-            @include breakpoint(max-width 1023px) {
-                width: 100%;
-            }
-            @include breakpoint(1024px) {
-                right: calc( (100% - 1100px) / 2);
-            }
         }
         .author__item__img {
             display: block;

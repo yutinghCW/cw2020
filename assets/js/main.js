@@ -91,7 +91,6 @@ $(function() {
     }
     $(window).load(function() {
         adBlock();
-        $('.author__next').css('top', ($('.article__content').outerHeight() * 0.8) - $('.author__next').outerHeight());
     })
 
     $(window).scroll(function() {
@@ -133,19 +132,7 @@ $(function() {
                 articleNextStart = (articleHeight * 0.8) - articleNextHeight,
                 articleNextBottom = $(this).parent('.article__content').siblings('.author__might').offset().top - articleNextHeight - 120;
             if (width >= 1024) {
-                if (scroll >= (articleBodyTop + articleNextStart - 10)) {
-                    $(this).addClass('author__next--fixedtop');
-                } else {
-                    $(this).removeClass('author__next--fixedtop');
-                    $(this).css('top', articleNextStart);
-                }
-                if (scroll >= articleNextBottom) {
-                    $(this).addClass('author__next--fixedbottom');
-                } else {
-                    $(this).removeClass('author__next--fixedbottom');
-                }
-            } else {
-                if ((scroll >= (articleBodyTop + (articleHeight * 0.8) - height)) && (scroll < ($('.author__might').offset().top + $('.author__next').outerHeight() + 60 - height))) {
+                if ((scroll >= (articleBodyTop + (articleHeight * 0.8) - height)) && (scroll < ($(this).parent('.article__content').siblings('.author__might').offset().top + $(this).outerHeight() + 10 - height))) {
                     $(this).fadeIn()
                 } else {
                     $(this).fadeOut()
