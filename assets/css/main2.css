@@ -2423,7 +2423,7 @@ footer .contact a:hover {
 h1,
 .h1 {
   font-size: 28px;
-  font-weight: 600;
+  font-weight: 500;
 }
 @media (min-width: 1024px) {
   h1,
@@ -2435,7 +2435,7 @@ h1,
 h2,
 .h2 {
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 500;
 }
 @media (min-width: 1024px) {
   h2,
@@ -2706,7 +2706,7 @@ h2,
   display: block;
 }
 .main .article__text p strong {
-  font-weight: 600;
+  font-weight: 500;
 }
 .main .article__text p .imgzoom {
   margin-top: 40px;
@@ -2927,7 +2927,7 @@ ul.article__function--other li a i {
 ul.article__function--share li a i.icon-bookmark-outlined, ul.article__function--share li a i.icon-download,
 ul.article__function--other li a i.icon-bookmark-outlined,
 ul.article__function--other li a i.icon-download {
-  font-weight: 600;
+  font-weight: 500;
 }
 @media (min-width: 1024px) {
   ul.article__function--share li a i,
