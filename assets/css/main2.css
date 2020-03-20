@@ -1130,19 +1130,6 @@ body {
   }
 }
 
-.serif {
-  font-family: 'Noto Serif TC', serif;
-}
-
-.sans-serif {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-@media (min-width: 1024px) {
-  .sans-serif {
-    font-family: 'Roboto', 'Noto Sans TC', Arial, "微軟正黑體", "繁黑體", 'Microsoft JhengHei', 'Microsoft YaHei', 'Heiti TC', 'LiHei Pro', "新細明體", 'PMingLiU', sans-serif;
-  }
-}
-
 @media (max-width: 1023px) {
   .desktop {
     display: none !important;
@@ -3599,4 +3586,4 @@ ul.text__list li > span {
   }
 }
 
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=main2.css.map */
