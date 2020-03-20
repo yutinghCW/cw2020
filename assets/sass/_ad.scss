@@ -51,6 +51,7 @@
 
 .ad--video,
 .ad--text {
+    font-size: 0;
     @include breakpoint(1024px) {
         width: $article;
         margin-left: auto;
@@ -60,7 +61,6 @@
         margin-left: 20px;
         margin-right: 20px;
     }
-
 }
 
 .ad--video {

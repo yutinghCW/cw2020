@@ -22,6 +22,9 @@
         display: inline-block;
         width: calc((100% - 20px) / 2);
         vertical-align: top;
+        +.text__list {
+            margin-left: 20px;
+        }
     }
     li {
         font-size: 0;
