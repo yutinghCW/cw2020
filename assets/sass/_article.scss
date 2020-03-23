@@ -526,10 +526,14 @@ ul.article__function--share {
 
 .webaccessbar {
     position: fixed;
-    bottom: 0;
+    bottom: -40px;
     left: 0;
     width: 100%;
+    @include transition(bottom 0.3s);
     z-index: 2;
+    &.scroll {
+        bottom: 0;
+    }
     .bar__titile {
         display: flex;
         align-items: center;

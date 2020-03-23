@@ -5,9 +5,10 @@ $(function() {
         authorMightHeight = $('.author__might').outerHeight(),
         articleNextHeight = Math.round($('.author__next').outerHeight()),
         contentTitle = $('main h1').text(),
+        nexttH1 = $('#next').data("h1"),
         contentHeight = $('main').height(),
         pathname = window.location.href,
-        pathhost = location.hostname;;
+        pathhost = location.hostname;
     $('.webaccessbar .bar__titile button').click(function() {
         $(this).toggleClass('active');
         $(this).parent().siblings().slideToggle();
@@ -129,8 +130,10 @@ $(function() {
         // 往上滾動出現<nav>
         if (scroll >= articleHeaderBottom) {
             $('header').addClass('scroll');
+            $('.webaccessbar').addClass('scroll');
         } else {
             $('header').removeClass('scroll');
+            $('.webaccessbar').removeClass('scroll');
         }
         $('.author__next').each(function() {
             var articleBodyTop = $(this).parent('.article__content').offset().top - 80,
@@ -159,7 +162,6 @@ $(function() {
         if (top < contentHeight) {
             $('header .title').text(contentTitle);
         } else {
-            var nexttH1 = $('#next').data("h1");
             $('header .title').text(nexttH1);
         }
     });
