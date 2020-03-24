@@ -3008,7 +3008,7 @@ ul.article__function--share li.tooltips.tooltips--line a:hover {
 
 .webaccessbar {
   position: fixed;
-  bottom: -40px;
+  bottom: -50px;
   left: 0;
   width: 100%;
   -moz-transition: bottom 0.3s;
@@ -3016,6 +3016,11 @@ ul.article__function--share li.tooltips.tooltips--line a:hover {
   -webkit-transition: bottom 0.3s;
   transition: bottom 0.3s;
   z-index: 2;
+}
+@media (min-width: 1024px) {
+  .webaccessbar {
+    bottom: -40px;
+  }
 }
 .webaccessbar.scroll {
   bottom: 0;

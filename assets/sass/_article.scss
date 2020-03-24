@@ -526,11 +526,14 @@ ul.article__function--share {
 
 .webaccessbar {
     position: fixed;
-    bottom: -40px;
+    bottom: -50px;
     left: 0;
     width: 100%;
     @include transition(bottom 0.3s);
     z-index: 2;
+    @include breakpoint(1024px) {
+        bottom: -40px;
+    }
     &.scroll {
         bottom: 0;
     }
