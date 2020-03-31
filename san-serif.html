@@ -128,19 +128,14 @@
                 </div>
                 <div class="audio__player py20 px10 mb40">
                     <img src="assets/images/listencw500.jpg" alt="聽天下" class="audio__image mx10">
-                    <div class="audio__body px-md-10">
-                        <div class="audio__title">【天下零時差】天下零時差圍堵病毒失敗！美國和歐洲的醫療系統撐得住嗎？</div>
+                    <div class="audio__body px10">
+                        <div class="audio__title">天下零時差｜天下零時差圍堵病毒失敗！美國和歐洲的醫療系統撐得住嗎？</div>
                         <div class="audio__control">
-                            <i class="audio__play icon icon-play-solid" id="audio__play"></i>
-                            <div class="audio__now sans-serif">00:09</div>
-                            <div class="audio__progress">
-                                <div class="audio__listened"></div>
-                            </div>
-                            <div class="audio__total sans-serif">03:49</div>
-                            <i class="audio__volume icon icon-volume" id="audio__volume"></i>
+                            <audio crossorigin preload="none">
+                                <source src="assets/audio/voice-5e7dd2627b42f.mp3" type="audio/mpeg">
+                            </audio>
                         </div>
                     </div>
-                    <audio src="https://storage.googleapis.com/www-cw-com-tw/voice/202003/voice-5e6d7b0ec4970.mp3"></audio>
                 </div>
                 <div class="article__detail mb40">
                     <div class="article__detail article__detail--primary">
@@ -668,6 +663,16 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazyload@2.0.0-rc.2/lazyload.js"></script>
     <script type="text/javascript" src="https://unpkg.com/infinite-scroll@3.0.6/dist/infinite-scroll.pkgd.min.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="assets/js/green-audio-player.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new GreenAudioPlayer('.audio__control', {
+                showTooltips: true,
+                showDownloadButton: false,
+                enableKeystrokes: true
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -24,48 +24,11 @@
         @include ellipsis();
     }
     .audio__control {
-        >* {
-            display: inline-block;
-            vertical-align: middle;
-        }
         i.icon {
             font-size: 1rem;
-            &.audio__play {
-                margin-left: 10px;
-                margin-right: 15px;
-                @include breakpoint(1024px) {
-                    margin-right: 20px;
-                }
-            }
-            &.audio__volume {
-                margin-left: 15px;
-                @include breakpoint(1024px) {
-                    margin-left: 20px;
-                }
-            }
-        }
-    }
-    .audio__now,
-    .audio__total {
-        font-size: 0.875rem;
-        font-weight: normal;
-    }
-    .audio__progress {
-        position: relative;
-        width: calc(100% - 175px);
-        height: 3px;
-        margin-left: 10px;
-        margin-right: 10px;
-        background-color: $gray-200;
-        @include border-radius(3px);
-        overflow: hidden;
-        .audio__listened {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 50%;
-            height: 100%;
-            background-color: $primary;
+            @include transition(color 0.3s);
         }
     }
 }
+
+@import "_green-audio-player"
