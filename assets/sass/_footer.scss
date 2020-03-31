@@ -65,7 +65,7 @@ footer {
                     position: absolute;
                     top: 50%;
                     right: 0;
-                    font-family: "icomoon";
+                    font-family: $icomoon-font-family;
                     @include translateY(-50%);
                     @include transition(transform 0.3s);
                 }

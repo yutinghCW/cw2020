@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Audio Player Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="assets/css/main2.css">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+        
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .audio__player {
+            max-width: 700px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="audio__player py20 px10 mb40">
+        <img src="assets/images/listencw500.jpg" alt="聽天下" class="audio__image mx10">
+        <div class="audio__body px10">
+            <div class="audio__title">天下零時差｜天下零時差圍堵病毒失敗！美國和歐洲的醫療系統撐得住嗎？</div>
+            <div class="audio__control">
+                <audio crossorigin preload="none">
+                    <source src="assets/audio/voice-5e7dd2627b42f.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/green-audio-player.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new GreenAudioPlayer('.audio__control', {
+                showTooltips: true,
+                showDownloadButton: false,
+                enableKeystrokes: true
+            });
+        });
+    </script>
+</body>
+
+</html>
