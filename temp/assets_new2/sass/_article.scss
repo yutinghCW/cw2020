@@ -84,7 +84,7 @@ article {
                 position: absolute;
                 top: 50%;
                 right: 0;
-                font-family: "icomoon";
+                font-family: $icomoon-font-family;
                 line-height: 1;
                 @include translateY(-50%);
             }
@@ -124,7 +124,7 @@ article {
         &::after {
             position: absolute;
             color: $primary;
-            font-family: "icomoon";
+            font-family: $icomoon-font-family;
         }
         &::before {
             @include beforeafter('\e92c', block);
@@ -216,7 +216,7 @@ article {
             right: 0;
             width: 36px;
             color: #fff;
-            font-family: "icomoon";
+            font-family: $icomoon-font-family;
             font-size: 1.5em;
             line-height: 36px;
             text-align: center;

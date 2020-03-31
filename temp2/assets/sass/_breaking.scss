@@ -26,7 +26,7 @@
             right: 0;
             width: 10px;
             color: $primary;
-            font-family: "icomoon";
+            font-family: $icomoon-font-family;
             font-size: 0.75rem;
             line-height: 10px;
             @include transform(translateY(-50%) rotate(-90deg));
